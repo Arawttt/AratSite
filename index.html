@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>آرات زارعی | توسعه‌دهندهٔ وب، ربات و ابزارهای هوشمند</title>
+<meta name="description" content="پورتفولیوی آرات زارعی؛ توسعه‌دهندهٔ وب، ربات و ابزارهای هوشمند. ساخت ربات تلگرامی و مینی‌اپ، وب‌سایت‌های مدرن و اتوماسیون با هوش مصنوعی.">
+<meta name="theme-color" content="#0b0b0d">
+<meta property="og:title" content="آرات زارعی | توسعه‌دهندهٔ وب، ربات و ابزارهای هوشمند">
+<meta property="og:description" content="ساخت ربات تلگرامی و مینی‌اپ، وب‌سایت‌های مدرن و اتوماسیون با هوش مصنوعی.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="./">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23101014'/%3E%3Ctext x='32' y='45' font-family='monospace' font-size='36' font-weight='800' fill='%23ef4444' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<style>
+  :root{
+    --bg:#0b0b0d; --surface:#141417; --ink:#f4f4f5; --muted:#a1a1aa;
+    --line:#26262b; --accent:#dc2626; --accent-ink:#f87171; --ok:#34d399;
+    --dark:#000000; --radius:14px; --maxw:1120px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; scroll-padding-top:76px}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Vazirmatn',system-ui,-apple-system,'Segoe UI',sans-serif;
+    font-size:16px; line-height:1.9; -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px}
+  a{color:inherit; text-decoration:none}
+  h1,h2,h3{line-height:1.4; margin:0 0 .5em}
+  section{padding:72px 0; scroll-margin-top:76px}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:700;
+    letter-spacing:.02em; color:#fca5a5; background:rgba(220,38,38,.14); border:1px solid rgba(220,38,38,.35);
+    padding:6px 14px; border-radius:999px; margin-bottom:18px;
+  }
+  .sec-title{font-size:clamp(24px,3.4vw,34px); font-weight:800}
+  .sec-sub{color:var(--muted); max-width:60ch; margin:0 0 42px}
+  .skip{position:absolute; right:-9999px; top:0; background:var(--surface); color:var(--ink); padding:10px 16px; z-index:99}
+  .skip:focus{right:12px; top:12px}
+
+  /* header */
+  header{
+    position:sticky; top:0; z-index:50; background:rgba(11,11,13,.92);
+    -webkit-backdrop-filter:saturate(180%) blur(10px);
+    backdrop-filter:saturate(180%) blur(10px); border-bottom:1px solid var(--line);
+  }
+  .bar{display:flex; align-items:center; justify-content:space-between; height:64px}
+  .logo{display:flex; align-items:center; gap:10px; font-weight:800; font-size:17px}
+  .logo .dot{
+    width:30px;height:30px;border-radius:50%;background:#000;color:#ef4444;
+    display:grid;place-items:center;font-family:monospace;font-size:16px;font-weight:800;
+    border:2px solid var(--accent); box-shadow:0 0 0 1px #26262b;
+  }
+  nav.desk{display:none}
+  nav.desk a{padding:8px 13px; border-radius:9px; font-size:14.5px; color:var(--muted); font-weight:500}
+  nav.desk a:hover{background:#1c1c21; color:var(--ink)}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:11px 20px; border-radius:11px; font-weight:700; font-size:15px;
+    border:1px solid transparent; cursor:pointer; transition:.18s;
+  }
+  .btn-primary{background:var(--accent); color:#fff}
+  .btn-primary:hover{background:var(--accent-ink); transform:translateY(-1px)}
+  .btn-dark{background:#1c1c21; color:#f4f4f5; border-color:#3f3f46}
+  .btn-dark:hover{background:#27272e; transform:translateY(-1px)}
+  .btn-ghost{background:var(--surface); color:var(--ink); border-color:var(--line)}
+  .btn-ghost:hover{border-color:#3f3f46; transform:translateY(-1px)}
+  .btn-sm{padding:9px 16px; font-size:14px}
+  .burger{display:flex; width:42px;height:42px; border-radius:10px; border:1px solid var(--line);
+    background:var(--surface); cursor:pointer; align-items:center; justify-content:center;
+    transition:.25s; flex:none}
+  .burger:hover{border-color:var(--accent); transform:translateY(-1px)}
+  .burger[aria-expanded="true"]{background:var(--accent); border-color:var(--accent)}
+  .burger[aria-expanded="true"] span,
+  .burger[aria-expanded="true"] span::before,
+  .burger[aria-expanded="true"] span::after{background:#fff}
+  .burger[aria-expanded="true"] span{background:transparent}
+  .burger[aria-expanded="true"] span::before{top:0; transform:rotate(45deg)}
+  .burger[aria-expanded="true"] span::after{top:0; transform:rotate(-45deg)}
+  .burger span{display:block; width:18px; height:2px; background:var(--ink); position:relative}
+  .burger span::before,.burger span::after{content:''; position:absolute; left:0; width:18px; height:2px; background:var(--ink)}
+  .burger span::before{top:-6px} .burger span::after{top:6px}
+  #mobileNav{
+    position:absolute; left:0; right:0; top:64px;
+    background:rgba(16,16,19,.96); -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line); padding:10px 0 16px;
+    opacity:0; transform:translateY(-12px); pointer-events:none;
+    transition:.34s cubic-bezier(.16,1,.3,1); box-shadow:0 24px 44px -28px rgba(0,0,0,.95);
+  }
+  #mobileNav.open{opacity:1; transform:none; pointer-events:auto}
+  #mobileNav a{display:block; padding:13px 24px; font-weight:600; color:var(--ink);
+    opacity:0; transform:translateY(10px); transition:.4s cubic-bezier(.16,1,.3,1); border-radius:0}
+  #mobileNav a:hover{background:#1c1c21; color:#f87171}
+  #mobileNav.open a{opacity:1; transform:none}
+  #mobileNav a:nth-child(1){transition-delay:.05s} #mobileNav a:nth-child(2){transition-delay:.1s}
+  #mobileNav a:nth-child(3){transition-delay:.15s} #mobileNav a:nth-child(4){transition-delay:.2s}
+  #mobileNav a:nth-child(5){transition-delay:.25s} #mobileNav a:nth-child(6){transition-delay:.3s}
+  .head-status{font-family:ui-monospace,Menlo,monospace; font-size:12.5px; color:#a1a1aa;
+    display:flex; align-items:center; gap:7px; white-space:nowrap}
+  .head-status i{width:7px;height:7px;border-radius:50%;background:#22c55e;display:block;
+    animation:pulse 1.8s ease-in-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.55)} 50%{box-shadow:0 0 0 6px rgba(34,197,94,0)}}
+  .bar .right{display:flex; align-items:center; gap:12px}
+
+  /* hero */
+  .hero{padding:96px 0 70px; position:relative}
+  .hero-grid{display:grid; grid-template-columns:1.3fr .8fr; gap:40px; align-items:center}
+  .code-card{
+    background:var(--dark); color:#e7e5e4; border-radius:16px; padding:20px 18px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13.5px; line-height:2.1;
+    direction:ltr; text-align:left; box-shadow:0 30px 60px -30px rgba(0,0,0,.9);
+    border:1px solid #26262c; min-width:0;
+  }
+  .code-card .win{display:flex; gap:7px; margin-bottom:14px}
+  .code-card .win i{width:11px;height:11px;border-radius:50%;background:#3f3f46;display:block}
+  .code-card .win i:nth-child(1){background:#ef4444}
+  .code-card .win i:nth-child(2){background:#f59e0b}
+  .code-card .win i:nth-child(3){background:#22c55e}
+  .code-card .k{color:#fca5a5} .code-card .s{color:#86efac} .code-card .c{color:#71717a}
+  .code-card .ok{color:#4ade80}
+  .hero h1{font-size:clamp(32px,5.4vw,52px); font-weight:900; letter-spacing:-.02em}
+  .hero h1 .grad{background:linear-gradient(90deg,#f87171,#dc2626); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .role{font-size:clamp(16px,2.2vw,20px); font-weight:700; color:var(--accent-ink); margin:4px 0 0}
+  .hero p.lead{font-size:clamp(15.5px,2vw,17.5px); color:var(--muted); max-width:62ch; margin:14px 0 20px}
+  .badges{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .badge{
+    display:inline-flex; align-items:center; gap:7px; font-size:13.5px; font-weight:700;
+    background:var(--surface); border:1px solid var(--line); padding:7px 14px; border-radius:999px; color:#e4e4e7;
+  }
+  .badge::before{content:''; width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+  .cta{display:flex; gap:12px; flex-wrap:wrap}
+
+  /* cards / grids */
+  .grid{display:grid; gap:16px}
+  .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:22px; min-width:0; transition:.2s; display:flex; flex-direction:column}
+  .card:hover{border-color:#3f3f46; box-shadow:0 14px 34px -20px rgba(0,0,0,.9); transform:translateY(-2px)}
+  .card h3{font-size:18px; font-weight:800}
+  .card p{color:var(--muted); font-size:14.8px; margin:0 0 14px}
+  .card .foot{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:auto; padding-top:16px}
+  .num{font-family:monospace; font-size:34px; font-weight:800; color:#2f2f36; line-height:1; margin-bottom:14px; direction:ltr}
+  .tags{display:flex; flex-wrap:wrap; gap:7px}
+  .tag{font-size:12.5px; font-weight:600; background:#1b1b20; border:1px solid var(--line);
+    color:#d4d4d8; padding:4px 10px; border-radius:999px}
+  .tag.accent{background:rgba(220,38,38,.14); border-color:rgba(220,38,38,.38); color:#fca5a5}
+  .status{font-size:12.5px; font-weight:700; color:var(--ok); display:flex; align-items:center; gap:6px}
+  .status i{width:7px;height:7px;border-radius:50%;background:var(--ok);display:inline-block}
+
+  /* skills (numbered) */
+  .skill-card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px 22px; min-width:0; position:relative; overflow:hidden; transition:.2s}
+  .skill-card:hover{border-color:var(--accent); transform:translateY(-2px)}
+  .skill-card .idx{font-family:monospace; font-size:13px; font-weight:800; color:var(--accent); letter-spacing:.08em; direction:ltr}
+  .skill-card h3{font-size:19px; font-weight:800; margin:10px 0 8px}
+  .skill-card p{margin:0; color:var(--muted); font-size:14.8px}
+  .skill-card::after{
+    content:''; position:absolute; inset:auto -30px -40px auto; width:110px; height:110px;
+    border-radius:50%; background:rgba(220,38,38,.22); z-index:0;
+  }
+  .skill-card > *{position:relative; z-index:1}
+
+  /* about */
+  .about{display:grid; grid-template-columns:1.4fr .9fr; gap:20px; align-items:stretch}
+  .about .box{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:24px; min-width:0}
+  .timeline{list-style:none; padding:0; margin:0}
+  .timeline li{position:relative; padding:0 22px 16px 0; border-right:2px solid var(--line)}
+  .timeline li:last-child{border-right-color:transparent}
+  .timeline li::before{content:''; position:absolute; right:-7px; top:6px; width:12px;height:12px;
+    border-radius:50%; background:var(--surface); border:3px solid var(--accent)}
+  .timeline b{font-size:15px} .timeline span{display:block; font-size:13.5px; color:var(--muted)}
+
+  /* contact */
+  .contact{background:var(--surface); border:1px solid var(--line); border-radius:20px;
+    padding:38px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap}
+  .contact h2{font-size:clamp(22px,3vw,30px); margin:0 0 6px}
+  .contact p{margin:0; color:var(--muted)}
+  .socials{display:flex; gap:10px; flex-wrap:wrap}
+  .socials a{padding:10px 16px; border:1px solid var(--line); border-radius:11px; font-size:14.5px; font-weight:600; background:var(--surface); color:var(--ink)}
+  .socials a:hover{border-color:var(--accent); color:var(--accent-ink)}
+
+  footer{border-top:1px solid var(--line); padding:26px 0; color:var(--muted); font-size:13.5px}
+  .foot-in{display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; text-align:center}
+
+  .rv{opacity:0; transform:translateY(34px) scale(.985); filter:blur(8px);
+    transition:.95s cubic-bezier(.16,1,.3,1)}
+  .rv.in{opacity:1; transform:none; filter:none}
+
+  /* ===== animations ===== */
+  @keyframes rise{from{opacity:0; transform:translateY(22px)} to{opacity:1; transform:none}}
+  @keyframes pop{from{opacity:0; transform:scale(.94)} to{opacity:1; transform:none}}
+  @keyframes blink{0%,100%{opacity:1} 50%{opacity:0}}
+  @keyframes float{0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)}}
+  @keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,.35)} 50%{box-shadow:0 0 0 12px rgba(220,38,38,0)}}
+  @keyframes marquee{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+  @keyframes sheen{0%{background-position:200% 0} 100%{background-position:-200% 0}}
+
+  .rise{opacity:0; animation:rise .75s cubic-bezier(.2,.7,.2,1) forwards}
+  .d1{animation-delay:.05s} .d2{animation-delay:.16s} .d3{animation-delay:.27s}
+  .d4{animation-delay:.38s} .d5{animation-delay:.5s}  .d6{animation-delay:.62s}
+  .code-card.rise{animation:rise .75s cubic-bezier(.2,.7,.2,1) .38s forwards, float 7s ease-in-out 1.2s infinite}
+  .badge{opacity:0; animation:pop .5s cubic-bezier(.2,.7,.2,1) forwards}
+  .badge:nth-of-type(1){animation-delay:.55s}
+  .badge:nth-of-type(2){animation-delay:.67s}
+  .badge:nth-of-type(3){animation-delay:.79s}
+  .cursor::after{content:'▌'; color:#4ade80; animation:blink 1.1s steps(1) infinite}
+
+  .scroll-bar{position:fixed; top:0; right:0; height:3px; width:0;
+    background:linear-gradient(90deg,#dc2626,#f87171); z-index:99; transition:width .1s linear;
+    box-shadow:0 0 10px rgba(220,38,38,.6)}
+
+  .btn{position:relative; overflow:hidden}
+  .btn::before{content:''; position:absolute; inset:0; transform:translateX(120%);
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent); transition:.5s}
+  .btn:hover::before{transform:translateX(-120%)}
+  .btn:hover{box-shadow:0 8px 22px -12px rgba(220,38,38,.8)}
+
+  .card .num{transition:.3s}
+  .card:hover .num{color:var(--accent); transform:translateY(-3px)}
+  .card:hover h3{color:var(--accent)}
+  .card h3{transition:color .25s}
+  .skill-card .idx{transition:.3s}
+  .skill-card:hover .idx{letter-spacing:.2em; color:#fca5a5}
+  .skill-card:hover::after{transform:scale(1.35); transition:.4s; opacity:1}
+  .socials a{transition:.2s}
+  .socials a:hover{transform:translateY(-3px)}
+  .timeline li{transition:.2s}
+  .timeline li:hover{transform:translateX(-4px)}
+  .logo .dot{transition:.35s}
+  .logo:hover .dot{transform:rotate(-12deg) scale(1.08)}
+  .btn-primary, .btn-dark{transition:.2s}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:8px}
+
+  .stagger > *{opacity:0; transform:translate(30px,74px) rotate(1.8deg) scale(.93);
+    filter:blur(7px); transition:.9s cubic-bezier(.16,1,.3,1)}
+  .stagger.in > *{opacity:1; transform:none; filter:none}
+  .stagger.in > .card:hover, .stagger.in > .skill-card:hover{transform:translateY(-4px) scale(1.012)}
+  .stagger.in > .timeline li:hover{transform:translateX(-4px)}
+
+  /* sticky stacking cards */
+  .stack{display:flex; flex-direction:column; gap:20px; padding-bottom:6px}
+  .stack > *{position:sticky; top:96px; will-change:transform}
+  .stack .card{flex-direction:row; flex-wrap:wrap; align-items:center; gap:14px 22px;
+    box-shadow:0 -14px 40px -24px rgba(0,0,0,.95); border-color:#2e2e35}
+  .stack .card .num{margin-bottom:0; flex:none}
+  .stack .card h3{margin:0; flex:none}
+  .stack .card p{flex:1 1 240px; margin:0}
+  .stack .card .tags{flex:none}
+  .stack .card .foot{margin-top:0; padding-top:0; flex:none}
+  .stack .card:last-child{margin-bottom:10px}
+
+  .ticker{overflow:hidden; border-block:1px solid var(--line); background:var(--surface);
+    padding:11px 0; white-space:nowrap; -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .ticker .track{display:inline-flex; gap:34px; animation:marquee 26s linear infinite; will-change:transform}
+  .ticker:hover .track{animation-play-state:paused}
+  .ticker span{font-family:ui-monospace,Menlo,monospace; font-size:13px; color:#a1a1aa; letter-spacing:.06em}
+  .ticker b{color:var(--accent)}
+
+  @media (prefers-reduced-motion: reduce){
+    .rise,.badge{opacity:1!important; animation:none!important}
+    .code-card{animation:none}
+    .ticker .track{animation:none}
+    .stagger > *{opacity:1; transform:none}
+  }
+  @media (max-width:720px){ .ticker .track{animation-duration:18s} }
+
+  @media (max-width:900px){
+    .g3{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .about{grid-template-columns:1fr}
+    .hero-grid{grid-template-columns:1fr; gap:28px}
+  }
+  @media (max-width:720px){
+    .bar .btn, .head-status{display:none}
+    .burger{display:flex}
+    section{padding:60px 0}
+    .g3{grid-template-columns:1fr}
+    .contact{padding:26px}
+    .hero{padding:70px 0 50px}
+    .code-card{font-size:12.5px}
+  }
+</style>
+</head>
+<body>
+<div class="scroll-bar" id="scrollBar" aria-hidden="true"></div>
+<a class="skip" href="#main">پرش به محتوای اصلی</a>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top"><span class="dot">A</span> آرات</a>
+    <div class="right">
+      <span class="head-status"><i></i> در دسترس برای همکاری</span>
+      <a class="btn btn-primary btn-sm" href="#contact">سفارش پروژه</a>
+      <button class="burger" id="burger" aria-label="باز کردن منو" aria-expanded="false" aria-controls="mobileNav"><span></span></button>
+    </div>
+  </div>
+  <div id="mobileNav">
+    <a href="#about">درباره من</a>
+    <a href="#skills">مهارت‌ها</a>
+    <a href="#work">نمونه‌کارها</a>
+    <a href="#services">خدمات</a>
+    <a href="#contact">تماس</a>
+    <a href="https://t.me/MrArat" target="_blank" rel="noopener" style="color:#f87171">سفارش پروژه ↗</a>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="track">
+    <span>ربات تلگرامی</span><span><b>◆</b></span><span>مینی‌اپ</span><span><b>◆</b></span>
+    <span>ادغام هوش مصنوعی</span><span><b>◆</b></span><span>لندینگ‌پیج</span><span><b>◆</b></span>
+    <span>پنل مدیریت</span><span><b>◆</b></span><span>اتوماسیون فرآیند</span><span><b>◆</b></span>
+    <span>پرداخت آنلاین</span><span><b>◆</b></span><span>پشتیبانی در تلگرام</span><span><b>◆</b></span>
+    <span>ربات تلگرامی</span><span><b>◆</b></span><span>مینی‌اپ</span><span><b>◆</b></span>
+    <span>ادغام هوش مصنوعی</span><span><b>◆</b></span><span>لندینگ‌پیج</span><span><b>◆</b></span>
+    <span>پنل مدیریت</span><span><b>◆</b></span><span>اتوماسیون فرآیند</span><span><b>◆</b></span>
+    <span>پرداخت آنلاین</span><span><b>◆</b></span><span>پشتیبانی در تلگرام</span><span><b>◆</b></span>
+  </div>
+</div>
+
+<main id="main">
+  <div id="top"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow rise d1">● آمادهٔ همکاری</span>
+          <h1 class="rise d2">سلام، من <span class="grad">آرات زارعی</span> هستم</h1>
+          <p class="role rise d3">توسعه‌دهندهٔ وب، ربات و ابزارهای هوشمند</p>
+          <p class="lead rise d4">دانشجو و برنامه‌نویس هوش مصنوعی و توسعه‌دهندهٔ ابزارهای دیجیتال. روی ساخت ربات، وب و خودکارسازی فرآیندها کار می‌کنم و هدفم خلق راه‌کارهای خلاقانه و کاربردیه.</p>
+          <div class="badges">
+            <span class="badge">۳ سال تجربه</span>
+            <span class="badge">ساخت ربات و وب</span>
+            <span class="badge">پشتیبانی مستقیم در تلگرام</span>
+          </div>
+          <div class="cta rise d5">
+            <a class="btn btn-primary" href="#work">مشاهدهٔ نمونه‌کارها</a>
+            <a class="btn btn-dark" href="https://t.me/MrArat" target="_blank" rel="noopener">پیام در تلگرام</a>
+          </div>
+        </div>
+        <div class="code-card rise d4" aria-hidden="true">
+          <div class="win"><i></i><i></i><i></i></div>
+<pre style="margin:0;font:inherit;white-space:pre-wrap"><span class="c">// who am i</span>
+<span class="k">const</span> arat = {
+  name: <span class="s">"Aratzareii"</span>,
+  role: <span class="s">"bots, web &amp; AI tools"</span>,
+  stack: [<span class="s">"Telegram"</span>, <span class="s">"Web"</span>, <span class="s">"AI"</span>],
+  status: <span class="ok">"available ✓"</span>
+}</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="rv">
+    <div class="wrap">
+      <span class="eyebrow">درباره من</span>
+      <h2 class="sec-title">چطور کار می‌کنم؟</h2>
+      <p class="sec-sub">اول نیازت رو می‌فهمم، بعد یه راه‌حل سبک و کاربردی می‌سازم که بدون دردسر بالا بیاد.</p>
+      <div class="about stagger">
+        <div class="box">
+          <p style="margin-top:0">من آرات زارعی هستم؛ دانشجو و برنامه‌نویس هوش مصنوعی و توسعه‌دهندهٔ ابزارهای دیجیتال. روی ساخت ربات، وب و خودکارسازی فرآیندها کار می‌کنم و هدفم خلق راه‌کارهای خلاقانه و کاربردیه. پروژه‌ها رو با کد مرتب، سرعت بالا و پشتیبانی واقعی تحویل میدم.</p>
+          <div class="tags" style="margin-top:16px">
+            <span class="tag accent">ربات تلگرامی</span>
+            <span class="tag accent">مینی‌اپ</span>
+            <span class="tag accent">اتوماسیون</span>
+            <span class="tag accent">ادغام AI</span>
+            <span class="tag accent">پشتیبانی</span>
+          </div>
+        </div>
+        <div class="box">
+          <h3 style="font-size:15.5px;color:var(--accent-ink)">مسیر کاری</h3>
+          <ul class="timeline">
+            <li><b>بررسی و نقشه</b><span>نیازسنجی و انتخاب ساختار مناسب</span></li>
+            <li><b>طراحی و نمونه اولیه</b><span>ظاهر و جریان کار قبل از شروع کدنویسی</span></li>
+            <li><b>توسعه</b><span>پیاده‌سازی ربات، وب یا ابزار مورد نظر</span></li>
+            <li><b>تحویل و پشتیبانی</b><span>آموزش، مستندسازی و رفع ایرادهای بعدی</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="rv" style="background:#0f0f12;border-block:1px solid var(--line)">
+    <div class="wrap">
+      <span class="eyebrow">مهارت‌ها</span>
+      <h2 class="sec-title">روی چیا تمرکز دارم؟</h2>
+      <p class="sec-sub">سه حوزهٔ اصلی که پروژه‌هام حول اون‌ها شکل می‌گیره.</p>
+      <div class="grid g3 stagger">
+        <div class="skill-card">
+          <div class="idx">01</div>
+          <h3>برنامه‌نویسی و ادغام هوش مصنوعی</h3>
+          <p>متصل‌سازی مدل‌های AI، ساخت ربات و مینی‌اپ، اتوماسیون‌های پیشرفته.</p>
+        </div>
+        <div class="skill-card">
+          <div class="idx">02</div>
+          <h3>توسعهٔ وب‌سایت‌های مدرن</h3>
+          <p>لندینگ‌پیج و سامانه‌های تحت وب با سرعت بالا و انیمیشن‌های روون.</p>
+        </div>
+        <div class="skill-card">
+          <div class="idx">03</div>
+          <h3>توسعهٔ ابزارها و اسکریپت‌های کاربردی</h3>
+          <p>حل مسائل واقعی با برنامه‌های سفارشی و خودکارسازی فرآیندها.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" class="rv">
+    <div class="wrap">
+      <span class="eyebrow">نمونه‌کارها</span>
+      <h2 class="sec-title">پروژه‌های منتخب</h2>
+      <p class="sec-sub">برای دیدن هر پروژه، مستقیم وارد رباتش توی تلگرام شو.</p>
+      <div class="stack" id="workStack">
+        <article class="card">
+          <div class="num">01</div>
+          <h3>فروشگاه تلگرامی Diaz Shop</h3>
+          <p>مینی‌اپ، سبد خرید، پرداخت آنلاین و پنل مدیریت داخل ربات تلگرام.</p>
+          <div class="tags"><span class="tag">مینی‌اپ</span><span class="tag">پرداخت آنلاین</span><span class="tag">پنل مدیریت</span></div>
+          <div class="foot">
+            <span class="status"><i></i> آنلاین</span>
+            <a class="btn btn-primary btn-sm" href="https://t.me/Diazpshopbot" target="_blank" rel="noopener">مشاهده در ربات ↗</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="num">02</div>
+          <h3>ربات هوش مصنوعی Gorilla AI</h3>
+          <p>ساخت عکس و ویدیو و انجام انواع پروژه‌ها با بالاترین کیفیت.</p>
+          <div class="tags"><span class="tag">AI</span><span class="tag">ساخت تصویر</span><span class="tag">ساخت ویدیو</span></div>
+          <div class="foot">
+            <span class="status"><i></i> آنلاین</span>
+            <a class="btn btn-primary btn-sm" href="https://t.me/AratGorillaTestbot" target="_blank" rel="noopener">مشاهده در ربات ↗</a>
+          </div>
+        </article>
+        <article class="card" style="justify-content:center;align-items:flex-start;background:#000;border-color:#dc2626;color:#fff">
+          <div class="num" style="color:#3f3f46">03</div>
+          <h3 style="color:#fff">پروژهٔ تو چیه؟</h3>
+          <p style="color:#a1a1aa">ایده‌ات رو بگو تا مثل همین‌ها برات بسازم.</p>
+          <div class="foot">
+            <span class="status" style="color:#fca5a5"><i style="background:#ef4444"></i> خالی</span>
+            <a class="btn btn-primary btn-sm" href="https://t.me/MrArat" target="_blank" rel="noopener">سفارش پروژه ↗</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="rv" style="background:#0f0f12;border-block:1px solid var(--line)">
+    <div class="wrap">
+      <span class="eyebrow">خدمات</span>
+      <h2 class="sec-title">چی می‌تونم برات انجام بدم؟</h2>
+      <p class="sec-sub">از یه ربات ساده تا سامانهٔ کامل — بسته به نیازت.</p>
+      <div class="stack" id="svcStack">
+        <div class="card">
+          <div class="num">01</div>
+          <h3>ساخت ربات و مینی‌اپ تلگرام</h3>
+          <p>ربات فروشگاهی با سبد خرید، پرداخت آنلاین، پنل مدیریت و پشتیبانی داخل ربات.</p>
+          <div class="tags"><span class="tag accent">تلگرام</span><span class="tag accent">پرداخت آنلاین</span></div>
+        </div>
+        <div class="card">
+          <div class="num">02</div>
+          <h3>توسعهٔ وب‌سایت و پنل مدیریت مدرن</h3>
+          <p>لندینگ‌پیج و سامانه‌های تحت وب سریع، روان و واکنش‌گرا.</p>
+          <div class="tags"><span class="tag accent">وب</span><span class="tag accent">پنل مدیریت</span></div>
+        </div>
+        <div class="card">
+          <div class="num">03</div>
+          <h3>ادغام هوش مصنوعی و خودکارسازی فرآیندها</h3>
+          <p>متصل‌سازی مدل‌های AI به محصول شما و حذف کارهای تکراری.</p>
+          <div class="tags"><span class="tag accent">AI</span><span class="tag accent">اتوماسیون</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="rv">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <span class="eyebrow">تماس</span>
+          <h2>پروژه‌ای تو ذهنته؟ بگو تا شروع کنیم</h2>
+          <p>سریع‌ترین راه: پیام مستقیم در تلگرام. معمولاً همون روز جواب میدم.</p>
+        </div>
+        <div class="socials">
+          <a href="https://t.me/MrArat" target="_blank" rel="noopener">Telegram</a>
+          <a href="mailto:Aratzarei@gmail.com">Gmail</a>
+          <a href="https://instagram.com/iarawt" target="_blank" rel="noopener">Instagram</a>
+        </div>
+        <a class="btn btn-primary" href="https://t.me/MrArat" target="_blank" rel="noopener">ارسال پیام</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span id="copy">2026-Aratzareii</span>
+    <span>ساخته شده توسط MrArat</span>
+  </div>
+</footer>
+
+<script>
+  window.__errs = [];
+  window.addEventListener('error', e => window.__errs.push(String(e.message)));
+  window.addEventListener('unhandledrejection', e => window.__errs.push('rejection: ' + String(e.reason)));
+
+  const burger = document.getElementById('burger');
+  const mnav = document.getElementById('mobileNav');
+  burger.addEventListener('click', () => {
+    const open = mnav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', String(open));
+  });
+  mnav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mnav.classList.remove('open'); burger.setAttribute('aria-expanded', 'false');
+  }));
+  document.addEventListener('click', e => {
+    if (mnav.classList.contains('open') && !mnav.contains(e.target) && !burger.contains(e.target)) {
+      mnav.classList.remove('open'); burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mnav.classList.contains('open')) {
+      mnav.classList.remove('open'); burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('in');
+    if (e.target.classList.contains('stagger')) {
+      setTimeout(() => [...e.target.children].forEach(c => c.style.transitionDelay = ''), 1400);
+    }
+  }), {threshold: .12});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  // staggered children inside grids
+  document.querySelectorAll('.stagger').forEach(g => {
+    [...g.children].forEach((c, i) => c.style.transitionDelay = (i * 90) + 'ms');
+    io.observe(g);
+  });
+
+  // scroll progress bar + parallax + stacked-card depth
+  const bar = document.getElementById('scrollBar');
+  const heroGrid = document.querySelector('.hero-grid');
+  const stacks = [...document.querySelectorAll('.stack')];
+  const clamp = (v, a, b) => Math.min(Math.max(v, a), b);
+
+  stacks.forEach(s => [...s.children].forEach((c, i) => { c.style.top = (78 + i * 20) + 'px'; }));
+
+  const onScroll = () => {
+    const y = window.scrollY;
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+
+    if (heroGrid && y < 900) {
+      heroGrid.style.transform = 'translateY(' + (y * 0.10).toFixed(1) + 'px)';
+      heroGrid.style.opacity = String(clamp(1 - y / 750, .35, 1));
+    }
+
+    stacks.forEach(s => {
+      const cards = [...s.children];
+      cards.forEach((c, i) => {
+        const next = cards[i + 1];
+        if (!next) return;
+        const cr = c.getBoundingClientRect(), nr = next.getBoundingClientRect();
+        const k = clamp((cr.top + cr.height - nr.top) / Math.max(cr.height * .7, 1), 0, 1);
+        if (k > 0.02) {
+          c.style.transform = 'scale(' + (1 - 0.055 * k).toFixed(3) + ')';
+          c.style.opacity = String(1 - 0.4 * k);
+        } else {
+          c.style.transform = ''; c.style.opacity = '';
+        }
+      });
+    });
+  };
+  document.addEventListener('scroll', onScroll, {passive: true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+</script>
+</body>
+</html>
