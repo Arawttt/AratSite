@@ -255,7 +255,7 @@
   @keyframes blink{0%,100%{opacity:1} 50%{opacity:0}}
   @keyframes float{0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)}}
   @keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,.35)} 50%{box-shadow:0 0 0 12px rgba(220,38,38,0)}}
-  @keyframes marquee{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+  @keyframes marquee{from{transform:translateX(0)} to{transform:translateX(50%)}}
   @keyframes sheen{0%{background-position:200% 0} 100%{background-position:-200% 0}}
 
   .rise{opacity:0; animation:rise .75s cubic-bezier(.2,.7,.2,1) forwards}
@@ -294,8 +294,8 @@
   .btn-primary, .btn-dark{transition:.2s}
   a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:8px}
 
-  .stagger > *{opacity:0; transform:translate(30px,74px) rotate(1.8deg) scale(.93);
-    filter:blur(7px); transition:.9s cubic-bezier(.16,1,.3,1)}
+  .stagger > *{opacity:0; transform:translateY(54px) scale(.955);
+    filter:blur(7px); transition:.85s cubic-bezier(.2,.85,.25,1)}
   .stagger.in > *{opacity:1; transform:none; filter:none}
   .stagger.in > .card:hover, .stagger.in > .skill-card:hover{transform:translateY(-4px) scale(1.012)}
   .stagger.in > .timeline li:hover{transform:translateX(-4px)}
@@ -392,10 +392,11 @@
         <div>
           <span class="eyebrow rise d1">● آمادهٔ همکاری</span>
           <h1 class="rise d2">سلام، من <span class="grad">آرات زارعی</span> هستم</h1>
-          <p class="role rise d3">طراح و توسعه‌دهندهٔ انواع وب‌سایت و پورتفولیو</p>
-          <p class="lead rise d4">کار اصلیم <b>ساخت وب‌سایته</b> — از یه پورتفولیوی ساده تا فروشگاه و پنل مدیریت. <b>همین سایتی که الان داری می‌بینی نمونهٔ کار خودمه</b>؛ از طراحی و کدنویسی تا دامنهٔ اختصاصی و سئوش رو خودم انجام دادم. پروژه‌ات رو با کد تمیز، سرعت بالا و تحویل به‌موقع تحویل میدم.</p>
+          <p class="role rise d3">طراح و توسعه‌دهندهٔ انواع وب‌سایت، پورتفولیو، ربات و مینی‌اپ تلگرام</p>
+          <p class="lead rise d4">کار اصلیم <b>ساخت وب‌سایته</b> — از یه پورتفولیوی ساده تا فروشگاه و پنل مدیریت؛ <b>ربات تلگرامی و مینی‌اپ</b> هم می‌سازم. <b>همین سایتی که الان داری می‌بینی نمونهٔ کار خودمه</b>؛ از طراحی و کدنویسی تا دامنهٔ اختصاصی و سئوش رو خودم انجام دادم. پروژه‌ات رو با کد تمیز، سرعت بالا و تحویل به‌موقع تحویل میدم.</p>
           <div class="badges">
             <span class="badge">طراحی اختصاصی</span>
+            <span class="badge">ربات و مینی‌اپ تلگرام</span>
             <span class="badge">سئو و سرعت بالا</span>
             <span class="badge">تحویل و پشتیبانی</span>
           </div>
