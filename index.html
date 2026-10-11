@@ -11,6 +11,9 @@
 <meta name="author" content="آرات زارعی">
 <meta name="google-site-verification" content="bd0_8weFQlSKxmstVgZw4hO8_HCkbynQMTug8Sbu42o" />
 <link rel="canonical" href="https://aratzareii.ir/">
+<link rel="alternate" hreflang="fa" href="https://aratzareii.ir/">
+<link rel="alternate" hreflang="en" href="https://aratzareii.ir/en.html">
+<link rel="alternate" hreflang="x-default" href="https://aratzareii.ir/">
 <meta name="geo.region" content="IR">
 <meta property="og:title" content="آرات زارعی | طراحی و ساخت انواع وب‌سایت و پورتفولیو">
 <meta property="og:description" content="طراحی و ساخت انواع وب‌سایت: پورتفولیو، شرکتی، فروشگاهی، لندینگ‌پیج، پنل مدیریت، ربات و مینی‌اپ تلگرام.">
@@ -164,6 +167,11 @@
     animation:pulse 1.8s ease-in-out infinite}
   @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.55)} 50%{box-shadow:0 0 0 6px rgba(34,197,94,0)}}
   .bar .right{display:flex; align-items:center; gap:12px}
+  .lang{display:inline-flex; align-items:center; justify-content:center; height:42px;
+    padding:0 15px; border-radius:10px; border:1px solid var(--line); background:var(--surface);
+    color:var(--ink); font-weight:700; font-size:14px; transition:.2s; white-space:nowrap}
+  .lang:hover{border-color:var(--accent); color:var(--accent-ink); transform:translateY(-1px)}
+  .badge:nth-of-type(4){animation-delay:.91s}
 
   /* hero */
   .hero{padding:96px 0 70px; position:relative}
@@ -354,6 +362,7 @@
     <div class="right">
       <span class="head-status"><i></i> در دسترس برای همکاری</span>
       <a class="btn btn-primary btn-sm" href="#contact">سفارش پروژه</a>
+      <a class="lang" href="en.html" hreflang="en" lang="en" title="English version of this site">English</a>
       <button class="burger" id="burger" aria-label="باز کردن منو" aria-expanded="false" aria-controls="mobileNav"><span></span></button>
     </div>
   </div>
