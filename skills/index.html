@@ -571,29 +571,44 @@ const burger=document.getElementById('burger'), mobileNav=document.getElementByI
 </script>
 
 <script>
+/* ===== scroll stack: cover effect (v4 — fits-viewport cards only, threshold = sticky top) ===== */
 (function(){
   var cards=[].slice.call(document.querySelectorAll('.stcard'));
   if(!cards.length) return;
-  try{ if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; }catch(e){}
-  cards.forEach(function(c,i){ c.style.zIndex=String(10+i); });
+  var reduced=false;
+  try{ reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
   function clamp(v,a,b){ return v<a?a:(v>b?b:v); }
+  function stickyTop(){ return window.innerWidth<=879 ? 76 : 96; }
+  function applyFit(){
+    var vh=window.innerHeight;
+    cards.forEach(function(c){
+      var fits=(vh - c.offsetHeight) >= 90;
+      c.style.position=(fits && !reduced) ? 'sticky' : 'static';
+      c.classList.remove('covered');
+      c.style.transform=''; c.style.opacity='';
+    });
+  }
   function onScroll(){
+    var vh=window.innerHeight, lim=stickyTop()+1;
     for(var i=0;i<cards.length;i++){
       var c=cards[i], nx=cards[i+1];
       if(!nx) continue;
-      var nr=nx.getBoundingClientRect(), cr=c.getBoundingClientRect();
-      if(nr.top<95){ c.classList.add('covered'); c.style.transform=''; c.style.opacity=''; }
-      else{
-        c.classList.remove('covered');
-        var k=clamp((cr.bottom-nr.top)/Math.max(cr.height*.7,1),0,1);
-        c.style.transform='scale('+(1-0.055*k)+')';
-        c.style.opacity=String(1-k);
+      if(c.style.position!=='sticky' || nx.style.position!=='sticky'){
+        c.classList.remove('covered'); c.style.transform=''; c.style.opacity=''; continue;
       }
+      var nr=nx.getBoundingClientRect(), cr=c.getBoundingClientRect();
+      if(nr.top<=lim){ c.classList.add('covered'); c.style.transform=''; c.style.opacity=''; continue; }
+      c.classList.remove('covered');
+      var k=clamp((cr.bottom-nr.top)/Math.max(cr.height*.7,1),0,1);
+      c.style.transform='scale('+(1-0.055*k)+')';
+      c.style.opacity=String(1-k);
     }
   }
+  function refresh(){ applyFit(); onScroll(); }
   window.addEventListener('scroll', onScroll, {passive:true});
-  window.addEventListener('resize', onScroll);
-  onScroll();
+  window.addEventListener('resize', refresh);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(refresh);
+  refresh();
 })();
 </script>
 </body>
