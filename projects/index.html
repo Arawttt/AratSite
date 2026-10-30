@@ -640,42 +640,43 @@ const burger=document.getElementById('burger'), mobileNav=document.getElementByI
 </script>
 
 <script>
-/* ===== scroll stack: cover effect (v4 — fits-viewport cards only, threshold = sticky top) ===== */
+/* ===== scroll stack: cover effect (v6 — every card pins, tall cards bottom-first) ===== */
 (function(){
   var cards=[].slice.call(document.querySelectorAll('.stcard'));
   if(!cards.length) return;
-  var reduced=false;
-  try{ reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+  var calm=false;
+  try{ calm=window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+  cards.forEach(function(c,i){ c.style.zIndex=String(10+i); });
   function clamp(v,a,b){ return v<a?a:(v>b?b:v); }
-  function stickyTop(){ return window.innerWidth<=879 ? 76 : 96; }
-  function applyFit(){
-    var vh=window.innerHeight;
+  function baseTop(){ return window.innerWidth<=879 ? 76 : 96; }
+  /* every card gets a pin line: normal cards pin just under the header, cards taller
+     than the screen pin bottom-first (negative top) so the rest of the card is
+     reached by normal scrolling before the next card slides over it */
+  function tops(){
+    var vh=window.innerHeight, b=baseTop();
     cards.forEach(function(c){
-      var fits=(vh - c.offsetHeight) >= 90;
-      c.style.position=(fits && !reduced) ? 'sticky' : 'static';
-      c.classList.remove('covered');
-      c.style.transform=''; c.style.opacity='';
+      var h=c.offsetHeight;
+      c.style.top=Math.round(Math.min(b, vh-h-16))+'px';
     });
   }
+  function effTop(c){ var t=parseFloat(c.style.top); return isNaN(t)?baseTop():t; }
   function onScroll(){
-    var vh=window.innerHeight, lim=stickyTop()+1;
     for(var i=0;i<cards.length;i++){
       var c=cards[i], nx=cards[i+1];
       if(!nx) continue;
-      if(c.style.position!=='sticky' || nx.style.position!=='sticky'){
-        c.classList.remove('covered'); c.style.transform=''; c.style.opacity=''; continue;
-      }
       var nr=nx.getBoundingClientRect(), cr=c.getBoundingClientRect();
-      if(nr.top<=lim){ c.classList.add('covered'); c.style.transform=''; c.style.opacity=''; continue; }
+      if(nr.top<=effTop(nx)+1){ c.classList.add('covered'); c.style.transform=''; c.style.opacity=''; continue; }
       c.classList.remove('covered');
-      var k=clamp((cr.bottom-nr.top)/Math.max(cr.height*.7,1),0,1);
+      if(calm){ c.style.transform=''; c.style.opacity=''; continue; }
+      var k=clamp((cr.bottom-nr.top)/Math.max(cr.height*0.7,1),0,1);
       c.style.transform='scale('+(1-0.055*k)+')';
       c.style.opacity=String(1-k);
     }
   }
-  function refresh(){ applyFit(); onScroll(); }
+  function refresh(){ tops(); onScroll(); }
   window.addEventListener('scroll', onScroll, {passive:true});
   window.addEventListener('resize', refresh);
+  window.addEventListener('orientationchange', refresh);
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(refresh);
   refresh();
 })();
