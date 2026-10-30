@@ -372,6 +372,8 @@ html[dir="ltr"] body{font-family:Vazirmatn,system-ui,sans-serif}
 .stcard.covered{opacity:0; transform:scale(.945); pointer-events:none}
 .stcard > .kick{display:block; margin-bottom:2px}
 @media(max-width:879px){ .stcard{top:76px} }
+
+.stackzone > .stcard.stack-last{position:static !important; top:auto !important}
 </style>
 </head>
 <body>
@@ -424,7 +426,7 @@ html[dir="ltr"] body{font-family:Vazirmatn,system-ui,sans-serif}
       </div>
 </div>
 
-    <div class="stcard">
+    <div class="stcard stack-last">
 <div class="kcard">
         <span class="num">03</span>
         <span class="kic"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/><circle cx="12" cy="12" r="2.5"/></svg></span>
@@ -571,7 +573,15 @@ const burger=document.getElementById('burger'), mobileNav=document.getElementByI
 </script>
 
 <script>
-/* ===== scroll stack: cover effect (v6 — every card pins, tall cards bottom-first) ===== */
+/* ===== scroll stack: cover effect (v11, final) =====
+   CSS keeps every .stcard sticky at the header line, so the stack works even with
+   JS off. The script only:
+     1. gives cards taller than the viewport a bottom-first pin line, so all of
+        their content is still reachable by normal scrolling;
+     2. fades a card once the NEXT card has actually pinned over it;
+     3. keeps the cover and drops the fade for prefers-reduced-motion.
+   Nothing here changes layout (no padding, no re-parenting), so there is no
+   end-of-stack gap to scroll past. */
 (function(){
   var cards=[].slice.call(document.querySelectorAll('.stcard'));
   if(!cards.length) return;
@@ -580,25 +590,23 @@ const burger=document.getElementById('burger'), mobileNav=document.getElementByI
   cards.forEach(function(c,i){ c.style.zIndex=String(10+i); });
   function clamp(v,a,b){ return v<a?a:(v>b?b:v); }
   function baseTop(){ return window.innerWidth<=879 ? 76 : 96; }
-  /* every card gets a pin line: normal cards pin just under the header, cards taller
-     than the screen pin bottom-first (negative top) so the rest of the card is
-     reached by normal scrolling before the next card slides over it */
+  function effTop(c){ var t=parseFloat(c.style.top); return isNaN(t)?baseTop():t; }
   function tops(){
     var vh=window.innerHeight, b=baseTop();
     cards.forEach(function(c){
-      var h=c.offsetHeight;
-      c.style.top=Math.round(Math.min(b, vh-h-16))+'px';
+      if(c.classList.contains('stack-last')){ c.style.top=''; return; }
+      c.style.top = (c.offsetHeight > vh-b-16) ? Math.round(vh-c.offsetHeight-16)+'px' : '';
     });
   }
-  function effTop(c){ var t=parseFloat(c.style.top); return isNaN(t)?baseTop():t; }
   function onScroll(){
     for(var i=0;i<cards.length;i++){
       var c=cards[i], nx=cards[i+1];
       if(!nx) continue;
-      var nr=nx.getBoundingClientRect(), cr=c.getBoundingClientRect();
-      if(nr.top<=effTop(nx)+1){ c.classList.add('covered'); c.style.transform=''; c.style.opacity=''; continue; }
+      var nr=nx.getBoundingClientRect();
+      if(nr.top<=effTop(nx)+4){ c.classList.add('covered'); c.style.transform=''; c.style.opacity=''; continue; }
       c.classList.remove('covered');
       if(calm){ c.style.transform=''; c.style.opacity=''; continue; }
+      var cr=c.getBoundingClientRect();
       var k=clamp((cr.bottom-nr.top)/Math.max(cr.height*0.7,1),0,1);
       c.style.transform='scale('+(1-0.055*k)+')';
       c.style.opacity=String(1-k);
@@ -608,7 +616,15 @@ const burger=document.getElementById('burger'), mobileNav=document.getElementByI
   window.addEventListener('scroll', onScroll, {passive:true});
   window.addEventListener('resize', refresh);
   window.addEventListener('orientationchange', refresh);
+  window.addEventListener('load', refresh);
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(refresh);
+  if(window.ResizeObserver){ var ro=new ResizeObserver(refresh); cards.forEach(function(c){ ro.observe(c); }); }
+  cards.forEach(function(c){
+    [].slice.call(c.querySelectorAll('img')).forEach(function(im){
+      if(im.complete) return;
+      im.addEventListener('load', refresh); im.addEventListener('error', refresh);
+    });
+  });
   refresh();
 })();
 </script>
