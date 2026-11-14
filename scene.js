@@ -355,6 +355,9 @@ if (reduced) { Object.assign(target, states.calm); Object.assign(cur, states.cal
   if (document.readyState === 'complete') _startScene();
   else addEventListener('load', _startScene, { once: true });
 }
+/* leaving the page must stop the render loop at once — a software renderer left running makes the NEXT page feel dead while the browser tears it down */
+addEventListener('pagehide', () => { running = false; });
+addEventListener('beforeunload', () => { running = false; });
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) running = false;
   else { clock.getDelta(); replayFrame(); }
