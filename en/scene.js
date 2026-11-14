@@ -310,11 +310,10 @@ function replayFrame() { running = true; clock.getDelta(); frame(); }
 
 addEventListener('arat:state', e => { const s = states[e.detail]; if (s) Object.assign(target, s); });
 
-if (reduced) {
-  Object.assign(target, states.calm); Object.assign(cur, states.calm);
-  running = false;
-  renderer.render(scene, camera); // single static frame
-} else {
+if (reduced) { Object.assign(target, states.calm); Object.assign(cur, states.calm); }
+      /* the scene is the site's identity — reduced motion calms it (no chaos) but must not black it out.
+     Visitors who want it gone have the customiser's low-power switch. */
+      {
   frame();
 }
 document.addEventListener('visibilitychange', () => {

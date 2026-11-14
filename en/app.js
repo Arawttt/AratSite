@@ -188,12 +188,14 @@ function setActive(i) {
   }
 }
 function fmtDay(p) {
-  const day = 1 + Math.round(p * 29 * (p < 1 ? p : 1)); // DAY 01 → 30
-  return 'DAY ' + String(Math.max(1, day)).padStart(2, '0');
+  const day = 1 + Math.round(p * 29 * (p < 1 ? p : 1)); // روز ۰۱ → ۳۰
+  const fa = '۰۱۲۳۴۵۶۷۸۹';
+  const n = String(Math.max(1, day)).padStart(2, '0').replace(/\d/g, d => fa[+d]);
+  return 'روز ' + n;
 }
 
 function timelineScroll() {
-  if (!pin || window.innerWidth <= 860 || prefersReduced) return;
+  if (!pin || window.innerWidth <= 860) return; // story is content: reduced motion no longer freezes it
   const rect = pin.getBoundingClientRect();
   const total = pinInner.offsetHeight + window.innerHeight; // approximate pin distance
   const start = rect.top + window.scrollY;
@@ -206,7 +208,7 @@ function timelineScroll() {
   clockBar.style.transform = `scaleX(${.05 + p * .95})`;
 }
 // make pin distance real via a spacer
-if (pin && window.innerWidth > 860 && !prefersReduced) {
+if (pin && window.innerWidth > 860) {
   pin.style.height = '320vh';
   pinInner.style.position = 'sticky';
   pinInner.style.top = '0';
