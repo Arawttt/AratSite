@@ -689,7 +689,41 @@ body.light .czsw, body.light .cztrk{background:rgba(10,15,20,.03);border-color:r
   <!-- everything self-hosted: no third-party origin in the critical path (jsDelivr is unreliable here)
        gsap + ScrollTrigger were removed: nothing calls gsap.*, and the single ScrollTrigger call is guarded -->
   <script src="./vendor/lenis.min.js?v=20261114i"></script>
-  <script type="module" src="./scene.js?v=20261114i"></script>
+  <script>
+  /* GPU gate — decide BEFORE the 3D bundle is fetched. A software/absent WebGL gets the CSS fallback:
+     a SwiftShader scene crawls at a few fps and drags the page with it, and nobody should pay 169KB of
+     three.js for that. window.ARAT_SCENE_FORCE = 'on' | 'off' overrides (tests / curious visitors). */
+  (function () {
+    var forced = window.ARAT_SCENE_FORCE || '', tier = 'none';
+    try {
+      var c = document.createElement('canvas');
+      var gl = c.getContext('webgl2') || c.getContext('webgl');
+      if (gl) {
+        var dbg = gl.getExtension('WEBGL_debug_renderer_info');
+        var r = dbg ? String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) || '') : '';
+        tier = (/swiftshader|llvmpipe|softpipe|software|basic render|microsoft basic|mesa offscreen/i.test(r)
+          ? 'software: ' : 'hw: ') + (r || 'unknown');
+      }
+    } catch (e) { tier = 'none'; }
+    window.ARAT_GPU = tier;
+    var on = forced === 'on' || (forced !== 'off' && tier.indexOf('hw:') === 0);
+    window.ARAT_SCENE_ON = on;
+    if (on) {
+      var s = document.createElement('script');
+      s.type = 'module';
+      s.src = './scene.js?v=20261114i';
+      document.head.appendChild(s);
+    } else {
+      document.documentElement.classList.add('no-webgl');
+      var mark = function () { if (document.body) document.body.classList.add('no-webgl'); };
+      mark(); document.addEventListener('DOMContentLoaded', mark, { once: true });
+      window.AratScene = { fallback: true, reason: 'gpu-gate: ' + tier,
+        reduced: matchMedia('(prefers-reduced-motion: reduce)').matches,
+        running: function () { return false; }, setState: function () {}, pulse: function () {},
+        diag: function () { return { webgl: false, reason: 'gpu-gate: ' + tier, gpu: tier }; } };
+    }
+  })();
+  </script>
   <script src="./app.js?v=20261114i"></script>
 <!-- ===== intro (concept 1) ===== -->
     <script>

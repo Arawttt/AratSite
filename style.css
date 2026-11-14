@@ -1,11 +1,9 @@
+/* FA: latin-only faces dropped (Fraunces/Inter) — Estedad + JetBrains carry this page */
 /* Arat.dev — port of pooryaai.me design system */
-:root{--bg:#050d0c;--bg-2:#081614;--ink:#e9f5f1;--ink-2:#b9cdc7;--muted:#7d958f;--line:#beffeb1a;--line-2:#beffeb2e;--glass:#0e201d8c;--glass-2:#142c28b3;--mint:#7cf5d4;--aqua:#2fd8bd;--teal:#0e8f7d;--amber:#ffbe5c;--coral:#ff7a6b;--violet:#a99bff;--f-display:"Fraunces Variable","Iowan Old Style",Georgia,serif;--f-body:"Inter Tight Variable","Inter",system-ui,-apple-system,"Segoe UI",sans-serif;--f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;--wrap:1240px;--pad:clamp(20px,4vw,48px);--radius:22px;--ease:cubic-bezier(.22,1,.36,1)}
+:root{--bg:#050d0c;--bg-2:#081614;--ink:#e9f5f1;--ink-2:#b9cdc7;--muted:#7d958f;--line:#beffeb1a;--line-2:#beffeb2e;--glass:#0e201d8c;--glass-2:#142c28b3;--mint:#7cf5d4;--aqua:#2fd8bd;--teal:#0e8f7d;--amber:#ffbe5c;--coral:#ff7a6b;--violet:#a99bff;--f-display:Georgia,"Times New Roman",serif;--f-body:system-ui,-apple-system,"Segoe UI",sans-serif;--f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;--wrap:1240px;--pad:clamp(20px,4vw,48px);--radius:22px;--ease:cubic-bezier(.22,1,.36,1)}
 *,:before,:after{box-sizing:border-box}
 
 
-@font-face{font-family:"Fraunces Variable";font-style:normal;font-display:swap;font-weight:100 900;src:url(./fonts/fraunces-latin-full-normal-CFFu7zhK.woff2) format("woff2-variations")}
-@font-face{font-family:"Fraunces Variable";font-style:italic;font-display:swap;font-weight:100 900;src:url(./fonts/fraunces-latin-full-italic-D2JnYqd-.woff2) format("woff2-variations")}
-@font-face{font-family:"Inter Tight Variable";font-style:normal;font-display:swap;font-weight:100 900;src:url(./fonts/inter-tight-latin-wght-normal-DX-nOvPD.woff2) format("woff2-variations")}
 @font-face{font-family:"JetBrains Mono";font-style:normal;font-display:swap;font-weight:400;src:url(./fonts/jetbrains-mono-latin-400-normal-V6pRDFza.woff2) format("woff2")}
 @font-face{font-family:"JetBrains Mono";font-style:normal;font-display:swap;font-weight:500;src:url(./fonts/jetbrains-mono-latin-500-normal-BWZEU5yA.woff2) format("woff2")}
 @font-face{font-family:"Estedad";font-style:normal;font-display:swap;font-weight:100 900;src:url(./fonts/Estedad-VF.woff2) format("woff2-variations")}
@@ -270,7 +268,7 @@ h3{letter-spacing:-.02em;font-size:clamp(20px,1.6vw,24px);font-weight:600;line-h
 .js.hero-done .float-badge,.js.hero-done .scroll-hint{opacity:1}
 
 /* ============ FA / RTL ============ */
-[dir="rtl"]{--f-display:"Estedad","Fraunces Variable",serif;--f-body:"Estedad","Inter Tight Variable",sans-serif}
+[dir="rtl"]{--f-display:"Estedad",Georgia,serif;--f-body:"Estedad",system-ui,sans-serif}
 [dir="rtl"] body{font-size:clamp(16px,1.05vw,17px)}
 [dir="rtl"] .hero__title,[dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3{font-family:var(--f-display);letter-spacing:0;line-height:1.18}
 [dir="rtl"] .em,[dir="rtl"] em{font-style:normal}
@@ -289,7 +287,7 @@ h3{letter-spacing:-.02em;font-size:clamp(20px,1.6vw,24px);font-weight:600;line-h
 [dir="rtl"] .footer__giant{direction:ltr}
 
 /* ============ FA polish: Persian typography scale + no clipping ============ */
-[dir="rtl"]{--f-display:"Estedad","Fraunces Variable",serif;--f-body:"Estedad","Inter Tight Variable",sans-serif}
+[dir="rtl"]{--f-display:"Estedad",Georgia,serif;--f-body:"Estedad",system-ui,sans-serif}
 [dir="rtl"] body{line-height:1.75}
 [dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3,[dir="rtl"] .hero__title,[dir="rtl"] .problem__title,[dir="rtl"] .cta__title{
   letter-spacing:0;line-height:1.42;font-weight:700;font-variation-settings:"opsz" 144,"SOFT" 50}
