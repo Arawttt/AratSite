@@ -8,34 +8,30 @@ if (window.Lenis && !prefersReduced) {
   lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
   const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); };
   requestAnimationFrame(raf);
-  // anchor links via lenis
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const id = a.getAttribute('href');
-      if (id.length > 1) {
-        const el = document.querySelector(id);
-        if (el) {
-          e.preventDefault();
-          /* Two traps here, both hit real phones:
-             (1) lenis is only created when motion is allowed, so with reduced-motion lenis is null;
-             (2) opening the menu locks the page (body{overflow:hidden}), so scrolling BEFORE closeMenu()
-                 silently does nothing. Close first, then scroll on the next frame. */
-          const y = el.getBoundingClientRect().top + window.scrollY - 80;
-          closeMenu();
-          try { history.replaceState(null, '', id); } catch (_) {}
-          requestAnimationFrame(() => {
-            if (lenis) { try { lenis.scrollTo(el, { offset: -80 }); return; } catch (_) {} }
-            window.scrollTo({ top: y, behavior: 'smooth' });
-            /* last-resort: if the page still did not move, use the browser's own anchor jump */
-            setTimeout(() => {
-              const inView = el.getBoundingClientRect().top > -40 && el.getBoundingClientRect().top < window.innerHeight;
-              if (!inView && Math.abs(window.scrollY - y) > 120) { try { location.hash = id; } catch (_) {} }
-            }, 450);
-          });
-        }
-      }
-    });
-  });
+  // anchor links — delegated, and it never swallows a tap
+  //  • lenis only exists when motion is allowed, so on a phone with animations off we must NOT preventDefault
+  //  • the mobile menu locks the page (body{overflow:hidden}), so closeMenu() has to run BEFORE the scroll
+  document.addEventListener('click', (e) => {
+    const a = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if (!a) return;
+    const id = a.getAttribute('href');
+    if (!id || id.length < 2) return;
+    const el = document.querySelector(id);
+    if (!el) return;
+    closeMenu();                       // release the lock first (no-op when the menu is shut)
+    if (lenis) {
+      e.preventDefault();
+      try { lenis.scrollTo(el, { offset: -80 }); } catch (_) { location.hash = id; return; }
+      try { history.replaceState(null, '', id); } catch (_) {}
+      return;
+    }
+    /* no smooth-scroll lib: let the browser do its native anchor jump (works in every webview) */
+    if (typeof requestAnimationFrame === 'function') {
+      requestAnimationFrame(() => {
+        if (document.body.style.overflow === 'hidden') document.body.style.overflow = '';
+      });
+    }
+  }, true);
 }
 if (window.ScrollTrigger && lenis) {
   ScrollTrigger.scrollerProxy(document.body, {}); // not needed for lenis on body; keep default
