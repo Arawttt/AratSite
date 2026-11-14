@@ -14,7 +14,16 @@ if (window.Lenis && !prefersReduced) {
       const id = a.getAttribute('href');
       if (id.length > 1) {
         const el = document.querySelector(id);
-        if (el) { e.preventDefault(); lenis.scrollTo(el, { offset: -80 }); closeMenu(); }
+        if (el) {
+          e.preventDefault();
+          /* lenis only exists when motion is allowed; on a phone with reduced-motion the old code threw
+             AFTER preventDefault, so tapping a menu item did nothing at all */
+          const y = el.getBoundingClientRect().top + window.scrollY - 80;
+          if (lenis) { try { lenis.scrollTo(el, { offset: -80 }); } catch (_) { window.scrollTo({ top: y, behavior: 'smooth' }); } }
+          else { window.scrollTo({ top: y, behavior: 'smooth' }); }
+          history.replaceState(null, '', id);
+          closeMenu();
+        }
       }
     });
   });
