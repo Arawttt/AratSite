@@ -323,6 +323,7 @@ document.addEventListener('visibilitychange', () => {
 
 /* expose state setter for app.js */
 window.AratScene = {
+  running: () => running, reduced: reduced,          // verifiable from the outside (tests, support)
   setState(name) { const s = states[name]; if (!s) return; Object.assign(target, s); },
   pulse() { kick = 1.2; rigV.y += (Math.random() - .5) * .8; rigV.x += .4; },
 };
