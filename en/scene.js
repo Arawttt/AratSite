@@ -40,9 +40,11 @@ const gpuTier = (() => {
   } catch (e) { return 'unknown'; }
 })();
 const forced = (typeof window !== 'undefined' && window.ARAT_SCENE_FORCE) || '';
-if (forced === 'off' || (forced !== 'on' && gpuTier.indexOf('software:') === 0)) {
-  fallback('software-renderer: ' + gpuTier);
-  throw new Error('software renderer — using the CSS fallback');
+/* A software renderer is NOT skipped up front any more (it looked fine on his machine) — the runtime
+   watchdog below downgrades only if it really cannot keep up. Forced off still wins. */
+if (forced === 'off') {
+  fallback('forced-off');
+  throw new Error('scene disabled by ARAT_SCENE_FORCE');
 }
 try {
   renderer = new THREE.WebGLRenderer({ canvas, antialias: !isSmall, powerPreference: 'high-performance' });
@@ -349,11 +351,55 @@ if (reduced) { Object.assign(target, states.calm); Object.assign(cur, states.cal
       /* the scene is the site's identity — reduced motion calms it (no chaos) but must not black it out.
      Visitors who want it gone have the customiser's low-power switch. */
       {
-  /* the page paints first; the GPU joins after load — a busy GPU during the critical path is exactly
-     what makes a site feel slow on weaker machines */
-  const _startScene = () => setTimeout(() => { try { frame(); } catch (e) { console.warn('[Arat] scene start failed', e); } }, 120);
-  if (document.readyState === 'complete') _startScene();
-  else addEventListener('load', _startScene, { once: true });
+  /* The page paints first, but NEVER wait for the load event: one stalled asset on a slow or filtered
+     connection would keep the 3D background from ever appearing. DOMContentLoaded + a hard deadline. */
+  let _started = false;
+  const _startScene = () => {
+    if (_started) return;
+    _started = true;
+    setTimeout(() => {
+      try { frame(); watchFps(); } catch (e) { console.warn('[Arat] scene start failed', e); }
+    }, 120);
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', _startScene, { once: true });
+    setTimeout(_startScene, 1500);                       // hard deadline, whatever else is still loading
+  } else { _startScene(); }
+}
+
+/* If this device cannot really draw it (software GL at a few fps), stop after 3s, remember that choice and
+   let the CSS gradient take over — instead of stuttering forever on every visit. */
+function watchFps(attempt) {
+  if (typeof window !== 'undefined' && window.ARAT_SCENE_FORCE === 'on') return;
+  /* only a software renderer is ever judged — a real GPU at low fps means something else is going on and
+     downgrading would punish a machine that is actually fine. */
+  if (gpuTier.indexOf('software:') !== 0) return;
+  /* ...and only after the first frame exists: measuring the warm-up (SwiftShader can take seconds to
+     produce frame #1) would judge a working scene as dead. */
+  if (renderer.info.render.frame < 2) {
+    if ((attempt || 0) < 150) requestAnimationFrame(() => watchFps((attempt || 0) + 1));
+    return;
+  }
+  const _t0 = performance.now(), _f0 = renderer.info.render.frame;
+  setTimeout(() => {
+    if (!running) return;
+    /* a hidden tab suspends rAF — measuring there would judge a fast machine as slow. Skip and re-arm
+       once the visitor is actually looking at the page. */
+    if (document.hidden) {
+      if (!attempt) {
+        document.addEventListener('visibilitychange', function once() {
+          if (!document.hidden) { document.removeEventListener('visibilitychange', once); watchFps(attempt || 1); }
+        });
+      }
+      return;
+    }
+    const secs = Math.max(1, (performance.now() - _t0) / 1000);
+    const fps = (renderer.info.render.frame - _f0) / secs;
+    if (fps < 8) {
+      try { localStorage.setItem('arat_3d_off', '1'); } catch (e) {}
+      fallback('slow-device: ' + Math.round(fps) + 'fps');
+    }
+  }, 3000);
 }
 /* leaving the page must stop the render loop at once — a software renderer left running makes the NEXT page feel dead while the browser tears it down */
 addEventListener('pagehide', () => { running = false; });

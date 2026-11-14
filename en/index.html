@@ -710,7 +710,11 @@ body.light .czsw, body.light .cztrk{background:rgba(10,15,20,.03);border-color:r
       }
     } catch (e) { tier = 'none'; }
     window.ARAT_GPU = tier;
-    var on = forced === 'on' || (forced !== 'off' && tier.indexOf('hw:') === 0);
+    var downgraded = false;
+    try { downgraded = localStorage.getItem('arat_3d_off') === '1'; } catch (e) {}
+    /* run unless WebGL is missing completely, or the scene downgraded itself once on this device
+       (a slow software renderer) — the panel's button clears that memory. */
+    var on = forced === 'on' || (forced !== 'off' && tier !== 'none' && !downgraded);
     window.ARAT_SCENE_ON = on;
     if (on) {
       var s = document.createElement('script');
@@ -721,10 +725,10 @@ body.light .czsw, body.light .cztrk{background:rgba(10,15,20,.03);border-color:r
       document.documentElement.classList.add('no-webgl');
       var mark = function () { if (document.body) document.body.classList.add('no-webgl'); };
       mark(); document.addEventListener('DOMContentLoaded', mark, { once: true });
-      window.AratScene = { fallback: true, reason: 'gpu-gate: ' + tier,
+      window.AratScene = { fallback: true, reason: downgraded ? 'slow-device (remembered)' : 'gpu-gate: ' + tier,
         reduced: matchMedia('(prefers-reduced-motion: reduce)').matches,
         running: function () { return false; }, setState: function () {}, pulse: function () {},
-        diag: function () { return { webgl: false, reason: 'gpu-gate: ' + tier, gpu: tier }; } };
+        diag: function () { return { webgl: false, reason: downgraded ? 'slow-device (remembered)' : 'gpu-gate: ' + tier, gpu: tier }; } };
     }
   })();
   </script>
@@ -1122,9 +1126,18 @@ body.light .czsw, body.light .cztrk{background:rgba(10,15,20,.03);border-color:r
       var op = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--scene-op'));
       if (isNaN(op)) op = 1;
       var t, fix = false;
-      if (noGl || (api && api.fallback)) {
-        t = en ? '3D is off in this browser (WebGL disabled) — the soft gradient background is showing instead.'
-               : 'سه‌بعدی تو این مرورگر خاموشه (WebGL غیرفعاله) — پس‌زمینهٔ گرادیانت ملایم جاش نشون داده می‌شه.';
+      var why = (api && api.reason) ? String(api.reason) : '';
+      if (/slow-device/.test(why)) {
+        t = en ? 'The 3D scene switched itself off here because it ran too slowly — the soft gradient is showing.'
+               : 'صحنهٔ سه‌بعدی اینجا خودش خاموش شد چون کند اجرا می‌شد — گرادیانت ملایم نشون داده می‌شه.';
+        fix = true;
+      } else if (noGl || why.indexOf('gpu-gate') === 0 || why.indexOf('no-webgl') === 0) {
+        t = en ? '3D is off in this browser (WebGL unavailable) — the soft gradient background is showing instead.'
+               : 'سه‌بعدی تو این مرورگر ممکن نیست (WebGL در دسترس نیست) — پس‌زمینهٔ گرادیانت ملایم نشون داده می‌شه.';
+      } else if (!window.ARAT_SCENE_ON) {
+        t = en ? 'The 3D scene switched itself off here (it ran too slowly) — the soft gradient is showing.'
+               : 'صحنهٔ سه‌بعدی روی این دستگاه خودش خاموش شد (خیلی کند اجرا می‌شد) — گرادیانت ملایم نشون داده می‌شه.';
+        fix = true;
       } else if (op <= 0.001) {
         t = en ? 'Background is off by your own setting (intensity 0 or low-power).'
                : 'پس‌زمینه با تنظیم خودت خاموشه (شدت صفر یا حالت کم‌مصرف).';
@@ -1138,15 +1151,21 @@ body.light .czsw, body.light .cztrk{background:rgba(10,15,20,.03);border-color:r
       if (_bgFix) { _bgFix.hidden = !fix; _bgFix.textContent = en ? 'Turn it back on' : 'روشنش کن'; }
     }
     if (_bgFix) _bgFix.addEventListener('click', function () {
+      /* either the visitor's own low-power choice, or the scene's own downgrade on a slow device */
+      try { localStorage.removeItem('arat_3d_off'); } catch (e) {}
       state.lowPower = false; state.bgOpacity = 1;
       var _b = document.getElementById('czBg'), _l = document.getElementById('czLow');
       if (_b) _b.value = 100;
       if (_l) _l.checked = false;
       if (typeof applyBg === 'function') applyBg();
+      if (!window.ARAT_SCENE_ON) { location.reload(); return; }   // bring the 3D back now that it is allowed
       bgStatus();
     });
     bgStatus();
-    setTimeout(bgStatus, 1200); setTimeout(bgStatus, 3200); setTimeout(bgStatus, 6500);
+    /* the 3D bundle can arrive late on a slow line — keep the status honest for ~18s */
+    var _bgTicks = 0;
+    var _bgIv = setInterval(function () { bgStatus(); if (++_bgTicks > 22) clearInterval(_bgIv); }, 800);
+    if (window.AratScene && window.AratScene.running && window.AratScene.running()) bgStatus();
 
   })();
     </script>

@@ -172,7 +172,11 @@
       }
     } catch (e) { tier = 'none'; }
     window.ARAT_GPU = tier;
-    var on = forced === 'on' || (forced !== 'off' && tier.indexOf('hw:') === 0);
+    var downgraded = false;
+    try { downgraded = localStorage.getItem('arat_3d_off') === '1'; } catch (e) {}
+    /* run unless WebGL is missing completely, or the scene downgraded itself once on this device
+       (a slow software renderer) — the panel's button clears that memory. */
+    var on = forced === 'on' || (forced !== 'off' && tier !== 'none' && !downgraded);
     window.ARAT_SCENE_ON = on;
     if (on) {
       var s = document.createElement('script');
@@ -183,10 +187,10 @@
       document.documentElement.classList.add('no-webgl');
       var mark = function () { if (document.body) document.body.classList.add('no-webgl'); };
       mark(); document.addEventListener('DOMContentLoaded', mark, { once: true });
-      window.AratScene = { fallback: true, reason: 'gpu-gate: ' + tier,
+      window.AratScene = { fallback: true, reason: downgraded ? 'slow-device (remembered)' : 'gpu-gate: ' + tier,
         reduced: matchMedia('(prefers-reduced-motion: reduce)').matches,
         running: function () { return false; }, setState: function () {}, pulse: function () {},
-        diag: function () { return { webgl: false, reason: 'gpu-gate: ' + tier, gpu: tier }; } };
+        diag: function () { return { webgl: false, reason: downgraded ? 'slow-device (remembered)' : 'gpu-gate: ' + tier, gpu: tier }; } };
     }
   })();
   </script>
