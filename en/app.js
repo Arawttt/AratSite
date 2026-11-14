@@ -16,13 +16,22 @@ if (window.Lenis && !prefersReduced) {
         const el = document.querySelector(id);
         if (el) {
           e.preventDefault();
-          /* lenis only exists when motion is allowed; on a phone with reduced-motion the old code threw
-             AFTER preventDefault, so tapping a menu item did nothing at all */
+          /* Two traps here, both hit real phones:
+             (1) lenis is only created when motion is allowed, so with reduced-motion lenis is null;
+             (2) opening the menu locks the page (body{overflow:hidden}), so scrolling BEFORE closeMenu()
+                 silently does nothing. Close first, then scroll on the next frame. */
           const y = el.getBoundingClientRect().top + window.scrollY - 80;
-          if (lenis) { try { lenis.scrollTo(el, { offset: -80 }); } catch (_) { window.scrollTo({ top: y, behavior: 'smooth' }); } }
-          else { window.scrollTo({ top: y, behavior: 'smooth' }); }
-          history.replaceState(null, '', id);
           closeMenu();
+          try { history.replaceState(null, '', id); } catch (_) {}
+          requestAnimationFrame(() => {
+            if (lenis) { try { lenis.scrollTo(el, { offset: -80 }); return; } catch (_) {} }
+            window.scrollTo({ top: y, behavior: 'smooth' });
+            /* last-resort: if the page still did not move, use the browser's own anchor jump */
+            setTimeout(() => {
+              const inView = el.getBoundingClientRect().top > -40 && el.getBoundingClientRect().top < window.innerHeight;
+              if (!inView && Math.abs(window.scrollY - y) > 120) { try { location.hash = id; } catch (_) {} }
+            }, 450);
+          });
         }
       }
     });
