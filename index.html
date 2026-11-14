@@ -1,470 +1,1316 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="آرات زارعی — طراح و توسعه‌دهندهٔ انواع وب‌سایت: پورتفولیو، شرکتی، فروشگاهی، لندینگ‌پیج، پنل مدیریت، ربات و مینی‌اپ تلگرام و اتوماسیون با هوش مصنوعی. نمونهٔ کار: همین سایت.">
-    <meta name="google-site-verification" content="bd0_8weFQlSKxmstVgZw4hO8_HCkbynQMTug8Sbu42o" />
-  <meta property="og:title" content="آرات زارعی | طراحی و ساخت انواع وب‌سایت و پورتفولیو">
-  <meta property="og:description" content="طراحی و ساخت انواع وب‌سایت: پورتفولیو، شرکتی، فروشگاهی، لندینگ‌پیج، پنل مدیریت، ربات و مینی‌اپ تلگرام.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://aratzareii.ir/">
-  <meta property="og:site_name" content="آرات زارعی">
-  <meta property="og:locale" content="fa_IR">
-  <meta property="og:image" content="https://aratzareii.ir/og-image.png">
-  <meta property="og:image:alt" content="آرات زارعی — طراح و توسعه‌دهندهٔ وب‌سایت">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="آرات زارعی | طراحی و ساخت انواع وب‌سایت و پورتفولیو">
-  <meta name="twitter:description" content="طراحی و ساخت انواع وب‌سایت: پورتفولیو، شرکتی، فروشگاهی، لندینگ‌پیج، پنل مدیریت، ربات و مینی‌اپ تلگرام.">
-  <meta name="twitter:image" content="https://aratzareii.ir/og-image.png">
-  <link rel="canonical" href="https://aratzareii.ir/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23101014'/%3E%3Ctext x='32' y='45' font-family='monospace' font-size='36' font-weight='800' fill='%23ef4444' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
-<title>آرات زارعی | توسعه‌دهندهٔ وب و ربات تلگرام</title>
-<meta name="theme-color" content="#050509">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>آرات زارعی | توسعه‌دهندهٔ وب و ربات تلگرام</title>
+  <meta name="description" content="آرات زارعی — طراح و توسعه‌دهندهٔ انواع وب‌سایت، پورتفولیو، ربات و مینی‌اپ تلگرام. از یک پورتفولیوی ساده تا فروشگاه و پنل مدیریت، با کد تمیز و تحویل به موقع." />
+  <meta name="theme-color" content="#050d0c" />
+  <meta property="og:title" content="آرات زارعی | توسعه‌دهندهٔ وب و ربات تلگرام" />
+  <meta property="og:description" content="وب‌سایت، ربات و مینی‌اپ تلگرام، پنل مدیریت و اتوماسیون هوش مصنوعی — طراحی، ساخت و پشتیبانی کامل." />
+  <meta property="og:type" content="website" />
+  <meta name="google-site-verification" content="bd0_8weFQlSKxmstVgZw4hO8_HCkbynQMTug8Sbu42o" />
+    <link rel="canonical" href="https://aratzareii.ir/" />
+    <link rel="alternate" hreflang="fa" href="https://aratzareii.ir/" />
+    <link rel="alternate" hreflang="en" href="https://aratzareii.ir/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://aratzareii.ir/" />
+    <meta property="og:url" content="https://aratzareii.ir/" />
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:image" content="https://aratzareii.ir/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23050d0c'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%237cf5d4'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./style.css" />
 <style>
-/* ============ GLOBAL DESIGN SYSTEM — cyberpunk premium ============ */
-:root{
-  --bg:#050509; --bg2:#080B18;
-  --purple:#7C3AED; --blue:#2563FF;
-  --ink:#F8FAFC; --ink2:#C7C9E4; --ink3:#8B8DB0;
-  --line:rgba(124,58,237,.22);
-  --glass:rgba(13,15,32,.55);
-  --glass2:rgba(20,23,48,.45);
-  --grad:linear-gradient(135deg,#7C3AED 0%,#2563FF 100%);
-  --radius:18px;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg); color:var(--ink); font-family:Vazirmatn,Tahoma,sans-serif; overflow-x:hidden; line-height:1.8}
-::selection{background:rgba(124,58,237,.4)}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-.wrap{max-width:1200px; margin:0 auto; padding:0 24px}
-
-/* ambient glows */
-.glow{position:absolute; border-radius:50%; filter:blur(90px); opacity:.25; pointer-events:none}
-.glow.g1{width:420px;height:420px;background:var(--purple); top:-120px; right:-100px}
-.glow.g2{width:380px;height:380px;background:var(--blue); bottom:-140px; left:-120px; opacity:.16}
-
-/* ============ header ============ */
-header{position:fixed; top:0; right:0; left:0; z-index:100; transition:.35s}
-header.scrolled{background:rgba(5,5,9,.82); backdrop-filter:blur(18px); border-bottom:1px solid rgba(124,58,237,.15); box-shadow:0 10px 40px -20px rgba(0,0,0,.8)}
-#hdr{background:rgba(5,5,9,.78); backdrop-filter:blur(18px) saturate(150%); -webkit-backdrop-filter:blur(18px) saturate(150%); border-bottom:1px solid rgba(255,255,255,.07)}
-.bar{display:flex; align-items:center; justify-content:space-between; height:72px}
-.logo{display:flex; align-items:center; gap:11px; font-weight:800; font-size:17px}
-.logo .sq{width:38px;height:38px;border-radius:11px;background:var(--grad);display:grid;place-items:center;
-  font-family:'Segoe UI',monospace; font-weight:800; font-size:15px; color:#fff; letter-spacing:.03em;
-  box-shadow:0 0 22px rgba(124,58,237,.45); transition:.3s}
-.logo:hover .sq{transform:rotate(-8deg) scale(1.05); box-shadow:0 0 30px rgba(124,58,237,.7)}
-.logo b{background:var(--grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
-nav.desk{display:flex; gap:4px}
-nav.desk a{padding:9px 15px; border-radius:999px; font-size:14.5px; font-weight:600; color:var(--ink2); transition:.25s}
-nav.desk a:hover{color:#fff; background:rgba(124,58,237,.14)}
-nav.desk a.on{color:#fff; background:rgba(124,58,237,.2); box-shadow:inset 0 0 0 1px rgba(124,58,237,.35)}
-.bar-right{display:flex; align-items:center; gap:10px}
-.hbtn{width:40px;height:40px;border-radius:11px;border:1px solid rgba(124,58,237,.3);background:rgba(13,15,32,.5);
-  color:var(--ink2);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:.25s;flex:none}
-.hbtn:hover{border-color:var(--purple); color:#fff; box-shadow:0 0 16px rgba(124,58,237,.35)}
-.hbtn svg{width:18px;height:18px}
-html:not(.dark-t) .hbtn svg.sun{display:none}
-html.dark-t .hbtn svg.moon{display:none}
-body.light #themeBtn svg.moon{display:none}
-body.light #themeBtn svg.sun{display:block!important}
-.btn-cta{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 20px;border-radius:999px;
-  background:var(--grad);color:#fff;font-weight:700;font-size:14px;box-shadow:0 6px 24px -8px rgba(124,58,237,.7);transition:.25s;white-space:nowrap;flex:none}
-.btn-cta:hover{transform:translateY(-2px); box-shadow:0 10px 30px -8px rgba(124,58,237,.9)}
-@media(max-width:879px){nav.desk{display:none}}
-@media(min-width:880px){#burger{display:none}}
-
-
-/* ============ mobile optimization ============ */
-@media(max-width:879px){
-  .wrap{padding:0 18px}
-  .bar{height:62px; gap:8px}
-  .logo{font-size:15px; gap:8px}
-  .logo .sq{width:32px;height:32px;font-size:13px;border-radius:9px}
-  .btn-cta{height:36px;padding:0 14px;font-size:12.5px}
-  .hbtn{width:36px;height:36px;border-radius:10px}
-  .bar-right{gap:7px}
-  .head-status{display:none}
-  .kick{font-size:12px;margin-bottom:14px;margin-top:52px}
-  h2.sec{font-size:23px}
-  .sec-sub{font-size:14.5px;margin-bottom:34px}
-  .gcard{border-radius:15px}
-  .glow{opacity:.16; filter:blur(70px)}
-  .glow.g1{width:260px;height:260px;top:-80px;right:-90px}
-  .glow.g2{width:240px;height:240px;bottom:-100px;left:-90px}
-}
-
-/* ============ shared components ============ */
-.kick{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.02em;color:#A78BFA;margin-bottom:18px}
-.kick::before{content:'';width:30px;height:2px;background:var(--grad);border-radius:2px}
-h2.sec{font-size:clamp(26px,3.6vw,40px);font-weight:800;line-height:1.35;margin-bottom:14px}
-h2.sec em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.sec-sub{color:var(--ink3);font-size:16px;max-width:560px;margin-bottom:54px}
-.gcard{background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);backdrop-filter:blur(14px);transition:.3s}
-.gcard:hover{border-color:rgba(124,58,237,.5); box-shadow:0 18px 50px -20px rgba(124,58,237,.35); transform:translateY(-4px)}
-.tag{display:inline-flex;align-items:center;padding:5px 13px;border-radius:999px;font-size:12.5px;font-weight:600;
-  background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.25);color:#C4B5FD}
-.reveal{opacity:1 !important; transform:none !important}
-.reveal.in{opacity:1;transform:none}
-
-/* ===== floating bottom nav (mobile) ===== */
-.botnav{display:none}
-@media(max-width:879px){
-  .botnav{position:fixed; z-index:95; bottom:calc(12px + env(safe-area-inset-bottom, 0px)); right:12px; left:12px;
-    display:flex; justify-content:space-around; align-items:stretch;
-    background:rgba(8,9,16,.78); backdrop-filter:blur(18px) saturate(140%); -webkit-backdrop-filter:blur(18px) saturate(140%);
-    border:1px solid;border-image:none; border-radius:20px; overflow:hidden;
-    box-shadow:0 14px 36px -14px rgba(0,0,0,.75)}
-  .botnav::before{content:''; position:absolute; inset:0; border-radius:20px; padding:1px; pointer-events:none;
-    background:linear-gradient(120deg, rgba(124,58,237,.55), rgba(37,99,255,.4), rgba(124,58,237,.3));
-    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude}
-  .botnav a{flex:1; display:flex; flex-direction:column; align-items:center; gap:3px; padding:10px 2px 9px;
-    text-decoration:none; color:var(--ink3); font-size:10.5px; font-weight:700; position:relative; transition:color .25s}
-  .botnav a svg{width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
-  .botnav a.on{color:#C4B5FD}
-  .botnav a.on::before{content:''; position:absolute; top:6px; width:32px; height:3px; border-radius:99px;
-    background:linear-gradient(90deg,#7C3AED,#2563FF)}
-  body{padding-bottom:86px}
-  footer{padding-bottom:8px}
-}
-@media(max-width:360px){ .botnav a{font-size:9.5px; padding:9px 1px 8px} }
-@media(prefers-reduced-motion:reduce){ .botnav a{transition:none} }
-
-/* accessibility: visible keyboard focus */
-a:focus-visible, button:focus-visible{outline:2px solid #A78BFA; outline-offset:3px; border-radius:8px}
-
+/* ===== intro (concept 1: terminal boot + AZ monogram) ===== */
+.intro{position:fixed;inset:0;z-index:95;display:none;place-items:center;background:var(--bg);overflow:hidden}
+.js .intro{display:grid}   /* no JS → the overlay never exists, nothing can trap the page */
+.intro::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 0%,#0a1a17 0%,transparent 60%)}
+.intro__glow{position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(90px);opacity:.28;pointer-events:none}
+.intro__glow--a{background:#7cf5d4;top:-160px;right:-120px;animation:introFloat 5s ease-in-out infinite alternate}
+.intro__glow--b{background:#2fd8bd;bottom:-180px;left:-140px;animation:introFloat 6s ease-in-out infinite alternate-reverse}
+@keyframes introFloat{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-24px,18px,0) scale(1.08)}}
+.intro__inner{position:relative;z-index:2;display:grid;justify-items:center;gap:18px;width:min(420px,86vw)}
+.intro__word{position:relative;margin:0;font-family:var(--f-display);font-weight:600;
+  font-size:clamp(54px,12vw,92px);line-height:1;letter-spacing:.01em;
+  filter:drop-shadow(0 6px 26px rgba(124,245,212,.30))}
+/* the gradient lives on the SPAN: a filter + background-clip:text on the SAME element
+   makes Chrome drop the text entirely (that is what made the word invisible) */
+.intro__word span{display:inline-block;clip-path:inset(0 100% -6% 0);
+  background-image:linear-gradient(92deg,#7cf5d4,#2fd8bd 60%,#8ff3ff);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent}
+.intro__pen{position:absolute;top:4%;bottom:0;left:0;width:2px;border-radius:2px;
+  background:linear-gradient(180deg,transparent,#7cf5d4,transparent);opacity:0;
+  box-shadow:0 0 12px rgba(124,245,212,.75)}
+.intro__brand{margin:0;font-family:var(--f-display);font-size:19px;letter-spacing:.02em;color:var(--ink);
+  opacity:0;transform:translateY(8px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.intro__brand span{color:var(--mint);font-family:var(--f-mono);font-size:16px}
+.intro__log{display:grid;gap:6px;width:100%;font-family:var(--f-mono);direction:ltr;unicode-bidi:isolate;
+  font-size:11.5px;letter-spacing:.04em;color:var(--muted);margin-top:6px}
+.intro__log p{margin:0;display:flex;gap:8px;align-items:baseline;opacity:0;transform:translateY(6px);
+  transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.intro__log p.shown{opacity:1;transform:none}
+.intro__log .mk{color:var(--mint)}
+.intro__log i{margin-inline-start:auto;color:var(--mint);font-style:normal}
+.intro__log .rd{color:var(--mint)}
+.intro__bar{width:100%;height:1px;background:rgba(255,255,255,.09);position:relative;overflow:hidden}
+.intro__bar span{position:absolute;inset:0 auto 0 0;width:0;background:linear-gradient(90deg,var(--mint),var(--aqua))}
+.intro__foot{display:flex;justify-content:space-between;width:100%;font-size:11px;color:var(--muted);font-family:var(--f-mono)}
+.intro.gone{clip-path:inset(0 0 100% 0);transition:clip-path .8s cubic-bezier(.22,1,.36,1)}
+.intro.fade .intro__inner{opacity:0;transform:scale(1.04);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+body.intro-lock{overflow:hidden}
+@media (prefers-reduced-motion: reduce){.intro{display:none}}
 </style>
-
+<script>
+/* Arat.dev — customiser: apply the saved skin before first paint */
+(function () {
+  try {
+    var c = JSON.parse(localStorage.getItem('arat_custom') || '{}');
+    if (c && c.theme) {
+      var T = {
+        mint:   { '--mint': '#7cf5d4', '--aqua': '#2fd8bd', '--teal': '#0e8f7d', '--bg': '#050d0c',
+                  '--bg-2': '#081614', '--ink': '#e9f5f1', '--ink-2': '#b9cdc7',
+                  '--line': '#beffeb1a', '--line-2': '#beffeb2e', '--glass': '#0e201d8c', '--glass-2': '#142c28b3' },
+        violet: { '--mint': '#b39dff', '--aqua': '#7c5cff', '--teal': '#4c1d95', '--bg': '#07060f',
+                  '--bg-2': '#0b0a18', '--ink': '#f1eefc', '--ink-2': '#c9c2e6',
+                  '--line': '#b39dff1f', '--line-2': '#b39dff33', '--glass': '#1712338c', '--glass-2': '#1d1846b3' },
+        ocean:  { '--mint': '#7cd8f5', '--aqua': '#2fa8d8', '--teal': '#0e6a8f', '--bg': '#04070f',
+                  '--bg-2': '#071220', '--ink': '#e8f4fb', '--ink-2': '#adc4d4',
+                  '--line': '#7cd8f51f', '--line-2': '#7cd8f533', '--glass': '#0a1d2b8c', '--glass-2': '#0d2a3db3' },
+        amber:  { '--mint': '#ffd084', '--aqua': '#ffb44f', '--teal': '#8a5a12', '--bg': '#0d0805',
+                  '--bg-2': '#161009', '--ink': '#fdf3e6', '--ink-2': '#dbc9b0',
+                  '--line': '#ffd0841f', '--line-2': '#ffd08433', '--glass': '#2a1c0a8c', '--glass-2': '#33220fb3' }
+      }[c.theme];
+      var r = document.documentElement.style;
+      for (var k in T) r.setProperty(k, T[k]);
+      if (c.accent) r.setProperty('--mint', c.accent);
+      if (c.bgOpacity != null) r.setProperty('--scene-op', c.bgOpacity);
+      if (c.lowPower) r.setProperty('--scene-op', '0');
+    }
+  } catch (e) {}
+})();
+</script>
 <style>
-/* ====== HERO SECTION (page 1) ====== */
-main{position:relative; overflow:hidden; padding:130px 0 50px}
-#home .wrap{position:relative; z-index:2}
-.status-badge{display:inline-flex; align-items:center; gap:9px; padding:8px 18px; border-radius:999px;
-  border:1px solid rgba(124,58,237,.35); background:rgba(13,15,32,.55); font-size:13.5px; font-weight:700; color:#C7C9E4; margin-bottom:26px}
-.status-badge i{width:8px; height:8px; border-radius:50%; background:#34D399; box-shadow:0 0 10px #34D399, 0 0 0 4px rgba(52,211,153,.15); animation:pulse 2s infinite}
-@keyframes pulse{50%{box-shadow:0 0 16px #34D399, 0 0 0 7px rgba(52,211,153,.08)}}
-.hero-h1{font-size:clamp(30px,4.6vw,54px); font-weight:900; line-height:1.5; margin-bottom:20px}
-.hero-h1 .grad{background:linear-gradient(120deg,#A78BFA 0%,#60A5FA 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
-.hero-sub{font-size:clamp(16px,2vw,20px); color:#E6E6F5; font-weight:600; margin-bottom:16px}
-.hero-p{color:#8B8DB0; font-size:15.5px; max-width:560px; margin-bottom:26px}
-.hero-cta{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:34px}
-.btn-primary{display:inline-flex; align-items:center; gap:9px; height:50px; padding:0 28px; border-radius:14px;
-  background:var(--grad); color:#fff; font-weight:800; font-size:15.5px;
-  box-shadow:0 8px 32px -6px rgba(124,58,237,.65), inset 0 1px 0 rgba(255,255,255,.25); transition:.28s}
-.btn-primary:hover{transform:translateY(-3px); box-shadow:0 14px 44px -6px rgba(124,58,237,.85)}
-.btn-ghost{display:inline-flex; align-items:center; gap:9px; height:50px; padding:0 26px; border-radius:14px;
-  border:1.5px solid rgba(124,58,237,.45); color:#E6E6F5; font-weight:700; font-size:15px; background:rgba(13,15,32,.4); transition:.28s}
-.btn-ghost:hover{border-color:var(--blue); color:#fff; box-shadow:0 0 24px -4px rgba(37,99,255,.4); transform:translateY(-3px)}
-.btn-ghost svg{width:19px; height:19px; fill:#60A5FA}
-.hero-split{display:block}
-@media(min-width:1000px){
-  .hero-split{grid-template-columns:1.02fr .98fr; gap:52px; align-items:center; min-height:520px}
+/* ===== customiser (round button + glass panel) ===== */
+.cz{position:fixed;left:14px;top:14px;z-index:88;direction:rtl}
+  .cz--en{direction:ltr}   /* JS anchors it next to the header CTA */
+.cz__btn{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;cursor:pointer;
+  background:rgba(11,13,26,.46);backdrop-filter:blur(22px) saturate(170%);-webkit-backdrop-filter:blur(22px) saturate(170%);
+  border:1px solid rgba(255,255,255,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 8px 26px rgba(0,0,0,.4);
+  color:var(--mint);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.cz__btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6}
+.cz__btn:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 12px 32px rgba(0,0,0,.5)}
+.cz__btn[aria-expanded="true"]{color:#fff;border-color:var(--mint)}
+.czp{position:fixed;left:14px;top:70px;width:min(330px,calc(100vw - 28px));
+  max-height:min(74vh, 640px);overflow:auto;overscroll-behavior:contain;
+  padding:16px 16px 12px;border-radius:20px;background:rgba(9,13,20,.72);
+  backdrop-filter:blur(26px) saturate(180%);-webkit-backdrop-filter:blur(26px) saturate(180%);
+  border:1px solid rgba(255,255,255,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 22px 60px rgba(0,0,0,.55);
+  color:var(--ink);font-family:var(--f-body);z-index:89}
+.czp[hidden]{display:none}
+.czp__head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+.czp__head strong{font-size:14.5px;font-weight:700}
+.czp__x{background:none;border:0;color:var(--muted);font-size:22px;line-height:1;cursor:pointer;padding:0 4px}
+.czp__sec{padding:10px 0;border-top:1px solid rgba(255,255,255,.08)}
+.czp__sec:first-of-type{border-top:0}
+.czp__t{margin:0 0 8px;font-size:11px;letter-spacing:.06em;color:var(--muted);font-family:var(--f-mono);direction:rtl}
+.czp__themes{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.czsw{display:grid;gap:5px;justify-items:center;padding:8px 4px;border-radius:14px;cursor:pointer;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);color:var(--ink-2);font-size:10px}
+.czsw i{width:18px;height:18px;border-radius:50%;display:block;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)}
+.czsw[data-theme="mint"] i{background:linear-gradient(135deg,#7cf5d4,#2fd8bd)}
+.czsw[data-theme="violet"] i{background:linear-gradient(135deg,#b39dff,#7c5cff)}
+.czsw[data-theme="ocean"] i{background:linear-gradient(135deg,#7cd8f5,#2fa8d8)}
+.czsw[data-theme="amber"] i{background:linear-gradient(135deg,#ffd084,#ffb44f)}
+.czsw.is-on{border-color:var(--mint);background:rgba(255,255,255,.08)}
+.czp__row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:8px 0;font-size:12px;color:var(--ink-2)}
+.czp__row--chk span{max-width:190px}
+.czp__row input[type=range]{width:130px;accent-color:var(--mint)}
+.czp__row input[type=color]{width:44px;height:26px;border:1px solid rgba(255,255,255,.16);border-radius:8px;background:none}
+.czp__tracks{display:grid;gap:6px}
+.cztrk{display:grid;grid-template-columns:16px 54px 1fr;align-items:center;gap:8px;text-align:start;
+  padding:9px 10px;border-radius:12px;cursor:pointer;background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.08);color:var(--ink);font-family:var(--f-body)}
+.cztrk b{font-size:12.5px}
+.cztrk span{font-size:10.5px;color:var(--muted)}
+.cztrk.is-on{border-color:var(--mint);background:rgba(255,255,255,.07)}
+.cztrk__ico{width:0;height:0;border-style:solid;border-width:6px 0 6px 9px;border-color:transparent transparent transparent var(--mint)}
+.cztrk.is-on .cztrk__ico{width:9px;height:11px;border:0;background:
+  linear-gradient(var(--mint),var(--mint)) 0 0/3px 100% no-repeat,
+  linear-gradient(var(--mint),var(--mint)) 6px 0/3px 100% no-repeat}
+.czp__hint{margin:6px 0 0;font-size:10.5px;color:var(--muted)}
+.czp__foot{margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.08)}
+.czp__reset{width:100%;padding:9px;border-radius:12px;cursor:pointer;font-family:var(--f-body);font-size:12px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:var(--ink-2)}
+.czp__reset:hover{color:var(--ink);border-color:var(--mint)}
+#scene{opacity:var(--scene-op,1);transition:opacity .5s var(--ease)}
+body.light .cz__btn{background:rgba(255,255,255,.6);border-color:rgba(10,15,20,.12);color:#0e8f7d}
+body.light .czp{background:rgba(248,250,252,.86);border-color:rgba(10,15,20,.1);color:#101519}
+body.light .czsw, body.light .cztrk{background:rgba(10,15,20,.03);border-color:rgba(10,15,20,.1)}
+@media (max-width:640px){
+  .czp{width:calc(100vw - 28px);max-height:76vh;overflow:auto}
+  .czp__themes{grid-template-columns:repeat(4,1fr)}
 }
-/* feature strip — iOS liquid glass */
-.features{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; padding-bottom:30px}
-.fcard{position:relative; padding:26px 22px; border-radius:26px; overflow:hidden;
-  background:linear-gradient(160deg, rgba(255,255,255,.09), rgba(255,255,255,.03) 45%, rgba(124,58,237,.06));
-  border:1px solid rgba(255,255,255,.16);
-  backdrop-filter:blur(22px) saturate(160%); -webkit-backdrop-filter:blur(22px) saturate(160%);
-  box-shadow:0 20px 50px -20px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.25), inset 0 -1px 0 rgba(255,255,255,.05);
-  transition:.35s cubic-bezier(.2,.8,.3,1)}
-.fcard::before{content:''; position:absolute; top:0; left:8%; right:8%; height:1px;
-  background:linear-gradient(90deg, transparent, rgba(255,255,255,.65), transparent)}
-.fcard::after{content:''; position:absolute; top:-40%; right:-20%; width:70%; height:120%; pointer-events:none;
-  background:radial-gradient(closest-side, rgba(124,58,237,.18), transparent);
-  opacity:.8; transition:.4s}
-.fcard:hover{transform:translateY(-6px) scale(1.02); border-color:rgba(255,255,255,.3);
-  box-shadow:0 30px 60px -22px rgba(0,0,0,.7), 0 0 40px -12px rgba(124,58,237,.5), inset 0 1px 0 rgba(255,255,255,.3)}
-.fcard:hover::after{opacity:1}
-.fcard .ic{width:52px; height:52px; border-radius:16px; margin-bottom:16px;
-  background:linear-gradient(150deg, rgba(124,58,237,.5), rgba(37,99,255,.4));
-  border:1px solid rgba(255,255,255,.25); display:grid; place-items:center;
-  box-shadow:0 8px 24px -10px rgba(124,58,237,.8), inset 0 1px 0 rgba(255,255,255,.35)}
-.fcard .ic::before{content:''; position:absolute;}
-.fcard .ic svg{width:24px; height:24px; stroke:#fff; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; filter:drop-shadow(0 0 6px rgba(255,255,255,.4))}
-.fcard b{display:block; font-size:15.5px; font-weight:800; color:#fff; margin-bottom:5px}
-.fcard span{display:block; font-size:12.5px; color:rgba(230,230,245,.65); line-height:1.7}
-@media(max-width:980px){ .features{grid-template-columns:repeat(2,1fr); gap:14px} }
-@media(max-width:520px){
-  .features{grid-template-columns:1fr 1fr; gap:11px; padding-bottom:20px}
-  .fcard{padding:18px 15px; border-radius:20px}
-  .fcard .ic{width:42px;height:42px;border-radius:13px;margin-bottom:12px}
-  .fcard .ic svg{width:20px;height:20px}
-  .fcard b{font-size:13.5px}
-  .fcard span{font-size:11.5px}
-}
-
-/* circuit lines */
-.circuits{position:absolute; inset:0; z-index:1; opacity:.5; pointer-events:none;
-  background-image:linear-gradient(rgba(37,99,255,.10) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,255,.10) 1px, transparent 1px);
-  background-size:44px 44px;
-  -webkit-mask-image:radial-gradient(ellipse 65% 60% at 50% 40%, black 20%, transparent 75%);
-  mask-image:radial-gradient(ellipse 65% 60% at 50% 40%, black 20%, transparent 75%)}
-@media(max-width:999px){ main{padding-top:110px} }
-@media(max-width:879px){
-  .hero-h1{font-size:26px}
-  .hero-p{font-size:14.5px}
-  .btn-primary,.btn-ghost{height:44px; padding:0 20px; font-size:13.5px}
-  .hero-cta{margin-bottom:40px}
-  .fcard{padding:15px 16px; gap:11px}
-  .fcard .ic{width:38px;height:38px;border-radius:11px}
-  .fcard b{font-size:13.5px} .fcard span{display:none}
-}
-
-/* ===== design refinement pass ===== */
-:root{--radius:14px; --brd:rgba(255,255,255,.09); --card:rgba(255,255,255,.028)}
-body{-webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
-h2.sec{font-size:clamp(23px,2.6vw,30px); font-weight:800; letter-spacing:-.2px; margin-bottom:8px}
-.sec-sub{font-size:14.5px; max-width:520px; line-height:1.9}
-.kick{font-size:11.5px; padding:5px 12px; border-color:rgba(124,58,237,.3); background:rgba(124,58,237,.07)}
-/* calmer generic card feel — applied where possible */
-.bar{background:rgba(5,5,9,.8); border-bottom:1px solid rgba(255,255,255,.06)}
-.btn-cta{box-shadow:0 4px 14px -6px rgba(124,58,237,.5)}
-/* strip heavy glass on strip cards (p1) */
-.fcard{border-radius:16px; background:linear-gradient(170deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
-  border:1px solid var(--brd); box-shadow:0 10px 30px -18px rgba(0,0,0,.55)}
-.fcard::before{display:none}
-.fcard:hover{transform:translateY(-3px); box-shadow:0 16px 40px -20px rgba(0,0,0,.65), 0 0 0 1px rgba(124,58,237,.25)}
-.fcard:hover::after{opacity:.5}
-.fcard .ic{border-radius:11px; box-shadow:none}
-/* divider between sections: thinner & quieter (p3) */
-.divider{margin:56px 0 48px; box-shadow:none; opacity:.6}
-.divider::after{box-shadow:none}
-/* card hover subtlety (p3/p4) */
-.kcard,.scard,.pcard{border-radius:16px}
-.kcard:hover,.scard:hover,.pcard:hover{box-shadow:0 18px 44px -24px rgba(0,0,0,.7), 0 0 0 1px rgba(124,58,237,.28)}
-/* trust panel & terminal: solid, not glassy */
-.trust{border-radius:16px; box-shadow:0 14px 36px -22px rgba(0,0,0,.7)}
-.term{border-radius:14px; box-shadow:0 14px 40px -24px rgba(0,0,0,.8)}
-.contact-card{border-radius:18px; box-shadow:0 18px 50px -30px rgba(0,0,0,.75), 0 0 40px -24px rgba(124,58,237,.25)}
-.chan{border-radius:13px}
-/* typography rhythm */
-p{line-height:1.95}
-.bio p{font-size:15.5px; line-height:2.05}
-.svc-item{border-radius:10px; padding:11px 14px; font-size:14px}
-.step,.sig{border-radius:16px}
-@media(max-width:879px){
-  h2.sec{font-size:21px}
-  .btn-cta{display:none}
-  .wrap{padding:0 18px}
-  section.pg{padding:96px 0 56px}
-}
-@media(prefers-reduced-motion:reduce){
-  *{animation-duration:.01s !important; transition-duration:.01s !important}
-}
-
-@media (max-width:879px){
-/* ===== botnav — دقیقاً سبک مینی‌اپ Diaz (لیکوئید گلس فشرده) ===== */
-.botnav{left:0;right:0;bottom:calc(8px + env(safe-area-inset-bottom));width:calc(100% - 26px);max-width:344px;margin:0 auto;
-  display:flex;gap:3px;padding:5px;padding-bottom:max(5px,env(safe-area-inset-bottom));border-radius:999px;
-  border:1px solid rgba(255,255,255,.34);border-top-color:rgba(255,255,255,.78);
-  background:linear-gradient(180deg,rgba(255,255,255,.27),rgba(255,255,255,.08) 46%,rgba(255,255,255,.17));
-  backdrop-filter:blur(46px) saturate(250%);-webkit-backdrop-filter:blur(46px) saturate(250%);
-  box-shadow:inset 0 1.6px 0 rgba(255,255,255,.9),inset 0 -2px 0 rgba(255,255,255,.22),inset 0 -18px 32px rgba(0,0,0,.36),0 22px 46px rgba(0,0,0,.6),0 2px 7px rgba(0,0,0,.45)}
-.botnav a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
-  padding:6px 4px 5px;border-radius:17px;font-size:9.5px;font-weight:500;color:rgba(255,255,255,.82);
-  text-shadow:0 1px 4px rgba(0,0,0,.55);text-decoration:none;border:1px solid transparent;transition:.25s}
-.botnav a svg{width:21px;height:21px;display:block;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.botnav a:active{transform:scale(.93)}
-.botnav a.on{color:#fff;border-color:rgba(255,255,255,.55);
-  background:linear-gradient(160deg,rgba(255,255,255,.44),rgba(255,255,255,.16));
-  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.9),inset 0 -9px 16px rgba(0,0,0,.22),0 8px 20px rgba(0,0,0,.38),0 0 22px rgba(167,139,250,.42)}
-.botnav a.on svg{transform:translateY(-1px) scale(1.14);filter:drop-shadow(0 0 8px rgba(167,139,250,.75))}
-}
-
-
-/* ===== light theme (real toggle) ===== */
-body.light{--bg:#F4F5FB; --bg2:#ECEEF8; --ink:#141628; --ink2:#3A3E5C; --ink3:#5C6080;
-  --glass:rgba(255,255,255,.72); --card:rgba(255,255,255,.85)}
-body.light{background:linear-gradient(180deg,var(--bg),var(--bg2)); color:var(--ink)}
-body.light header, body.light .bar{background:rgba(244,245,251,.85)!important; border-bottom-color:rgba(20,22,40,.1)!important}
-body.light header *{color:var(--ink)}
-body.light .btn-cta{background:var(--grad); color:#fff}
-body.light .hbtn{color:var(--ink); border-color:rgba(20,22,40,.18)}
-body.light section, body.light main, body.light .pg{background:transparent}
-body.light h1, body.light h2, body.light h3, body.light .sec, body.light .kick{color:var(--ink)}
-body.light .sec-sub, body.light p, body.light span, body.light li, body.light a{color:var(--ink2)}
-body.light nav.desk a{color:var(--ink2)}
-body.light nav.desk a.on{color:var(--ink)}
-body.light .fcard, body.light .kcard, body.light .bio, body.light .panel, body.light .commit, body.light .step,
-body.light .pcard, body.light .chan, body.light .term{background:rgba(255,255,255,.9)!important;
-  border-color:rgba(20,22,40,.12)!important; box-shadow:0 14px 34px -22px rgba(30,30,70,.35)!important}
-body.light .fcard *, body.light .kcard *, body.light .pcard *, body.light .chan *{color:var(--ink2)}
-body.light .fcard h3, body.light .kcard h3, body.light .pcard h3, body.light .chan h3{color:var(--ink)}
-body.light footer{background:rgba(244,245,251,.9); border-top-color:rgba(20,22,40,.1)}
-body.light footer *{color:var(--ink2)}
-body.light .botnav{background:rgba(255,255,255,.75); border-color:rgba(20,22,40,.15);
-  box-shadow:0 18px 40px -18px rgba(30,30,70,.35)}
-body.light .botnav a{color:var(--ink2)}
-body.light .botnav a.on{color:var(--ink); background:rgba(124,58,237,.12)}
-body.light .viz img, body.light .scene img{filter:none}
-body.light .glow{opacity:.35}
-
-footer{border-top:1px solid rgba(255,255,255,.07); padding:34px 0 40px; margin-top:70px}
-.fwrap{max-width:1200px; margin:0 auto; padding:0 24px; display:flex; align-items:center; justify-content:space-between}
-.fwrap .copy{font-size:13px; color:var(--ink2,#B9BBD4)}
-.fwrap .copy b{color:var(--ink2,#B9BBD4)}
-.fwrap .azmin{font-weight:900; letter-spacing:1px; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent}
-
-
-/* ===== EN / LTR mode ===== */
-html[dir="ltr"] body{text-align:left}
-html[dir="ltr"] nav.desk, html[dir="ltr"] .bar-in, html[dir="ltr"] #hdr .wrap{direction:ltr}
-html[dir="ltr"] .botnav{direction:ltr}
-html[dir="ltr"] footer, html[dir="ltr"] .fwrap{direction:ltr}
-html[dir="ltr"] section, html[dir="ltr"] main, html[dir="ltr"] footer{text-align:left}
-html[dir="ltr"] .botnav a{font-family:inherit}
-html[dir="ltr"] .sec, html[dir="ltr"] .kick, html[dir="ltr"] p, html[dir="ltr"] h1, html[dir="ltr"] h2, html[dir="ltr"] h3{text-align:left}
-html[dir="ltr"] .hero p{text-align:left}
-html[dir="ltr"] .sec-sub{text-align:left}
-html[dir="ltr"] body{font-family:Vazirmatn,system-ui,sans-serif}
-
-
-
-/* ===== unified footer (all pages) ===== */
-.fwrap{max-width:1200px; margin:0 auto; padding:0 24px; display:flex; align-items:center;
-  justify-content:space-between; gap:14px; flex-wrap:wrap}
-.fwrap .copy{font-size:12.8px; color:var(--ink2,#B9BBD4)}
-.fwrap .foot-link{font-size:12.5px}
-.fwrap .foot-link a{color:#C4B5FD; text-decoration:none; border-bottom:1px solid rgba(196,181,253,.35)}
-.fwrap .foot-link a:hover{color:#fff; border-bottom-color:rgba(255,255,255,.5)}
-.fwrap .azmin{font-weight:900; font-size:15px; letter-spacing:1px; background:var(--grad);
-  -webkit-background-clip:text; background-clip:text; color:transparent}
-body.light .fwrap .foot-link a{color:#7C3AED; border-bottom-color:rgba(124,58,237,.4)}
-@media(max-width:560px){
-  .fwrap{justify-content:center; text-align:center; row-gap:8px}
-  .fwrap .copy{order:1; width:100%}
-  .fwrap .foot-link{order:2}
-  .fwrap .azmin{order:3}
-}
+@media (prefers-reduced-motion: reduce){ .cz__btn{transition:none} }
 </style>
+<style>
+  /* ===== chat (AI assistant) ===== */
+  .ch{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:86;direction:rtl}
+  .ch--en{direction:ltr}
+  .ch__btn{position:relative;display:grid;place-items:center;width:56px;height:56px;border-radius:50%;
+    border:1px solid color-mix(in srgb,var(--mint,#7cf5d4) 45%,transparent);cursor:pointer;
+    background:radial-gradient(circle at 32% 26%,color-mix(in srgb,var(--mint,#7cf5d4) 42%,transparent),transparent 68%),
+      rgba(9,13,20,.86);color:var(--mint,#7cf5d4);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    box-shadow:0 14px 34px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.07);
+    transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+  .ch__btn:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 18px 40px rgba(0,0,0,.5)}
+  .ch__btn svg{width:26px;height:26px}
+  .ch__ping{position:absolute;top:6px;inset-inline-end:6px;width:9px;height:9px;border-radius:50%;
+    background:var(--mint,#7cf5d4);box-shadow:0 0 0 3px rgba(9,13,20,.7);animation:chPing 2.6s ease-in-out infinite}
+  @keyframes chPing{0%,100%{opacity:.35;transform:scale(.85)}50%{opacity:1;transform:scale(1)}}
+  .ch--on .ch__ping{display:none}
+  .chp[hidden]{display:none}   /* a class rule with display beats the [hidden] attribute — pin it shut */
+  .chp{position:fixed;right:18px;bottom:calc(86px + env(safe-area-inset-bottom,0px));
+    width:min(372px,calc(100vw - 28px));height:min(68vh,548px);display:flex;flex-direction:column;
+    border:1px solid var(--line-2,rgba(255,255,255,.12));border-radius:22px;overflow:hidden;
+    background:linear-gradient(180deg,rgba(12,17,25,.94),rgba(8,11,17,.96));
+    backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+    box-shadow:0 26px 70px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.06);
+    animation:chIn .28s cubic-bezier(.2,.8,.2,1)}
+  @keyframes chIn{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+  .chp__head{display:flex;align-items:center;gap:10px;padding:12px 12px 12px 14px;
+    border-bottom:1px solid var(--line,rgba(255,255,255,.08));background:rgba(255,255,255,.02)}
+  .chp__ava{display:grid;place-items:center;width:34px;height:34px;flex:0 0 34px;border-radius:11px;
+    color:var(--mint,#7cf5d4);background:color-mix(in srgb,var(--mint,#7cf5d4) 14%,transparent);
+    border:1px solid color-mix(in srgb,var(--mint,#7cf5d4) 30%,transparent)}
+  .chp__ava svg{width:19px;height:19px}
+  .chp__who{display:flex;flex-direction:column;gap:2px;flex:1;min-width:0}
+  .chp__who b{font-size:14px;font-weight:700;color:var(--ink,#eaf2f0)}
+  .chp__who em{font-size:11px;font-style:normal;color:var(--ink-2,rgba(234,242,240,.6));
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .chp__x{width:30px;height:30px;border-radius:9px;border:1px solid var(--line,rgba(255,255,255,.1));
+    background:transparent;color:var(--ink-2,rgba(234,242,240,.7));font-size:17px;line-height:1;cursor:pointer}
+  .chp__x:hover{color:var(--ink,#eaf2f0);background:rgba(255,255,255,.05)}
+  .chp__log{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:14px 12px 6px;
+    display:flex;flex-direction:column;gap:9px;scrollbar-width:thin}
+  .chb{max-width:86%;padding:10px 12px;border-radius:14px;font-size:13.5px;line-height:1.72;
+    white-space:pre-wrap;word-break:break-word;animation:chIn .2s ease-out}
+  .chb--me{align-self:flex-end;background:color-mix(in srgb,var(--mint,#7cf5d4) 18%,rgba(255,255,255,.03));
+    color:var(--ink,#eaf2f0);border:1px solid color-mix(in srgb,var(--mint,#7cf5d4) 32%,transparent);
+    border-end-start-radius:15px}
+  .chb--ai{align-self:flex-start;background:rgba(255,255,255,.035);color:var(--ink,#eaf2f0);
+    border:1px solid var(--line,rgba(255,255,255,.08));border-end-end-radius:15px}
+  .chb--ai b{color:var(--mint,#7cf5d4)}
+  .chb--err{border-color:rgba(255,120,120,.35);background:rgba(255,90,90,.08)}
+  .chb__dots{display:inline-flex;gap:4px;align-items:center;height:14px}
+  .chb__dots i{width:6px;height:6px;border-radius:50%;background:var(--mint,#7cf5d4);opacity:.5;
+    animation:chDot 1.1s infinite}
+  .chb__dots i:nth-child(2){animation-delay:.16s}.chb__dots i:nth-child(3){animation-delay:.32s}
+  @keyframes chDot{0%,100%{transform:translateY(0);opacity:.35}50%{transform:translateY(-3px);opacity:1}}
+  .chp__chips{display:flex;flex-wrap:wrap;gap:7px;padding:2px 12px 10px}
+  .chp__chip{font:inherit;font-size:12px;padding:7px 11px;border-radius:999px;cursor:pointer;
+    color:var(--ink-2,rgba(234,242,240,.75));background:rgba(255,255,255,.03);
+    border:1px solid var(--line,rgba(255,255,255,.1));transition:all .2s}
+  .chp__chip:hover{color:var(--ink,#eaf2f0);border-color:color-mix(in srgb,var(--mint,#7cf5d4) 45%,transparent);
+    background:color-mix(in srgb,var(--mint,#7cf5d4) 12%,transparent)}
+  .chp__form{display:flex;gap:8px;align-items:center;padding:0 12px 10px}
+  .chp__in{flex:1;min-width:0;padding:11px 13px;border-radius:13px;font:inherit;font-size:13.5px;
+    color:var(--ink,#eaf2f0);background:rgba(255,255,255,.04);border:1px solid var(--line-2,rgba(255,255,255,.12))}
+  .chp__in::placeholder{color:var(--ink-2,rgba(234,242,240,.45))}
+  .chp__in:focus{outline:none;border-color:color-mix(in srgb,var(--mint,#7cf5d4) 50%,transparent);
+    box-shadow:0 0 0 3px color-mix(in srgb,var(--mint,#7cf5d4) 14%,transparent)}
+  .chp__send{display:grid;place-items:center;width:42px;height:42px;flex:0 0 42px;border-radius:13px;cursor:pointer;
+    border:1px solid color-mix(in srgb,var(--mint,#7cf5d4) 40%,transparent);color:#08131a;
+    background:linear-gradient(180deg,var(--mint,#7cf5d4),color-mix(in srgb,var(--mint,#7cf5d4) 72%,#0b3));
+    transition:transform .2s,filter .2s}
+  .chp__send:hover{transform:translateY(-1px);filter:brightness(1.06)}
+  .chp__send:disabled{opacity:.5;cursor:default;transform:none}
+  .chp__send svg{width:19px;height:19px}
+  .chp__note{margin:0;padding:0 14px 12px;font-size:10.5px;line-height:1.7;color:var(--ink-2,rgba(234,242,240,.45))}
+  @media (max-width:640px){
+    .ch{right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+    .ch__btn{width:52px;height:52px}
+    .chp{right:10px;left:10px;width:auto;height:min(74vh,600px);bottom:calc(78px + env(safe-area-inset-bottom,0px))}
+    .chb{max-width:92%;font-size:14px}
+  }
+</style>
+<style>
 
+  /* ===== language switch ===== */
+  .langsw{flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;padding:9px 13px;border-radius:999px;
+    border:1px solid var(--line-2,rgba(255,255,255,.12));background:rgba(255,255,255,.05);
+    color:var(--ink-2,rgba(234,242,240,.72));font-family:var(--f-body,inherit);font-size:13px;font-weight:600;
+    letter-spacing:.02em;text-decoration:none;transition:color .25s,border-color .25s,background .25s,transform .25s}
+  .langsw svg{width:15px;height:15px;flex:0 0 15px}
+  .langsw:hover{color:var(--ink,#eaf2f0);transform:translateY(-1px);
+    border-color:color-mix(in srgb,var(--mint,#7cf5d4) 45%,transparent);
+    background:color-mix(in srgb,var(--mint,#7cf5d4) 10%,transparent)}
+  @media (max-width:860px){.langsw{padding:8px 11px;font-size:12.5px;gap:6px}.langsw svg{width:14px;height:14px}}
+  @media (max-width:520px){.langsw span{display:none}.langsw{padding:9px 10px}}
+</style>
+<script>window.ARAT_CHAT_DISABLED = 1;</script>
 </head>
 <body>
-<header id="hdr">
-  <div class="wrap bar">
-    <a class="logo" href="/"><span class="sq">AZ</span> <b>آرات زارعی</b></a>
-    <nav class="desk">
-      <a href="/" class="on">خانه</a>
-      <a href="/about/">درباره من</a>
-      <a href="/skills/">مهارت‌ها</a>
-      <a href="/projects/">نمونه‌کارها</a>
-      <a href="/contact/">تماس با من</a>
-    </nav>
-    <div class="bar-right">
-      <button class="hbtn" id="themeBtn" aria-label="حالت تیره/روشن">
-        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a7 7 0 0 0 11 11Z"/></svg>
-        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    <!-- ===== customiser: round button + panel ===== -->
+    <div class="cz" id="cz" dir="rtl" lang="fa">
+      <button class="cz__btn" id="czBtn" type="button" aria-expanded="false" aria-controls="czPanel"
+              aria-label="شخصی‌سازی صفحه" title="شخصی‌سازی صفحه"
+              data-en-label="Customise this page" data-en-title="Customise this page">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/><circle cx="9" cy="9.5" r="1.3"/><circle cx="15" cy="9.5" r="1.3"/>
+          <circle cx="9" cy="15" r="1.3"/><circle cx="15" cy="15" r="1.3"/>
+        </svg>
       </button>
-      <button class="hbtn" id="langBtn" title="English / فارسی" aria-label="تغییر زبان">EN</button>
-      <a class="btn-cta" href="https://t.me/MrArat" target="_blank" rel="noopener">سفارش پروژه ↗</a>
-    </div>
-  </div>
-</header>
+      <div class="czp" id="czPanel" hidden role="dialog" aria-label="پنل شخصی‌سازی" data-en-label="Customiser panel">
+        <div class="czp__head">
+          <strong data-en="Make this page yours">صفحه رو مال خودت کن</strong>
+          <button class="czp__x" id="czClose" type="button" aria-label="بستن" data-en-label="Close">×</button>
+        </div>
 
+        <div class="czp__sec">
+          <p class="czp__t" data-en="Colour and mood">رنگ و حال</p>
+          <div class="czp__themes" id="czThemes">
+            <button class="czsw is-on" data-theme="mint" type="button" aria-label="فیروزه‌ای" data-en-label="Turquoise"><i></i><span data-en="Turquoise">فیروزه‌ای</span></button>
+            <button class="czsw" data-theme="violet" type="button" aria-label="بنفش کهکشانی" data-en-label="Galactic violet"><i></i><span data-en="Violet">بنفش</span></button>
+            <button class="czsw" data-theme="ocean" type="button" aria-label="آبی اقیانوسی" data-en-label="Ocean blue"><i></i><span data-en="Ocean">اقیانوس</span></button>
+            <button class="czsw" data-theme="amber" type="button" aria-label="کهربایی" data-en-label="Amber"><i></i><span data-en="Amber">کهربا</span></button>
+          </div>
+          <label class="czp__row">
+            <span data-en="Custom colour">رنگ دلخواه</span>
+            <input type="color" id="czAccent" value="#7cf5d4" aria-label="رنگ دلخواه" data-en-label="Custom colour">
+          </label>
+        </div>
 
-<main id="home">
-  <span class="glow g1"></span><span class="glow g2"></span>
-  <div class="circuits"></div>
-  <div class="wrap">
-    <div class="hero-split">
-      <div class="hero-txt">
-        <div class="status-badge"><i></i> آمادهٔ همکاری</div>
-        <h1 class="hero-h1">سلام، من <span class="grad">آرات زارعی</span> هستم</h1>
-        <p class="hero-sub">طراح و توسعه‌دهندهٔ انواع وب‌سایت، پورتفولیو، ربات و مینی‌اپ تلگرام</p>
-        <p class="hero-p">کار اصلیم ساخت وب‌سایته — از یه پورتفولیوی ساده تا فروشگاه و پنل مدیریت؛ ربات تلگرامی و مینی‌اپ هم می‌سازم. همین سایتی که الان داری می‌بینی نمونهٔ کار خودمه؛ از طراحی و کدنویسی تا دامنهٔ اختصاصی و سئوش رو خودم انجام دادم. پروژه‌ات رو با کد تمیز، سرعت بالا و تحویل به‌موقع تحویل می‌دم.</p>
-        <div class="hero-cta">
-          <a class="btn-primary" href="/skills/">چی می‌تونم برات انجام بدم؟</a>
-          <a class="btn-ghost" href="https://t.me/MrArat" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M21.9 4.6 19 19.3c-.2 1-.8 1.2-1.6.8l-4.5-3.3-2.2 2.1c-.2.2-.4.4-.9.4l.3-4.6L18.6 7c.4-.3-.1-.5-.6-.2L7.7 13.3 3.4 12c-.9-.3-.9-.9.2-1.4L20.6 3.9c.8-.3 1.5.2 1.3 1.3z"/></svg>
-            پیام در تلگرام
-          </a>
+        <div class="czp__sec">
+          <p class="czp__t" data-en="Music">موسیقی</p>
+          <div class="czp__tracks" id="czTracks">
+            <button class="cztrk" data-track="0" type="button"><i class="cztrk__ico"></i><b data-en="Calm">آرام</b><span data-en="Soft, gentle pad">پدِ نرم و آروم</span></button>
+            <button class="cztrk" data-track="1" type="button"><i class="cztrk__ico"></i><b data-en="Nocturne">شبانه</b><span data-en="Dark and deep">تیره و عمیق</span></button>
+            <button class="cztrk" data-track="2" type="button"><i class="cztrk__ico"></i><b data-en="Pulse">نبض</b><span data-en="Gentle rhythm">ریتم ملایم</span></button>
+          </div>
+          <label class="czp__row">
+            <span data-en="Volume">صدا</span>
+            <input type="range" id="czVol" min="0" max="100" value="55" aria-label="میزان صدا" data-en-label="Volume">
+          </label>
+          <p class="czp__hint" id="czHint" data-en="Tap a track to play.">برای پخش، روی یکی از آهنگ‌ها بزن.</p>
+        </div>
+
+        <div class="czp__sec">
+          <p class="czp__t" data-en="Background">پس‌زمینه</p>
+          <label class="czp__row">
+            <span data-en="Intensity">شدت</span>
+            <input type="range" id="czBg" min="0" max="100" value="100" aria-label="شدت پس‌زمینه" data-en-label="Background intensity">
+          </label>
+          <label class="czp__row czp__row--chk">
+            <span data-en="Low-power mode (turn the 3D scene off)">حالت کم‌مصرف (خاموش کردن سه‌بعدی)</span>
+            <input type="checkbox" id="czLow" aria-label="حالت کم‌مصرف" data-en-label="Low-power mode">
+          </label>
+        </div>
+
+        <div class="czp__foot">
+          <button class="czp__reset" id="czReset" type="button" data-en="Reset to default">برگرد به حالت اصلی</button>
         </div>
       </div>
     </div>
+  <a class="skip" href="#main">رفتن به محتوا</a>
+
+      <!-- ===== chat: floating assistant ===== -->
+    <div class="ch" id="ch" dir="rtl" lang="fa">
+      <button class="ch__btn" id="chBtn" type="button" aria-expanded="false" aria-controls="chPanel"
+              aria-label="گفتگو با دستیار سایت" title="گفتگو با دستیار سایت"
+              data-en-label="Chat with the site assistant" data-en-title="Chat with the site assistant">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4.5 5.5h15v10.5H9l-4.5 4z" fill="none" stroke="currentColor" stroke-width="1.7"
+                stroke-linejoin="round"/><circle cx="9" cy="10.8" r="1.05" fill="currentColor"/>
+          <circle cx="12" cy="10.8" r="1.05" fill="currentColor"/><circle cx="15" cy="10.8" r="1.05" fill="currentColor"/>
+        </svg>
+        <i class="ch__ping" aria-hidden="true"></i>
+      </button>
+
+      <section class="chp" id="chPanel" hidden role="dialog" aria-label="دستیار آرات" data-en-label="Arat's assistant">
+        <header class="chp__head">
+          <span class="chp__ava" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3.5 20 8v8l-8 4.5L4 16V8z" fill="none" stroke="currentColor"
+              stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="12" r="2.4" fill="currentColor"/></svg>
+          </span>
+          <span class="chp__who">
+            <b data-en="Arat's assistant">دستیار آرات</b>
+            <em data-en="Ask about his work — answers come from his real info">دربارهٔ کارش بپرس — از اطلاعات واقعی جواب می‌دم</em>
+          </span>
+          <button class="chp__x" id="chX" type="button" aria-label="بستن" data-en-label="Close">×</button>
+        </header>
+
+        <div class="chp__log" id="chLog" aria-live="polite"></div>
+        <div class="chp__chips" id="chChips"></div>
+
+        <form class="chp__form" id="chForm" autocomplete="off">
+          <input class="chp__in" id="chIn" type="text" maxlength="900" aria-label="پیام"
+                 data-en-label="Message" placeholder="سوالت رو بنویس…" data-en-placeholder="Type your question…">
+          <button class="chp__send" id="chSend" type="submit" aria-label="فرستادن" data-en-label="Send">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12 20 4l-3 16-5-6z" fill="currentColor"/></svg>
+          </button>
+        </form>
+        <p class="chp__note" data-en="Answers are AI-generated — for a final agreement talk to Arat himself on Telegram (@KhodeArat).">
+          جواب‌ها با هوش مصنوعی ساخته می‌شه — برای توافق نهایی با خود آرات در تلگرام (@KhodeArat) حرف بزن.
+        </p>
+      </section>
     </div>
+
+    <!-- Intro: terminal boot + AZ monogram (concept 1) -->
+    <div class="intro" id="intro" aria-hidden="true">
+      <span class="intro__glow intro__glow--a"></span>
+      <span class="intro__glow intro__glow--b"></span>
+      <div class="intro__inner">
+        <p class="intro__word" id="introWord"><span>Arat</span><i class="intro__pen"></i></p>
+        <p class="intro__brand">آرات زارعی</p>
+        <div class="intro__log">
+          <p data-line><span class="mk">›</span> boot sequence <i>ok</i></p>
+          <p data-line><span class="mk">›</span> projects &amp; case studies <i>ok</i></p>
+          <p data-line><span class="mk">›</span> telegram bots &amp; mini apps <i>ok</i></p>
+          <p data-line class="rd">ready ✓</p>
+        </div>
+        <div class="intro__bar"><span id="introBar"></span></div>
+        <div class="intro__foot">
+          <span>آرات زارعی — توسعه‌دهندهٔ وب و ربات تلگرام</span>
+          <span class="mono" id="introPct">00</span>
+        </div>
+      </div>
+    </div>
+
+  <!-- Ambient scene behind every section -->
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <a href="#top" class="wordmark" aria-label="صفحهٔ آرات">آرات<span>.dev</span></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#work">نمونه‌کارها</a>
+      <a href="#process">روند کار</a>
+      <a href="#focus">مهارت‌ها</a>
+      <a href="#principles">اصول</a>
+      <a href="#faq">سوالات</a>
+    </nav>
+    <a class="btn btn--small btn--ghost nav__cta" href="mailto:aratzarei@gmail.com?subject=Project%20inquiry" data-magnetic>شروع پروژه</a>
+    <a class="langsw" href="/en/" hreflang="en" lang="en" data-hash="1" aria-label="Switch to English" title="English version"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3.6 12h16.8M12 3.6c2.6 2.3 3.9 5 3.9 8.4S14.6 18.1 12 20.4C9.4 18.1 8.1 15.4 8.1 12S9.4 5.9 12 3.6z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>EN</span></a>
+        <button class="nav__burger" id="burger" aria-label="باز کردن منو" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" hidden>
+    <a href="#work">نمونه‌کارها</a>
+    <a href="#process">روند کار</a>
+    <a href="#focus">مهارت‌ها</a>
+    <a href="#principles">اصول</a>
+    <a href="#faq">سوالات</a>
+    <a class="btn" href="mailto:aratzarei@gmail.com?subject=Project%20inquiry">شروع پروژه</a>
   </div>
 
-  <div class="wrap features">
-    <div class="fcard reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg></div><div><b>طراحی اختصاصی</b><span>ظاهر منحصربه‌فرد مخصوص برند تو</span></div></div>
-    <div class="fcard reveal" style="transition-delay:.08s"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div><div><b>ربات و مینی‌اپ تلگرام</b><span>فروشگاهی، پشتیبانی و مینی‌اپ</span></div></div>
-    <div class="fcard reveal" style="transition-delay:.16s"><div class="ic"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div><b>سئو و سرعت بالا</b><span>دیده‌شدن در گوگل، بارگذاری سریع</span></div></div>
-    <div class="fcard reveal" style="transition-delay:.24s"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg></div><div><b>تحویل و پشتیبانی</b><span>به‌موقع، با ضمانت پیگیری</span></div></div>
-  </div>
-</main>
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top" data-scene="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow" data-reveal>آرات زارعی — توسعه‌دهندهٔ وب و ربات تلگرام</p>
+          <h1 class="hero__title" data-split>
+            <span class="line">سلام، من</span>
+            <span class="line"><em>آرات زارعی</em> هستم.</span>
+          </h1>
+          <p class="hero__lead" data-reveal>طراح و توسعه‌دهندهٔ انواع وب‌سایت، پورتفولیو، ربات و مینی‌اپ تلگرام. کار اصلیم ساخت وب‌سایته — از یه پورتفولیوی ساده تا فروشگاه و پنل مدیریت.</p>
+          <div class="hero__actions" data-reveal>
+            <a class="btn" href="https://t.me/KhodeArat" target="_blank" rel="noopener" data-magnetic>
+              <span>پیام در تلگرام</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#focus" data-magnetic>چی می‌تونم برات انجام بدم؟</a>
+          </div>
+          <ul class="chips" data-reveal>
+            <li>عضو تیم دیاز</li>
+            <li>کد تمیز و سرعت بالا</li>
+            <li>مستندسازی و آموزش تحویل</li>
+          </ul>
+        </div>
 
-<script>
-/* ===== shared: theme + lang ===== */
-(function(){
-  var THEME_KEY='arat_theme';
-  function apply(t){
-    document.body.classList.toggle('light', t==='light');
-    document.documentElement.setAttribute('data-theme', t);
-    if(window.aratSyncThemeIcon) window.aratSyncThemeIcon();
-    try{localStorage.setItem(THEME_KEY,t)}catch(e){}
-  }
-  window.aratApplyTheme=apply;
-  try{var saved=localStorage.getItem(THEME_KEY); if(saved) apply(saved);}catch(e){}
-  document.addEventListener('click',function(ev){
-    var b=ev.target.closest('#themeBtn'); if(!b) return;
-    var next=document.body.classList.contains('light')?'dark':'light';
-    apply(next);
-    b.setAttribute('aria-pressed', next==='light');
-  });
-})();
-</script>
+        <!-- Status card with layered 3D depth -->
+        <div class="hero__card-wrap" id="work" data-reveal>
+          <div class="shift-card" id="shiftCard">
+            <div class="shift-card__shine"></div>
+            <div class="shift-card__head layer" style="--z:14px">
+              <div>
+                <p class="mono muted">همین لحظه</p>
+                <p class="shift-card__title">نمونه‌کارهای آنلاین</p>
+              </div>
+              <span class="pill">۳ تا آنلاین</span>
+            </div>
+            <ul class="beds layer" style="--z:24px">
+              <li class="bed bed--link"><a class="bed__hit" href="https://t.me/Diazpshopbot" target="_blank" rel="noopener" aria-label="فروشگاه تلگرامی Diaz Shop — ورود به ربات"></a><span class="bed__no">01</span><span class="bed__txt"><b>فروشگاه تلگرامی Diaz Shop</b><small>مینی‌اپ · سبد خرید · پرداخت آنلاین</small></span><span class="tag">فعال</span></li>
+              <li class="bed bed--due"><span class="bed__no">02</span><span class="bed__txt"><b>ربات هوش مصنوعی Gorilla AI</b><small>ساخت عکس و ویدیو · پشتیبانی خودکار</small></span><span class="tag">آنلاین</span></li>
+              <li class="bed bed--link bed--watch"><a class="bed__hit" href="https://aratzareii.ir" target="_blank" rel="noopener" aria-label="وب‌سایت شخصی و پورتفولیو — aratzareii.ir"></a><span class="bed__no">03</span><span class="bed__txt"><b>وب‌سایت شخصی و پورتفولیو</b><small>دامنهٔ اختصاصی · SSL · سئو</small></span><span class="tag">زیر نظر</span></li>
+            </ul>
+            <div class="tasks layer" style="--z:18px">
+              <p class="mono muted">کارهای امروز</p>
+              <ol>
+                <li><span class="mono">همین حالا</span>در حال کار روی پروژه</li>
+              </ol>
+            </div>
+            <div class="cue layer" style="--z:34px">
+              <span class="cue__dot"></span>
+              <p><b>تحویل شد</b> پروژه با کد تمیز روی دامنهٔ خودت بالا رفت — تست‌شده و آمادهٔ استفاده.</p>
+            </div>
+            <p class="shift-card__foot mono layer" style="--z:10px"><span>ساخته و مانیتورشده توسط آرات</span><span>نمای نمایشی</span></p>
+          </div>
+          <span class="float-badge float-badge--a mono"><i></i>چیزی که تحویل می‌دهد کار می‌کند</span>
+          <span class="float-badge float-badge--b mono"><i></i> آپتایم، ترافیک واقعی</span>
+        </div>
+      </div>
+      <a href="#problem" class="scroll-hint mono" aria-label="Scroll down"><span class="scroll-hint__bar"></span>اسکرول</a>
+    </section>
 
-<script>
-/* ===== shared: lang toggle (FA/EN, full LTR in EN) ===== */
-(function(){
-  var DICT={"خانه": "Home", "درباره من": "About", "مهارت‌ها": "Skills", "نمونه‌کارها": "Projects", "تماس با من": "Contact", "تماس": "Contact", "سفارش پروژه ↗": "Order a Project ↗", "سفارش پروژه": "Order a project", "آمادهٔ همکاری": "Available for work", "سلام، من": "Hi, I’m", "آرات زارعی": "Arat Zarei", "هستم": "", "طراح و توسعه‌دهندهٔ انواع وب‌سایت، پورتفولیو، ربات و مینی‌اپ تلگرام": "Designer & developer of websites, portfolios, Telegram bots and mini-apps", "کار اصلیم ساخت وب‌سایته — از یه پورتفولیوی ساده تا فروشگاه و پنل مدیریت؛ ربات تلگرامی و مینی‌اپ هم می‌سازم. همین سایتی که الان داری می‌بینی نمونهٔ کار خودمه؛ از طراحی و کدنویسی تا دامنهٔ اختصاصی و سئوش رو خودم انجام دادم. پروژه‌ات رو با کد تمیز، سرعت بالا و تحویل به‌موقع تحویل می‌دم.": "My main work is building websites — from a simple portfolio to a full shop and admin panel; I also build Telegram bots and mini-apps. The site you’re looking at is my own portfolio; design, code, custom domain and SEO are all done by me. Your project will be delivered with clean code, high speed and on time.", "چی می‌تونم برات انجام بدم؟": "and what I can do for you", "پیام در تلگرام": "Message on Telegram", "طراحی اختصاصی": "Custom design", "ظاهر منحصربه‌فرد مخصوص برند تو": "A unique look for your brand", "ربات و مینی‌اپ تلگرام": "Telegram bots & mini-apps", "فروشگاهی، پشتیبانی و مینی‌اپ": "Shop, support & mini-app", "سئو و سرعت بالا": "SEO & speed", "دیده‌شدن در گوگل، بارگذاری سریع": "Google visibility, fast loading", "تحویل و پشتیبانی": "Delivery & support", "به‌موقع، با ضمانت پیگیری": "On time, with follow-up", "بیوگرافی و نحوهٔ کار": "Bio & how I work", "از یه ایدهٔ ساده تا یه وب‌سایت کامل و آمادهٔ انتشار — با تحویل به‌موقع و پشتیبانی واقعی.": "From a simple idea to a complete, launch-ready website — delivered on time with real support.", "عکس آرات — به‌زودی": "Arat’s photo — coming soon", "تمرکز روی کیفیت، سرعت و نتیجهٔ واقعی": "Focus on quality, speed and real results", "کیست؟": "— who is he?", "من آرات زارعی هستم،": "I’m Arat Zarei, a", "طراح و توسعه‌دهندهٔ وب": "web designer & developer", ". چند سالی‌ه که روی": ". For years I’ve been working on", "پروژه‌های واقعی": "real projects", "کار می‌کنم و تمرکزم روی ساختن چیزیه که هم": "— focused on building things that look", "خوب به نظر برسه": "great", "، هم": ", feel", "سریع باشه": "fast", "و هم توی": "and rank on", "گوگل دیده بشه": "Google", ". پروژه‌ها رو تک‌نفره جلو می‌برم؛ هم صحبت، هم طراح، هم برنامه‌نویس خودتم.": ". I run every project solo — I’m your point of contact, designer and developer all in one.", "لیست کارها": "What I build", "پورتفولیو و سایت شخصی": "Portfolio & personal site", "سایت شرکتی": "Business website", "فروشگاه اینترنتی": "Online store", "لندینگ‌پیج": "Landing page", "پنل مدیریت": "Admin panel", "هیچ پروژه‌ای رو نیمه‌کاره تحویل نمی‌دم؛ آخرش مستندسازی و آموزش هست تا خودت بتونی اداره‌اش کنی، و بعد از تحویل هم اگه ایرادی پیش اومد پیگیریش می‌کنم. جواب سؤالاتت رو هم قبل از شروع کار می‌دم، نه وسط پروژه.": "I never hand over a half-finished project; it ends with documentation and training so you can run it yourself — and after delivery I follow up if any issue comes up. Your questions get answered before we start, not midway.", "مسیر کاری من": "How I work", "بررسی و نقشه": "Research & plan", "نیازسنجی و انتخاب ساختار": "Understanding needs & structure", "طراحی و نمونه اولیه": "Design & prototype", "طراحی رابط کاربری و ارائهٔ نمونه": "UI design & first prototype", "توسعه": "Development", "پیاده‌سازی با کد تمیز و بهینه": "Clean, optimized code", "تحویل پروژه و پشتیبانی پس از انتشار": "Handover & post-launch support", "مهارت‌ها و خدمات": "Skills & Services", "روی چیا تمرکز دارم و چی می‌تونم برات انجام بدم؟": "What I focus on — and what I can do for you", "سه حوزهٔ اصلی که پروژه‌هام حول اون‌ها شکل می‌گیره — هر کدوم رو جدا یا ترکیبی سفارش بده؛ محدودیتی در نوع پروژه نیست.": "Three core areas my projects are built around — order any of them separately or combined; there’s no limit on project type.", "توسعهٔ وب از صفر تا صد": "Web development, end to end", "فرانت‌اند و بک‌اند با ابزارهای مدرن؛ کد تمیز و خوانا، نمایش درست در موبایل و دسکتاپ و سرعت بارگذاری بالا. پورتفولیو، شرکتی، فروشگاهی، لندینگ و پنل مدیریت — ریسپانسیو و سئو.": "Front-end and back-end with modern tools; clean, readable code, correct display on mobile and desktop, and fast loading. Portfolios, business sites, stores, landing pages and admin panels — responsive and SEO-ready.", "بات فروش و پشتیبانی، مینی‌اپ با پرداخت آنلاین، سبد خرید و پنل ادمین — از ربات ساده تا فروشگاه کامل تلگرامی.": "Sales and support bots, mini-apps with online payment, cart and admin panel — from a simple bot to a full Telegram store.", "اتصال به هوش مصنوعی و اتوماسیون": "AI integration & automation", "متصل‌سازی مدل‌ها به سایت و بات؛ ابزارهای متن، تصویر و ویدیو و خودکارسازی کارهای روزمره.": "Connecting AI models to your site and bot; text, image and video tools and everyday task automation.", "چطور کار می‌کنیم؟": "How it works", "هر کدوم از این‌ها رو می‌تونی جدا یا ترکیبی سفارش بدی. اول نیازت رو بررسی می‌کنیم، بعد پیشنهاد دقیق و قیمت شفاف می‌دم — قبل از شروع کار، نه وسطش.": "Order any of these separately or combined. First we look at what you need, then you get a precise proposal and clear pricing — before we start, not midway.", "پروژه‌های منتخب": "Selected projects", "نمونه‌های واقعی و آنلاین. برای دیدن هر پروژه، مستقیم واردش شو.": "Real, live examples. To see each project, jump straight in.", "آنلاین": "Online", "وب‌سایت شخصی و پورتفولیوی آرات زارعی": "Arat Zarei’s personal website & portfolio", "طراحی مدرن، انیمیشن روان، ریسپانسیو، دامنهٔ اختصاصی، SSL و سئوی کامل": "Modern design, smooth animation, responsive, custom domain, SSL and full SEO", "بازدید از سایت": "Visit site", "فروشگاه تلگرامی Diaz Shop": "Diaz Shop — Telegram store", "مینی‌اپ، سبد خرید، پرداخت آنلاین و پنل مدیریت": "Mini-app, cart, online payment and admin panel", "مشاهدهٔ پروژه": "View project", "اسکرین‌شات ربات Gorilla — به‌زودی": "Gorilla bot screenshot — coming soon", "ربات هوش مصنوعی Gorilla AI": "Gorilla AI — Telegram AI bot", "ساخت عکس و ویدیو و انجام انواع پروژه‌ها": "Image & video generation and all kinds of tasks", "پروژهٔ تو چیه؟": "What’s your project?", "ایده‌ات رو بگو تا مثل همین‌ها برات بسازم.": "Tell me your idea and I’ll build one like these.", "با افتخار، بخشی از نمونه‌کارهای من": "Proudly part of my portfolio", "پروژه‌ای تو ذهنت داری؟ بگو تا شروع کنیم": "Got a project in mind? Let’s start", "سریع‌ترین راه: پیام مستقیم در تلگرام. معمولاً همون روز جواب می‌دم.": "Fastest way: a direct message on Telegram. I usually reply the same day.", "سریع‌ترین راه پاسخ": "Fastest way to reach me", "ارسال پیام": "Send message", "جیمیل": "Gmail", "برای هماهنگی و فایل": "For coordination & files", "اینستاگرام": "Instagram", "نمونه‌کارهای کوتاه": "Short portfolio clips", "آمادهٔ دریافت پروژه": "Open for projects", "ساخته شده توسط": "Built by", "اسکرین‌شات ربات — به‌زودی": "Bot screenshot — coming soon", "بیوگرافی و": "Bio &", "نحوهٔ کار": "how I work", "روی چیا تمرکز دارم و": "What I focus on —", "پروژه‌های": "Selected", "منتخب": "projects", "پروژه‌ای تو ذهنت داری؟": "Got a project in mind?", "بگو تا شروع کنیم": "Let’s start", "آماده‌دریافت پروژه": "Open for projects", "DiazTeam": "DiazTeam", "اتوماسیون و اتصال به هوش مصنوعی": "AI integration & automation", "هیچ پروژه‌ای رو نیمه‌کاره تحویل نمی‌دم؛": "I never hand over a half-finished project;", "آخرش مستندسازی و آموزش هست تا خودت بتونی اداره‌اش کنی، و بعد از تحویل هم اگه ایرادی پیش اومد پیگیریش می‌کنم. جواب سؤالاتت رو هم قبل از شروع کار می‌دم، نه وسط پروژه.": "it ends with documentation and training so you can run it yourself — and after delivery I follow up if any issue comes up. Your questions are answered before we start, not midway.", "فرآیند": "Process", "مسیر": "My", "کاری من": "career path", "© ۱۴۰۵ آرات زارعی — ساخته شده توسط DiazTeam": "© 2026 Arat Zarei — built by DiazTeam", "۱۴۰۵": "2026", "تلگرام: MrArat@": "Telegram: @MrArat", "تلگرام": "Telegram", "2026 Aratzareii — ساخته شده توسط": "2026 Aratzareii — built by", "¬F1": "© ۱۴۰۵ آرات زارعی — ساخته شده توسط DiazTeam", "¬F2": "تلگرام: MrArat@"};
-  var KEY='arat_lang';
-  var orig=[];
-  function snapshot(){
-    if(orig.length) return;
-    var w=document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {acceptNode:function(n){
-      if(!n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
-      var p=n.parentElement; if(!p||/SCRIPT|STYLE|SVG/.test(p.tagName)) return NodeFilter.FILTER_REJECT;
-      return NodeFilter.FILTER_ACCEPT;}});
-    var n; while(n=w.nextNode()){ if(n.nodeValue.trim().length>1) orig.push([n,n.nodeValue]); }
-  }
-  function setHtmlMode(en){
-    document.documentElement.setAttribute('lang', en?'en':'fa');
-    document.documentElement.setAttribute('dir', en?'ltr':'rtl');
-    document.body.classList.toggle('en', en);
-  }
-  function applyCaptions(en){
-    orig.forEach(function(pair){
-      var t=pair[1], k=t.trim();
-      if(en){ if(DICT[k]!==undefined){ pair[2]=DICT[k]; pair[0].nodeValue=pair[1].replace(k, DICT[k]); } }
-      else if(pair[2]){ pair[0].nodeValue=pair[1]; }
+    <!-- ============ TICKER ============ -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>سایتی که مشتری می‌آورد</span><i>✦</i><span>فروشگاهی که کار می‌کنه</span><i>✦</i><span>باتی که ۲۴ ساعته جواب می‌ده</span><i>✦</i><span>پنلی که زیر بار می‌مونه</span><i>✦</i>
+        <span>سایتی که مشتری می‌آورد</span><i>✦</i><span>فروشگاهی که کار می‌کنه</span><i>✦</i><span>باتی که ۲۴ ساعته جواب می‌ده</span><i>✦</i><span>پنلی که زیر بار می‌مونه</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ============ PROBLEM ============ -->
+    <section class="problem" id="problem" data-scene="chaos">
+      <div class="wrap">
+        <p class="kicker" data-reveal>چرا من</p>
+        <h2 class="problem__title" data-words>هیچ پروژه‌ای رو نیمه‌کاره تحویل نمی‌دم — آخرش مستندسازی و آموزش هست.</h2>
+        <div class="problem__body">
+          <p data-reveal>پروژه‌ها رو با تیم دیاز جلو می‌بریم؛ صحبت، طراحی و کد دست خودمونه. یعنی یه نقطهٔ تماس روشن تا آخر کارت، نه چند تا واسطه که موضوع بین‌شون گم بشه.</p>
+          <p data-reveal>مشکل به‌ندرت ایده است. <strong>مشکل معمولاً ایده نیست؛ اجرای درست و پشتیبانی بعدشه.</strong> کد تمیز، سازگاری با موبایل و دسکتاپ، سرعت بارگذاری، سئو و جواب‌دادن بعد از تحویل — چیزهایی که تعیین می‌کنه پروژه‌ات واقعاً کار می‌کنه یا نه.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TIMELINE (pinned) ============ -->
+    <section class="timeline" id="process" data-scene="order">
+      <div class="timeline__pin">
+        <div class="wrap timeline__grid">
+          <div class="timeline__head">
+            <p class="kicker">از ایده تا تحویل</p>
+            <h2>از ایده تا <em>سایتِ آنلاین.</em></h2>
+            <div class="clock" aria-hidden="true">
+              <span class="clock__time mono" id="clockTime">روز ۰۱</span>
+              <div class="clock__bar"><span id="clockBar"></span></div>
+            </div>
+          </div>
+          <ol class="moments" id="moments">
+            <li class="moment is-active">
+              <span class="moment__time mono">روز ۰۱</span>
+              <h3>بررسی و نقشه</h3>
+              <p>نیازسنجی و انتخاب ساختار؛ اینکه سایتت چه باید بکنه و «تمام» یعنی چی — همه در یک گفتگوی صاف و روشن.</p>
+            </li>
+            <li class="moment">
+              <span class="moment__time mono">روز ۰۷</span>
+              <h3>طراحی و نمونهٔ اولیه</h3>
+              <p>طراحی رابط کاربری و ارائهٔ نمونه — قبل از کدنویسی دقیقاً می‌دونی چی تحویل می‌گیری.</p>
+            </li>
+            <li class="moment">
+              <span class="moment__time mono">روز ۳۰</span>
+              <h3>توسعه، تحویل و پشتیبانی</h3>
+              <p>پیاده‌سازی با کد تمیز روی دامنهٔ خودت، تحویل پروژه و پشتیبانی بعد از انتشار.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOCUS ============ -->
+    <section class="focus" id="focus" data-scene="side">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker" data-reveal>مهارت‌ها و خدمات</p>
+          <h2 data-split><span class="line">روی چیا تمرکز دارم</span><span class="line">و <em>چی می‌تونم برات انجام بدم؟</em></span></h2>
+          <p class="section-head__lead" data-reveal>چهار حوزه — هر کدوم رو می‌تونی جدا یا ترکیبی سفارش بدی؛ محدودیتی در نوع پروژه نیست.</p>
+        </div>
+        <div class="cards">
+          <article class="card" data-tilt data-reveal>
+            <div class="card__glow"></div>
+            <div class="card__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 10h32v22H22l-8 8v-8H8z"/><path d="M16 18h16M16 24h10"/></svg></div>
+            <p class="card__no mono">01 / وب</p>
+            <h3>توسعهٔ وب از صفر تا صد</h3>
+            <p>پورتفولیو، سایت شرکتی، فروشگاهی، لندینگ و پنل مدیریت — فرانت‌اند و بک‌اند با ابزارهای مدرن، کد تمیز، ریسپانسیو و سئوشده.</p>
+          </article>
+          <article class="card" data-tilt data-reveal>
+            <div class="card__glow"></div>
+            <div class="card__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 30a8 8 0 1 1 2-15.7A10 10 0 0 1 35 17a7 7 0 0 1-1 13.9"/><path d="M24 26v14M18 34l6 6 6-6"/></svg></div>
+            <p class="card__no mono">02 / تلگرام</p>
+            <h3>ربات و مینی‌اپ تلگرام</h3>
+            <p>بات فروش و پشتیبانی، مینی‌اپ با پرداخت آنلاین، سبد خرید و پنل ادمین — از یک ربات ساده تا فروشگاه کامل تلگرامی مثل Diaz Shop.</p>
+          </article>
+          <article class="card" data-tilt data-reveal>
+            <div class="card__glow"></div>
+            <div class="card__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 14h28l-3 18H13z"/><path d="M18 14a6 6 0 0 1 12 0"/><circle cx="20" cy="38" r="1.6"/><circle cx="30" cy="38" r="1.6"/></svg></div>
+            <p class="card__no mono">03 / هوش مصنوعی</p>
+            <h3>اتصال به هوش مصنوعی و اتوماسیون</h3>
+            <p>متصل‌سازی مدل‌ها به سایت و بات؛ ابزارهای متن، تصویر و ویدیو و خودکارسازی کارهای روزمره — مثل ربات Gorilla AI.</p>
+          </article>
+          <article class="card" data-tilt data-reveal>
+            <div class="card__glow"></div>
+            <div class="card__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="8" width="32" height="26" rx="3"/><path d="M8 18h32M14 13h.1M18 13h.1"/><path d="M16 40h16M24 34v6"/></svg></div>
+            <p class="card__no mono">04 / سرعت و سئو</p>
+            <h3>دیده‌شدن در گوگل و بارگذاری سریع</h3>
+            <p>سئوی فنی، نمایش درست روی موبایل و دسکتاپ و بارگذاری سریع — همراه دامنهٔ اختصاصی و SSL، مثل همین سایتی که داری می‌بینی.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="stats" data-scene="calm">
+      <div class="wrap">
+        <p class="kicker" data-reveal>چرا جواب می‌دهد</p>
+        <h2 data-split><span class="line">جواب مستقیم می‌گیری،</span><span class="line">نه یک <em>صف تیکت.</em></span></h2>
+        <div class="stats__row">
+          <div class="stat" data-reveal>
+            <p class="stat__n"><span data-count="100">0</span><small>٪</small></p>
+            <p class="stat__t">همهٔ پروژه‌ها با کد تمیز و مستندسازی تحویل داده می‌شوند</p>
+          </div>
+          <div class="stat" data-reveal>
+            <p class="stat__n"><span data-count="24">0</span><small>/7</small></p>
+            <p class="stat__t">پشتیبانی و پیگیری بعد از تحویل — معمولاً همون روز جواب می‌گیری</p>
+          </div>
+          <div class="stat stat--accent" data-reveal>
+            <p class="stat__n"><span data-count="0">0</span><small>واسطه</small></p>
+            <p class="stat__t">صفر واسطه — بدون مدیر اکانت، بدون گم‌شدن موضوع، بدون معطلی</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRINCIPLES ============ -->
+    <section class="safety" id="principles" data-scene="side-left">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker" data-reveal>چطور کار می‌کنم</p>
+          <h2 data-split><span class="line">مستقیم، همیشه.</span><span class="line"><em>کد و پروژه مال خودت.</em></span></h2>
+        </div>
+        <ol class="principles">
+          <li class="principle" data-reveal>
+            <span class="principle__no mono">01 / تحویل به موقع</span>
+            <h3>نیمه‌کاره تحویل نمی‌دم</h3>
+            <p>هر پروژه با کد تمیز و تست‌شده تحویل داده می‌شه؛ آخرش مستندسازی و آموزش هست تا خودت بتونی اداره‌اش کنی.</p>
+          </li>
+          <li class="principle" data-reveal>
+            <span class="principle__no mono">02 / همه‌چیز مال خودته</span>
+            <h3>دامنه، سورس، دسترسی‌ها</h3>
+            <p>پروژه زیر اکانت خودت بالا می‌آد؛ دامنه، SSL، سورس کد و همهٔ دسترسی‌ها کامل تحویل خودته.</p>
+          </li>
+          <li class="principle" data-reveal>
+            <span class="principle__no mono">03 / شفافیت</span>
+            <h3>قیمت و زمان‌بندی روشن</h3>
+            <p>اول نیازت رو بررسی می‌کنیم، بعد پیشنهاد دقیق و قیمت شفاف می‌دم — قبل از شروع کار، نه وسطش. اگه کاری نشه، همون روز می‌گم.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about" id="about" data-scene="calm">
+      <div class="wrap about__grid">
+        <div>
+          <p class="kicker" data-reveal>درباره من</p>
+          <h2 class="about__quote" data-split><span class="line">آرات زارعی،</span><span class="line"><em>عضو تیم دیاز، از صفر تا صد.</em></span></h2>
+        </div>
+        <div class="about__body">
+          <p data-reveal><strong>من آرات زارعی هستم؛ طراح و توسعه‌دهندهٔ وب.</strong> چند سالی ه که روی پروژه‌های واقعی کار می‌کنم و تمرکزم روی ساختن چیزیه که هم خوب به نظر برسه، هم سریع باشه و هم توی گوگل دیده بشه.</p>
+          <p data-reveal>پروژه‌ها رو با تیم دیاز جلو می‌بریم؛ از صحبت و طراحی تا کد و تحویل. همین سایتی که داری می‌بینی نمونهٔ کارمه — از طراحی و کد تا دامنهٔ اختصاصی و سئو.</p>
+          <ol class="flow mono" data-reveal>
+            <li>بررسی</li><li>طراحی</li><li>توسعه</li><li>تحویل و پشتیبانی</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="faq" id="faq" data-scene="faq">
+      <div class="wrap faq__grid">
+        <div class="section-head">
+          <p class="kicker" data-reveal>سوال‌ها، جواب‌دار</p>
+          <h2 data-split><span class="line">کار کردن با من</span><span class="line"><em>چه شکلیه.</em></span></h2>
+        </div>
+        <div class="faq__list">
+          <details data-reveal><summary>چه نوع پروژه‌هایی قبول می‌کنی؟<i></i></summary><div class="faq__a"><p>وب‌سایت (پورتفولیو، شرکتی، فروشگاهی، لندینگ)، پنل مدیریت، ربات و مینی‌اپ تلگرام، و اتوماسیون و اتصال به هوش مصنوعی. اگه روی وب یا تلگرام اجرا می‌شه و با آدم‌ها کار می‌کنه، تو محدودهٔ کارمه.</p></div></details>
+          <details data-reveal><summary>چقدر سریع تحویل می‌دی؟<i></i></summary><div class="faq__a"><p>بستگی به حجم کار داره؛ همون اول زمان‌بندی رو شفاف می‌گم و همون‌طور تحویل می‌دم — نه وعدهٔ الکی، نه جلسه‌های بی‌پایان.</p></div></details>
+          <details data-reveal><summary>هزینه‌اش چقدره؟<i></i></summary><div class="faq__a"><p>اول نیازت رو بررسی می‌کنیم، بعد پیشنهاد دقیق و قیمت شفاف می‌دم — قبل از شروع کار، نه وسطش. جواب سؤالاتت رو هم قبل از شروع کار می‌دم.</p></div></details>
+          <details data-reveal><summary>کد و اکانت‌ها مال کیه؟<i></i></summary><div class="faq__a"><p>مال خودت — کامل. پروژه زیر اکانت خودت بالا می‌آد و سورس کد، دامنه، SSL و دسترسی‌ها موقع تحویل داده می‌شه. اگه روزی همکاریم تمام شه، هیچی نمی‌شکنه.</p></div></details>
+          <details data-reveal><summary>هاست هم می‌دی؟<i></i></summary><div class="faq__a"><p>هاست رو با هم انتخاب می‌کنیم؛ دقیقاً می‌گم چی بخری (معمولاً یه سرور کوچیک) و ستاپ کاملش با منه.</p></div></details>
+          <details data-reveal><summary>بعد از لانچ چی؟<i></i></summary><div class="faq__a"><p>پشتیبانی، آپدیت و رفع اشکال — معمولاً همون روز جواب می‌گیری. تغییرات بزرگ‌تر قبل از هر حرکتی، محدوده و قیمت شفاف می‌گیره.</p></div></details>
+          <details data-reveal><summary>چطور شروع کنیم؟<i></i></summary><div class="faq__a"><p>توی تلگرام یا ایمیل بگو چی می‌خوای ساخته بشه — یک گفتگوی صاف دربارهٔ محدوده، قیمت و زمان‌بندی، بعد کار شروع می‌شود.</p></div></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta" id="contact" data-scene="finale">
+      <div class="wrap cta__inner">
+        <p class="kicker" data-reveal>آمادهٔ پروژه‌های جدید</p>
+        <h2 class="cta__title" data-split><span class="line">پروژه‌ای تو ذهنت داری؟</span><span class="line"><em>بگو تا شروع کنیم.</em></span></h2>
+        <p class="cta__lead" data-reveal>سریع‌ترین راه: پیام مستقیم در تلگرام. معمولاً همون روز جواب می‌دم.</p>
+        <div class="cta__actions" data-reveal>
+          <a class="btn btn--xl" href="https://t.me/KhodeArat" target="_blank" rel="noopener" data-magnetic>
+            <span>پیام بده در تلگرام</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="cta__mail mono" href="mailto:aratzarei@gmail.com">aratzarei@gmail.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div>
+        <a href="#top" class="wordmark">آرات<span>.dev</span></a>
+        <p class="muted">وب‌سایت، ربات و مینی‌اپ تلگرام، پنل مدیریت و اتوماسیون هوش مصنوعی — طراحی، اجرا و پشتیبانی از اول تا آخر.</p>
+      </div>
+      <nav aria-label="Footer">
+        <p class="mono muted">گشت‌وگذار</p>
+        <a href="#focus">مهارت‌ها</a><a href="#process">روند کار</a><a href="#principles">اصول</a><a href="#about">درباره</a>
+      </nav>
+      <nav aria-label="Contact">
+        <p class="mono muted">تماس</p>
+        <a href="https://t.me/KhodeArat" target="_blank" rel="noopener">Telegram — @KhodeArat</a>
+        <a href="https://instagram.com/iarawt" target="_blank" rel="noopener">Instagram — iarawt</a>
+        <a href="mailto:aratzarei@gmail.com">aratzarei@gmail.com</a>
+      </nav>
+    </div>
+    <div class="wrap footer__bottom mono">
+      <span>© ۱۴۰۵ آرات زارعی — ساخته شده توسط DiazTeam</span>
+      <span class="status"><i></i>آمادهٔ پروژه‌های جدید</span>
+    </div>
+    <p class="footer__giant" aria-hidden="true">آرات</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script type="module" src="./scene.js"></script>
+  <script src="./app.js"></script>
+
+    <!-- ===== intro (concept 1) ===== -->
+    <script>
+    (function () {
+      var el = document.getElementById('intro');
+      if (!el) return;
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced || /(\?|&)nointro/.test(location.search)) { el.remove(); return; }
+      var HOLD = /(\?|&)hold/.test(location.search);   // debug: freeze at fully drawn
+
+      document.body.classList.add('intro-lock');
+      var lines = el.querySelectorAll('.intro__log p');
+      var bar = document.getElementById('introBar');
+      var pct = document.getElementById('introPct');
+      var t0 = performance.now(), BOOT = 1900, OUT = 2800;
+
+      // word: the site's own font, revealed left→right by a travelling pen
+      var word = document.getElementById('introWord');
+      var spanEl = word.querySelector('span');
+      var pen = word.querySelector('.intro__pen');
+      var penW = 160;
+      function measure() { penW = Math.round(spanEl.getBoundingClientRect().width) || penW; }
+      measure();
+      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(measure); }
+      setTimeout(measure, 400);
+
+      function draw(p) {                       // word reveal + counter + bar in one clock
+        var d = Math.min(1, Math.max(0, p));
+        var e = d < .5 ? 2 * d * d : 1 - Math.pow(-2 * d + 2, 2) / 2;
+        var w = Math.min(1, Math.max(0, d / 0.72));
+        var we = w < .5 ? 2 * w * w : 1 - Math.pow(-2 * w + 2, 2) / 2;
+        spanEl.style.clipPath = 'inset(0 ' + ((1 - we) * 100).toFixed(2) + '% -6% 0)';
+        pen.style.transform = 'translateX(' + Math.round(penW * we) + 'px)';
+        pen.style.opacity = (we > 0.02 && we < 0.995) ? '1' : '0';
+        bar.style.width = Math.round(e * 100) + '%';
+        pct.textContent = String(Math.round(e * 100)).padStart(2, '0');
+      }
+      lines.forEach(function (l, i) {
+        setTimeout(function () { l.classList.add('shown'); }, 420 + i * 300);
+      });
+      setTimeout(function () { var b = el.querySelector('.intro__brand');
+                               b.style.opacity = 1; b.style.transform = 'none'; }, 1000);
+
+      function finish() {                      // nothing is ever left half-written
+        draw(1);
+        spanEl.style.clipPath = 'inset(0 0 -6% 0)';
+        pen.style.opacity = '0';
+        lines.forEach(function (l) { l.classList.add('shown'); });
+        var b = el.querySelector('.intro__brand');
+        b.style.opacity = 1; b.style.transform = 'none';
+      }
+
+      function tick(now) {
+        if (HOLD) { finish(); return; }
+        var p = (now - t0) / BOOT;
+        draw(p);
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+
+      function exitNow() {                     // one shared exit path
+        if (!document.getElementById('intro')) return;
+        finish();
+        el.classList.add('fade'); el.classList.add('gone');
+        document.body.classList.remove('intro-lock');
+        document.documentElement.classList.add('hero-done');
+        document.body.classList.remove('is-loading');
+        setTimeout(function () { el.remove(); }, 900);
+      }
+      setTimeout(exitNow, OUT + 700);          // hard deadline: never left half-written
+      document.addEventListener('visibilitychange', function () {
+        if (!document.hidden && document.getElementById('intro') &&
+            performance.now() - t0 > OUT) { exitNow(); }
+      });
+    })();
+    </script>
+
+    <!-- ===== customiser behaviour (themes, generated music, background) ===== -->
+    <script>
+    (function () {
+      var KEY = 'arat_custom';
+      var THEMES = {
+        mint:   { '--mint': '#7cf5d4', '--aqua': '#2fd8bd', '--teal': '#0e8f7d', '--bg': '#050d0c',
+                  '--bg-2': '#081614', '--ink': '#e9f5f1', '--ink-2': '#b9cdc7', '--line': '#beffeb1a',
+                  '--line-2': '#beffeb2e', '--glass': '#0e201d8c', '--glass-2': '#142c28b3', canvas: 'none' },
+        violet: { '--mint': '#b39dff', '--aqua': '#7c5cff', '--teal': '#4c1d95', '--bg': '#07060f',
+                  '--bg-2': '#0b0a18', '--ink': '#f1eefc', '--ink-2': '#c9c2e6', '--line': '#b39dff1f',
+                  '--line-2': '#b39dff33', '--glass': '#1712338c', '--glass-2': '#1d1846b3',
+                  canvas: 'hue-rotate(-40deg) saturate(1.15)' },
+        ocean:  { '--mint': '#7cd8f5', '--aqua': '#2fa8d8', '--teal': '#0e6a8f', '--bg': '#04070f',
+                  '--bg-2': '#071220', '--ink': '#e8f4fb', '--ink-2': '#adc4d4', '--line': '#7cd8f51f',
+                  '--line-2': '#7cd8f533', '--glass': '#0a1d2b8c', '--glass-2': '#0d2a3db3',
+                  canvas: 'hue-rotate(35deg) saturate(1.1)' },
+        amber:  { '--mint': '#ffd084', '--aqua': '#ffb44f', '--teal': '#8a5a12', '--bg': '#0d0805',
+                  '--bg-2': '#161009', '--ink': '#fdf3e6', '--ink-2': '#dbc9b0', '--line': '#ffd0841f',
+                  '--line-2': '#ffd08433', '--glass': '#2a1c0a8c', '--glass-2': '#33220fb3',
+                  canvas: 'hue-rotate(-95deg) saturate(1.2) brightness(1.05)' }
+      };
+      var state = { theme: 'mint', accent: null, bgOpacity: 1, lowPower: false, track: null, volume: 0.55 };
+      try { Object.assign(state, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch (e) {}
+      function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+      var root = document.documentElement;
+      function paint(theme, accent) {
+        var t = THEMES[theme] || THEMES.mint;
+        for (var k in t) if (k !== 'canvas') root.style.setProperty(k, t[k]);
+        if (accent) root.style.setProperty('--mint', accent);
+        var cv = document.getElementById('scene');
+        if (cv) cv.style.filter = t.canvas;
+      }
+      paint(state.theme, state.accent);
+
+      var btn = document.getElementById('czBtn'), panel = document.getElementById('czPanel');
+      var wrap = document.getElementById('cz');
+
+      /* the panel wording follows the PAGE language: Persian page → Persian, English page → English */
+      var LANG = ((document.documentElement.lang || 'fa') + '').toLowerCase().indexOf('fa') === 0 ? 'fa' : 'en';
+      if (LANG === 'en') {
+        wrap.setAttribute('dir', 'ltr');
+        wrap.setAttribute('lang', 'en');
+        wrap.classList.add('cz--en');
+        wrap.querySelectorAll('[data-en]').forEach(function (el) { el.textContent = el.getAttribute('data-en'); });
+        wrap.querySelectorAll('[data-en-label]').forEach(function (el) {
+          el.setAttribute('aria-label', el.getAttribute('data-en-label'));
+          if (el.hasAttribute('title')) el.setAttribute('title', el.getAttribute('data-en-label'));
+        });
+      }
+      var HINT = LANG === 'en'
+        ? { idle: 'Tap a track to play.', playing: 'Playing — tap again to stop.' }
+        : { idle: 'برای پخش، روی یکی از آهنگ‌ها بزن.', playing: 'در حال پخش — برای قطع، دوباره بزن.' };
+
+      /* anchor the round button next to the header CTA (never over the wordmark / logo) */
+      /* every control that lives in the top band — the button must never sit on any of them */
+      function topBoxes() {
+        var out = [];
+        var sel = '.wordmark, .brand, header a, header button, header .btn, nav a, nav button, .btn, .burger,' +
+                  ' [class*="lang"], [class*="theme"], [class*="toggle"], [class*="menu"]';
+        document.querySelectorAll(sel).forEach(function (el) {
+          if (wrap.contains(el)) return;
+          var st = getComputedStyle(el);
+          if (st.display === 'none' || st.visibility === 'hidden') return;
+          var r = el.getBoundingClientRect();
+          if (r.width < 14 || r.height < 14 || r.width > innerWidth * 0.92) return;
+          if (r.bottom < 0 || r.top > 190) return;
+          out.push(r);
+        });
+        return out;
+      }
+      function clashes(x, y, size, boxes, pad) {
+        for (var i = 0; i < boxes.length; i++) {
+          var b = boxes[i];
+          if (x - pad < b.right && b.left < x + size + pad &&
+              y - pad < b.bottom && b.top < y + size + pad) return true;
+        }
+        return false;
+      }
+      function place() {
+        var size = wrap.offsetWidth || 46, pad = 14;
+        /* the FIRST <header> in the DOM is the chat panel's head — target the site nav explicitly */
+        var hdr = document.querySelector('#nav, header.nav, nav.nav') || document.querySelector('header:not(.chp__head)');
+        var hb = hdr ? hdr.getBoundingClientRect() : { top: 0, bottom: 64, height: 64 };
+        var wz = document.querySelector('.wordmark, .brand');
+        var logoOnRight = wz ? ((wz.getBoundingClientRect().left + wz.getBoundingClientRect().width / 2) > innerWidth / 2)
+                             : (document.documentElement.dir === 'rtl');
+        var boxes = topBoxes();
+        var lx = pad, rx = innerWidth - size - pad;
+        var band = hb.top + (hb.height - size) / 2;
+        var under = hb.bottom + 14;
+        var bottomY = innerHeight - size - 18;
+        /* ordered candidates: the empty strip just under the header wins (it never crowds a control),
+           then the header band itself, then a bottom corner */
+        var cands = [
+          { x: logoOnRight ? lx : rx, y: under },
+          { x: logoOnRight ? rx : lx, y: under },
+          { x: logoOnRight ? lx : rx, y: band },
+          { x: logoOnRight ? rx : lx, y: band },
+          { x: lx, y: bottomY },
+          { x: rx, y: bottomY }
+        ];
+        var pick = null;
+        for (var i = 0; i < cands.length; i++) {
+          var c = cands[i];
+          if (c.x < 0 || c.x + size > innerWidth || c.y < 0 || c.y + size > innerHeight) continue;
+          if (!clashes(c.x, c.y, size, boxes, 16)) { pick = c; break; }
+        }
+        if (!pick) pick = { x: lx, y: bottomY };
+        var x = pick.x, y = pick.y;
+        wrap.style.left = Math.round(x) + 'px';
+        wrap.style.top = Math.round(y) + 'px';
+        // panel hangs off the button: opens downward, shrinks + scrolls to fit the free space
+        /* position against the panel's REAL width — the mobile rule makes it wider than 330 */
+        var pw = panel.offsetWidth || ((innerWidth <= 640) ? (innerWidth - 28) : Math.min(330, innerWidth - 28));
+        pw = Math.min(pw, innerWidth - pad * 2);
+        var px = Math.round(Math.max(pad, Math.min(x + size / 2 - pw / 2, innerWidth - pw - pad)));
+        var below = y + size + 10, above = y - 10;
+        var spaceBelow = innerHeight - pad - below, spaceAbove = y - pad - 6;
+        panel.style.maxHeight = '';
+        var ph = panel.offsetHeight || 420;
+        var top, room;
+        if (spaceBelow >= 240) { top = below; room = spaceBelow; }
+        else if (spaceAbove >= 240) { top = Math.max(pad, above - ph); room = spaceAbove; }
+        else { top = Math.max(pad, Math.min(below, innerHeight - ph - pad)); room = innerHeight - pad - top; }
+        panel.style.maxHeight = Math.max(200, Math.min(room, innerHeight - pad * 2)) + 'px';
+        panel.style.left = px + 'px';
+        panel.style.top = Math.round(top) + 'px';
+      }
+      function open(b) {
+        panel.hidden = !b;
+        if (b) place();
+        btn.setAttribute('aria-expanded', b ? 'true' : 'false');
+      }
+      place();
+      [0, 400, 1200, 2600, 5000].forEach(function (ms) { setTimeout(place, ms); });
+      addEventListener('resize', place);
+      addEventListener('scroll', function () { if (!panel.hidden) place(); }, { passive: true });
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+      btn.addEventListener('click', function () { open(panel.hidden); });
+      document.getElementById('czClose').addEventListener('click', function () { open(false); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') open(false); });
+      document.addEventListener('click', function (e) {
+        if (!panel.hidden && !e.target.closest('#cz')) open(false);
+      });
+
+      /* --- themes --- */
+      document.getElementById('czThemes').addEventListener('click', function (e) {
+        var b = e.target.closest('.czsw'); if (!b) return;
+        state.theme = b.dataset.theme; state.accent = null;
+        document.querySelectorAll('.czsw').forEach(function (x) { x.classList.toggle('is-on', x === b); });
+        document.getElementById('czAccent').value = (THEMES[state.theme] || THEMES.mint)['--mint'];
+        paint(state.theme, null); save();
+      });
+      var accent = document.getElementById('czAccent');
+      accent.addEventListener('input', function () {
+        state.accent = accent.value;
+        document.querySelectorAll('.czsw').forEach(function (x) { x.classList.remove('is-on'); });
+        paint(state.theme, state.accent); save();
+      });
+
+      /* --- background intensity / low power --- */
+      var bg = document.getElementById('czBg'), low = document.getElementById('czLow');
+      bg.value = Math.round((state.lowPower ? 0 : (state.bgOpacity == null ? 1 : state.bgOpacity)) * 100);
+      low.checked = !!state.lowPower;
+      function applyBg() {
+        var v = state.lowPower ? 0 : state.bgOpacity;
+        root.style.setProperty('--scene-op', String(v));
+        save();
+      }
+      bg.addEventListener('input', function () {
+        state.bgOpacity = bg.value / 100; state.lowPower = false; low.checked = false; applyBg();
+      });
+      low.addEventListener('change', function () { state.lowPower = low.checked; bg.value = low.checked ? 0 : 100; state.bgOpacity = low.checked ? 0 : 1; applyBg(); });
+      applyBg();
+
+      /* --- music: three ambient pieces generated in the browser (no files, no copyright) --- */
+      var AC = window.AudioContext || window.webkitAudioContext;
+      var ctx = null, master = null, analyser = null, nodes = [], playing = null, fade = null;
+      var vol = document.getElementById('czVol');
+      vol.value = Math.round(state.volume * 100);
+      vol.addEventListener('input', function () { state.volume = vol.value / 100; if (master) master.gain.value = state.volume * 0.6; save(); });
+
+      function audioReady() {
+        if (ctx) return ctx;
+        ctx = new AC();
+        master = ctx.createGain();
+        master.gain.value = 0;
+        analyser = ctx.createAnalyser();
+        analyser.fftSize = 512;
+        master.connect(analyser); analyser.connect(ctx.destination);
+        return ctx;
+      }
+      function now() { return ctx.currentTime; }
+      function stopAll(fadeOut) {
+        var t = now();
+        master.gain.cancelScheduledValues(t);
+        master.gain.setValueAtTime(master.gain.value, t);
+        master.gain.linearRampToValueAtTime(0, t + (fadeOut ? 0.8 : 0.05));
+        var old = nodes.slice();
+        nodes = [];
+        setTimeout(function () {
+          old.forEach(function (n) { try { n.stop && n.stop(); n.disconnect && n.disconnect(); } catch (e) {} });
+        }, fadeOut ? 900 : 80);
+      }
+      function pad(freqs, type, gain, lp) {
+        var t = now(), g = ctx.createGain(), f = ctx.createBiquadFilter(), out = [];
+        f.type = 'lowpass'; f.frequency.value = lp || 1400; f.Q.value = 0.7;
+        g.gain.value = 0; g.connect(f); f.connect(master);
+        g.gain.linearRampToValueAtTime(gain, t + 3.5);
+        freqs.forEach(function (fr, i) {
+          var o = ctx.createOscillator();
+          o.type = type || 'sine';
+          o.frequency.value = fr;
+          o.detune.value = (i - 1) * 6;
+          o.connect(g); o.start(t);
+          out.push(o);
+        });
+        out.push(g);
+        return { oscs: out, gain: g };
+      }
+      function chordSchedule(seq, dur, type, gain, lp) {
+        var i = 0, cur = null;
+        function next() {
+          if (!ctx) return;
+          if (cur) { cur.gain.gain.cancelScheduledValues(now()); cur.gain.gain.linearRampToValueAtTime(0, now() + 2.2); }
+          var used = cur;
+          setTimeout(function () { if (used) used.oscs.forEach(function (o) { try { o.stop(); o.disconnect(); } catch (e) {} }); }, 2600);
+          cur = pad(seq[i % seq.length], type, gain, lp);
+          nodes.push.apply(nodes, cur.oscs);
+          i++;
+        }
+        next();
+        var id = setInterval(next, dur * 1000);
+        return { stop: function () { clearInterval(id); } };
+      }
+      function blips() {
+        var id = setInterval(function () {
+          if (!ctx) return;
+          var t = now();
+          var o = ctx.createOscillator(), g = ctx.createGain();
+          o.type = 'triangle'; o.frequency.value = 880 + Math.random() * 240;
+          g.gain.value = 0; o.connect(g); g.connect(master);
+          g.gain.linearRampToValueAtTime(0.05, t + 0.02);
+          g.gain.exponentialRampToValueAtTime(0.0001, t + 0.9);
+          o.start(t); o.stop(t + 1.0);
+          nodes.push(o, g);
+        }, 3400);
+        return { stop: function () { clearInterval(id); } };
+      }
+      var TRACKS = [
+        function () { return [chordSchedule([[220, 277.2, 329.6], [196, 246.9, 293.7], [174.6, 220, 261.6], [196, 246.9, 329.6]], 11, 'sine', 0.16, 1200)]; },
+        function () { return [chordSchedule([[146.8, 174.6, 220], [130.8, 164.8, 196], [116.5, 146.8, 174.6], [110, 138.6, 164.8]], 13, 'triangle', 0.13, 900),
+                                blips()]; },
+        function () { return [chordSchedule([[164.8, 207.7, 246.9], [164.8, 207.7, 246.9], [185, 233.1, 277.2]], 9, 'sawtooth', 0.08, 700),
+                                blips()]; }
+      ];
+      function play(i) {
+        audioReady();
+        if (ctx.state === 'suspended') ctx.resume();
+        stopAll(playing !== null);
+        playing = i;
+        state.track = i; save();
+        var parts = TRACKS[i]();
+        nodes.push.apply(nodes, parts);
+        var t = now();
+        master.gain.cancelScheduledValues(t);
+        master.gain.setValueAtTime(0, t);
+        master.gain.linearRampToValueAtTime(state.volume * 0.6, t + 1.6);
+        document.querySelectorAll('.cztrk').forEach(function (b, k) { b.classList.toggle('is-on', k === i); });
+        document.getElementById('czHint').textContent = HINT.playing;
+      }
+      function pause() {
+        playing = null; state.track = null; save();
+        stopAll(true);
+        document.querySelectorAll('.cztrk').forEach(function (b) { b.classList.remove('is-on'); });
+        document.getElementById('czHint').textContent = HINT.idle;
+      }
+      // real-world hardening: some browsers keep the context suspended until a TRUSTED gesture
+      document.addEventListener('pointerdown', function () {
+        if (ctx && ctx.state === 'suspended' && playing !== null) ctx.resume();
+      }, { passive: true });
+
+      document.getElementById('czTracks').addEventListener('click', function (e) {
+        var b = e.target.closest('.cztrk'); if (!b) return;
+        var i = +b.dataset.track;
+        if (playing === i) pause(); else play(i);
+      });
+      window.AratCustom = { get state() { return state; }, play: play, pause: pause,
+        info: function () { return { ctx: ctx ? ctx.state : 'none', playing: playing,
+          master: master ? +master.gain.value.toFixed(3) : null, nodes: nodes.length,
+          tracks: document.querySelectorAll('.cztrk.is-on').length }; },
+        level: function () { if (!analyser) return 0; var a = new Uint8Array(analyser.fftSize);
+          analyser.getByteTimeDomainData(a); var s = 0; for (var i = 0; i < a.length; i++) { var v = (a[i] - 128) / 128; s += v * v; }
+          return Math.sqrt(s / a.length); } };
+
+      /* --- reset --- */
+      document.getElementById('czReset').addEventListener('click', function () {
+        pause();
+        state = { theme: 'mint', accent: null, bgOpacity: 1, lowPower: false, track: null, volume: 0.55 };
+        save();
+        paint('mint', null);
+        document.querySelectorAll('.czsw').forEach(function (x) { x.classList.toggle('is-on', x.dataset.theme === 'mint'); });
+        accent.value = '#7cf5d4'; vol.value = 55; bg.value = 100; low.checked = false;
+        applyBg();
+      });
+    })();
+    </script>
+  <!-- ===== chat behaviour ===== -->
+  <script>
+  (function () {
+    var wrap = document.getElementById('ch'), panel = document.getElementById('chPanel'),
+        btn = document.getElementById('chBtn'), log = document.getElementById('chLog'),
+        form = document.getElementById('chForm'), input = document.getElementById('chIn'),
+        send = document.getElementById('chSend'), chips = document.getElementById('chChips');
+    if (!wrap || !panel) return;
+    /* hosts with no chat backend (GitHub Pages) set ARAT_CHAT_DISABLED and the widget stays out of the page */
+    if (window.ARAT_CHAT_DISABLED) { wrap.parentNode.removeChild(wrap); return; }
+
+    var LANG = ((document.documentElement.lang || 'fa') + '').toLowerCase().indexOf('fa') === 0 ? 'fa' : 'en';
+    var T = {
+      fa: {
+        greet: 'سلام 👋 من دستیار سایت آراتم. دربارهٔ خدمات، نمونه‌کارها، روند کار و راه تماس بپرس.',
+        chips: ['چه خدماتی می‌ده؟', 'هزینهٔ ساخت سایت چنده؟', 'چطور شروع کنم؟'],
+        err: 'ارتباط برقرار نشد. اینترنتت رو چک کن و دوباره بزن.',
+        contact: 'یا مستقیم به آرات پیام بده: @KhodeArat'
+      },
+      en: {
+        greet: "Hi 👋 I'm the assistant on Arat's site. Ask me about his services, past work, how he works, or how to get in touch.",
+        chips: ['What services does he offer?', 'How much does a website cost?', 'How do I start?'],
+        err: "Couldn't connect. Check your connection and try again.",
+        contact: 'Or message Arat directly: @KhodeArat'
+      }
+    }[LANG];
+
+    if (LANG === 'en') {
+      wrap.setAttribute('dir', 'ltr');
+      wrap.setAttribute('lang', 'en');
+      wrap.classList.add('ch--en');
+      wrap.querySelectorAll('[data-en]').forEach(function (el) { el.textContent = el.getAttribute('data-en'); });
+      wrap.querySelectorAll('[data-en-label]').forEach(function (el) {
+        el.setAttribute('aria-label', el.getAttribute('data-en-label'));
+        if (el.hasAttribute('title')) el.setAttribute('title', el.getAttribute('data-en-label'));
+      });
+      wrap.querySelectorAll('[data-en-placeholder]').forEach(function (el) {
+        el.setAttribute('placeholder', el.getAttribute('data-en-placeholder'));
+      });
+    }
+
+    var KEY = 'arat_chat_' + LANG;
+    var history = [];
+    try { history = JSON.parse(sessionStorage.getItem(KEY) || '[]') || []; } catch (e) { history = []; }
+    if (history.length > 24) history = history.slice(-24);
+    function save() { try { sessionStorage.setItem(KEY, JSON.stringify(history.slice(-24))); } catch (e) {} }
+
+    function esc(s) {
+      return (s || '').replace(/[&<>"']/g, function (c) {
+        return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c];
+      });
+    }
+    function fmt(s) {
+      return esc(s).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/^\s*[-•]\s+/gm, '• ');
+    }
+    function bubble(role, html, cls) {
+      var el = document.createElement('div');
+      el.className = 'chb chb--' + (role === 'user' ? 'me' : 'ai') + (cls ? ' ' + cls : '');
+      el.innerHTML = html;
+      log.appendChild(el);
+      log.scrollTop = log.scrollHeight + 999;
+      return el;
+    }
+    function renderHistory() {
+      log.innerHTML = '';
+      if (!history.length) { bubble('assistant', fmt(T.greet)); return; }
+      history.forEach(function (m) { bubble(m.role, m.role === 'user' ? esc(m.content) : fmt(m.content)); });
+    }
+    function drawChips() {
+      chips.innerHTML = '';
+      T.chips.forEach(function (q) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'chp__chip'; b.textContent = q;
+        b.addEventListener('click', function () { input.value = q; sendMsg(); });
+        chips.appendChild(b);
+      });
+    }
+    renderHistory(); drawChips();
+
+    var sending = false;
+    function sendMsg() {
+      var text = (input.value || '').trim();
+      if (!text || sending) return;
+      input.value = '';
+      history.push({ role: 'user', content: text });
+      bubble('user', esc(text));
+      save();
+      chips.innerHTML = '';
+      sending = true; send.disabled = true;
+      var dots = bubble('assistant', '<span class="chb__dots"><i></i><i></i><i></i></span>');
+      var slow = setTimeout(function () {
+        if (sending) dots.innerHTML = '<span class="chb__dots"><i></i><i></i><i></i></span> ' +
+          '<span style="opacity:.72">' + (LANG === 'fa' ? 'کمی طول می‌کشه، یه لحظه…' : 'taking a moment…') + '</span>';
+      }, 9000);
+
+      fetch(window.ARAT_CHAT_API || '/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ lang: LANG, messages: history.slice(-8) })
+      }).then(function (r) { return r.json().catch(function () { return {}; }); })
+        .then(function (d) {
+          dots.remove();
+          var reply = (d && d.reply) ? d.reply : T.err;
+          var bad = !(d && d.reply);
+          history.push({ role: 'assistant', content: reply });
+          save();
+          bubble('assistant', fmt(reply) + (bad ? '<br><br>' + fmt(T.contact) : ''), bad ? 'chb--err' : '');
+        })
+        .catch(function () {
+          dots.remove();
+          bubble('assistant', fmt(T.err) + '<br><br>' + fmt(T.contact), 'chb--err');
+        })
+        .then(function () {
+          clearTimeout(slow);
+          sending = false; send.disabled = false;
+          try { input.focus(); } catch (e) {}
+        });
+    }
+
+    function open(b) {
+      panel.hidden = !b;
+      wrap.classList.toggle('ch--on', b);
+      btn.setAttribute('aria-expanded', b ? 'true' : 'false');
+      if (b) { try { input.focus(); } catch (e) {} log.scrollTop = log.scrollHeight + 999; }
+    }
+    btn.addEventListener('click', function () { open(panel.hidden); });
+    document.getElementById('chX').addEventListener('click', function () { open(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) open(false); });
+    form.addEventListener('submit', function (e) { e.preventDefault(); sendMsg(); });
+    /* Enter sends explicitly — implicit form submission is unreliable across browsers/IMEs */
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); sendMsg(); }
     });
-  }
-  function render(en){
-    snapshot(); applyCaptions(en); setHtmlMode(en);
-    var b=document.getElementById('langBtn'); if(b) b.textContent = en ? 'فا' : 'EN';
-    try{localStorage.setItem(KEY, en?'en':'fa')}catch(e){}
-  }
-  function cur(){ try{return localStorage.getItem(KEY)||'fa'}catch(e){return 'fa'} }
-  document.addEventListener('click',function(ev){
-    var b=ev.target.closest('#langBtn'); if(!b) return;
-    render(cur()!=='en');
-  });
-  window.addEventListener('DOMContentLoaded',function(){ render(cur()==='en'); });
-  if(document.readyState!=='loading') render(cur()==='en');
-})();
-</script>
+  })();
+  </script>
 
-<footer>
-  <div class="fwrap">
-    <span class="copy">© ۱۴۰۵ آرات زارعی — ساخته شده توسط DiazTeam</span>
-    <span class="foot-link"><a href="https://t.me/MrArat" target="_blank" rel="noopener">تلگرام: MrArat@</a></span>
-    <span class="azmin">AZ</span>
-  </div>
-</footer>
-<nav class="botnav" aria-label="ناوبری موبایل"><a class="on" href="/"><svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg><span>خانه</span></a><a href="/about/"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg><span>درباره من</span></a><a href="/skills/"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18v3h3l5.7-5.7a4.5 4.5 0 0 0 6-6L14 13l-3-3 3.7-3.7z"/></svg><span>مهارت‌ها</span></a><a href="/projects/"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg><span>نمونه‌کارها</span></a><a href="/contact/"><svg viewBox="0 0 24 24"><path d="M22 3L9.2 11.7a2 2 0 0 0-.8 1.6V17l3.2-2.4M22 3l-3 16-5.4-3.4M22 3L2 9.8l6.4 2.9"/></svg><span>تماس</span></a></nav>
+
+  <!-- ===== content applier (admin panel) ===== -->
+  <script>
+  /* ===== ARAT-CMS-APPLIER ===== */
+  (function () {
+    var LANG = ((document.documentElement.lang || 'fa') + '').toLowerCase().indexOf('fa') === 0 ? 'fa' : 'en';
+    function esc(s) { return (s || '').replace(/[&<>]/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;'})[c]; }); }
+    fetch('/content.json?t=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { return r.json(); })
+      .then(function (all) {
+        var d = all && all[LANG];
+        if (!d) return;
+
+        /* hero */
+        var h1 = document.querySelector('.hero__title');
+        if (h1) {
+          var lines = h1.querySelectorAll('.line');
+          if (lines[0] && d.heroL1) lines[0].textContent = d.heroL1;
+          if (lines[1] && (d.heroEm || d.heroL2)) {
+            var tail = d.heroL2 || '';
+            if (tail && !/^[\s.,،!؟?؛:»)]/.test(tail)) tail = ' ' + tail;   /* «هستم.» needs a space, «.» must not have one */
+            lines[1].innerHTML = '<em>' + esc(d.heroEm || '') + '</em>' + esc(tail);
+          }
+        }
+        var lead = document.querySelector('.hero__lead');
+        if (lead && d.lead) lead.textContent = d.lead;
+
+        /* ticker (needs the list twice for a seamless loop) */
+        var track = document.querySelector('.ticker__track');
+        if (track && d.ticker && d.ticker.length) {
+          var one = d.ticker.map(function (s) { return '<span>' + esc(s) + '</span><i>✦</i>'; }).join('');
+          track.innerHTML = one + one;
+        }
+
+        /* today's tasks */
+        var ol = document.querySelector('.tasks ol');
+        if (ol && d.tasks) {
+          ol.innerHTML = d.tasks.map(function (t) {
+            var tag = t.tag ? '<em class="' + (t.cls || 'due') + '">' + esc(t.tag) + '</em>' : '';
+            return '<li><span class="mono">' + esc(t.t || '') + '</span>' + esc(t.x || '') + tag + '</li>';
+          }).join('');
+        }
+
+        /* the three project cards */
+        if (d.projects) {
+          var beds = document.querySelectorAll('.beds .bed');
+          d.projects.forEach(function (p, i) {
+            var bed = beds[i]; if (!bed) return;
+            var b = bed.querySelector('.bed__txt b'), s = bed.querySelector('.bed__txt small'), tg = bed.querySelector('.tag');
+            if (b && p.n) b.textContent = p.n;
+            if (s && p.s) s.textContent = p.s;
+            if (tg && p.tag) tg.textContent = p.tag;
+            /* clickable only when a link is set (empty link = the card does nothing) */
+            var hit = bed.querySelector('.bed__hit');
+            if (p.href) {
+              if (!hit) {
+                hit = document.createElement('a');
+                hit.className = 'bed__hit'; hit.target = '_blank'; hit.rel = 'noopener';
+                bed.insertBefore(hit, bed.firstChild);
+              }
+              hit.href = p.href;
+              hit.setAttribute('aria-label', p.n || '');
+              bed.classList.add('bed--link');
+            } else if (hit) {
+              hit.parentNode.removeChild(hit);
+              bed.classList.remove('bed--link');
+            }
+          });
+        }
+
+        /* contact links */
+        var c = d.contact || {};
+        if (c.mail) document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) {
+          a.href = 'mailto:' + c.mail;
+          if (/@/.test(a.textContent)) a.textContent = c.mail;
+        });
+        if (c.tg) document.querySelectorAll('a[href*="t.me/"]:not(.bed__hit)').forEach(function (a) { a.href = c.tg; });
+        if (c.ig) document.querySelectorAll('a[href*="instagram.com"]').forEach(function (a) {
+          a.href = 'https://instagram.com/' + c.ig.replace(/^@/, '');
+        });
+      })
+      .catch(function () { /* offline or no content yet — the built-in text stays */ });
+  })();
+  </script>
+
+
+  <!-- ===== language switch behaviour ===== -->
+  <script>
+  (function () {
+    var a = document.querySelector('.langsw');
+    if (!a) return;
+    a.addEventListener('click', function (e) {
+      /* keep the visitor where they were: section anchors share the same ids in both languages */
+      var h = location.hash;
+      if (h && h.length > 1) { e.preventDefault(); location.href = a.getAttribute('href') + h; }
+    });
+  })();
+  </script>
 
 </body>
 </html>
