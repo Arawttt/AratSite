@@ -16,7 +16,7 @@ function fallback(reason) {
   mark(); addEventListener('DOMContentLoaded', mark, { once: true });
   window.AratScene = { fallback: true, reason: reason, reduced: reduced, running: () => false,
     setState() {}, pulse() {},
-    diag: () => ({ webgl: false, reason: reason, reduced: reduced, isSmall: isSmall }) };
+    diag: () => ({ webgl: false, reason: reason, gpu: typeof gpuTier === 'string' ? gpuTier : 'n/a', reduced: reduced, isSmall: isSmall }) };
   if (canvas) canvas.remove();
   console.warn('[Arat] 3D background unavailable:', reason);
 }
@@ -25,6 +25,25 @@ const webglOK = (() => {
   catch (e) { return false; }
 })();
 if (!webglOK) { fallback('no-webgl-context'); throw new Error('no webgl context'); }
+/* A software GPU (SwiftShader/llvmpipe — Windows without hardware acceleration) renders this scene at a few
+   frames per second and makes the whole site feel broken, so it gets the smooth gradient instead.
+   window.ARAT_SCENE_FORCE = 'on' | 'off' overrides this (tests / curious visitors). */
+const gpuTier = (() => {
+  try {
+    const c = document.createElement('canvas');
+    const gl = c.getContext('webgl2') || c.getContext('webgl');
+    if (!gl) return 'none';
+    const dbg = gl.getExtension('WEBGL_debug_renderer_info');
+    const r = dbg ? String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) || '') : '';
+    return (/swiftshader|llvmpipe|softpipe|software|basic render|microsoft basic|mesa offscreen/i.test(r)
+      ? 'software: ' : 'hw: ') + (r || 'unknown');
+  } catch (e) { return 'unknown'; }
+})();
+const forced = (typeof window !== 'undefined' && window.ARAT_SCENE_FORCE) || '';
+if (forced === 'off' || (forced !== 'on' && gpuTier.indexOf('software:') === 0)) {
+  fallback('software-renderer: ' + gpuTier);
+  throw new Error('software renderer — using the CSS fallback');
+}
 try {
   renderer = new THREE.WebGLRenderer({ canvas, antialias: !isSmall, powerPreference: 'high-performance' });
 } catch (e) { fallback('renderer-failed: ' + (e && e.message ? e.message : e)); throw e; }
@@ -330,7 +349,11 @@ if (reduced) { Object.assign(target, states.calm); Object.assign(cur, states.cal
       /* the scene is the site's identity — reduced motion calms it (no chaos) but must not black it out.
      Visitors who want it gone have the customiser's low-power switch. */
       {
-  frame();
+  /* the page paints first; the GPU joins after load — a busy GPU during the critical path is exactly
+     what makes a site feel slow on weaker machines */
+  const _startScene = () => setTimeout(() => { try { frame(); } catch (e) { console.warn('[Arat] scene start failed', e); } }, 120);
+  if (document.readyState === 'complete') _startScene();
+  else addEventListener('load', _startScene, { once: true });
 }
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) running = false;
