@@ -18,7 +18,7 @@
     <meta property="og:image" content="https://aratzareii.ir/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23050d0c'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%237cf5d4'/%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="./style.css?v=20261114g" />
+  <link rel="stylesheet" href="./style.css?v=20261114h" />
 <script>
 /* Arat.dev — customiser: apply the saved skin before first paint */
 (function () {
@@ -687,8 +687,8 @@ body.light .czsw, body.light .cztrk{background:rgba(10,15,20,.03);border-color:r
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script type="module" src="./scene.js?v=20261114g"></script>
-  <script src="./app.js?v=20261114g"></script>
+  <script type="module" src="./scene.js?v=20261114h"></script>
+  <script src="./app.js?v=20261114h"></script>
 <!-- ===== intro (concept 1) ===== -->
     <script>
     (function () {
@@ -1089,12 +1089,14 @@ body.light .czsw, body.light .cztrk{background:rgba(10,15,20,.03);border-color:r
         greet: 'سلام 👋 من دستیار سایت آراتم. دربارهٔ خدمات، نمونه‌کارها، روند کار و راه تماس بپرس.',
         chips: ['چه خدماتی می‌ده؟', 'هزینهٔ ساخت سایت چنده؟', 'چطور شروع کنم؟'],
         err: 'ارتباط برقرار نشد. اینترنتت رو چک کن و دوباره بزن.',
+        none: 'این یکی رو با اطمینان نمی‌دونم؛ ولی سریع‌ترین راه اینه که مستقیم بپرسی:',
         contact: 'یا مستقیم به آرات پیام بده: @KhodeArat'
       },
       en: {
         greet: "Hi 👋 I'm the assistant on Arat's site. Ask me about his services, past work, how he works, or how to get in touch.",
         chips: ['What services does he offer?', 'How much does a website cost?', 'How do I start?'],
         err: "Couldn't connect. Check your connection and try again.",
+        none: "I'm not sure about that one — best to ask Arat directly:",
         contact: 'Or message Arat directly: @KhodeArat'
       }
     }[LANG];
@@ -1111,6 +1113,83 @@ body.light .czsw, body.light .cztrk{background:rgba(10,15,20,.03);border-color:r
       wrap.querySelectorAll('[data-en-placeholder]').forEach(function (el) {
         el.setAttribute('placeholder', el.getAttribute('data-en-placeholder'));
       });
+    }
+
+
+    /* ===== chat: local answer engine (no model, no backend) =====
+       Answers are the site's own words, matched by keywords. When ARAT_CHAT_API gets set the model
+       answers first and this stays as the fallback — the widget works either way. */
+    var FAQ = [
+      { k: ['خدمات','چیکار','چه کار','کار میکنی','تخصص','میسازی','میتونی','سرویس','راه حل','service','services','what do you','skill','build'],
+        fa: 'وب‌سایت (پورتفولیو، شرکتی، فروشگاهی، لندینگ)، پنل مدیریت، ربات و مینی‌اپ تلگرام، و اتوماسیون و اتصال به هوش مصنوعی — هر چیزی که روی وب یا تلگرام اجرا بشه و با آدم‌ها کار کنه.',
+        en: 'Websites (portfolio, business, shop, landing), admin panels, Telegram bots and mini apps, plus AI automation — anything that runs on the web or Telegram and works with real people.' },
+      { k: ['قیمت','هزینه','چنده','چقدر','تومان','تومن','بودجه','price','cost','how much','budget','quote'],
+        fa: 'اول نیازت رو بررسی می‌کنیم، بعد پیشنهاد دقیق و قیمت شفاف می‌گیری — قبل از شروع کار، نه وسطش. برای برآورد سریع‌تر توی تلگرام پیام بده: @KhodeArat',
+        en: 'The work gets scoped first, then you get a clear price before anything starts — never mid-way. For a quick estimate message Arat on Telegram: @KhodeArat' },
+      { k: ['زمان','چقدر طول','تحویل','مدت','کی آماده','عجله','deadline','how long','timeline','delivery','when'],
+        fa: 'بستگی به حجم کار داره؛ همون اول زمان‌بندی رو شفاف می‌گم و همون‌طور تحویل می‌دم — نه وعدهٔ الکی، نه جلسه‌های بی‌پایان.',
+        en: 'It depends on the scope — the timeline is stated up front and kept. No empty promises and no endless meetings.' },
+      { k: ['سورس','مالکیت','مال کی','دامنه','دسترسی','source','ownership','domain','access','own it'],
+        fa: 'همه‌چیز کامل مال خودته: پروژه زیر اکانت خودت بالا می‌آد و سورس کد، دامنه، SSL و دسترسی‌ها موقع تحویل داده می‌شه.',
+        en: 'Everything is fully yours: the project runs under your own account and the source code, domain, SSL and access are handed over at delivery.' },
+      { k: ['هاست','سرور','میزبانی','host','hosting','server','deploy'],
+        fa: 'هاست رو با هم انتخاب می‌کنیم؛ دقیقاً می‌گم چی بخری (معمولاً یه سرور کوچیک) و ستاپ کاملش با منه.',
+        en: 'Hosting is chosen together — you get told exactly what to buy (usually a small server) and the full setup is on me.' },
+      { k: ['پشتیبانی','بعد از تحویل','آپدیت','رفع اشکال','خراب شد','support','maintenance','after','update','bug'],
+        fa: 'پشتیبانی، آپدیت و رفع اشکال — معمولاً همون روز جواب می‌گیری. کارهای بزرگ‌تر قبل از شروع، محدوده و قیمت شفاف می‌گیرن.',
+        en: 'Support, updates and bug fixes — usually same-day. Bigger changes get a clear scope and price before any work starts.' },
+      { k: ['شروع','سفارش','تماس','ارتباط','پیام بدم','هماهنگی','راه تماس','start','order','contact','reach','hire','talk'],
+        fa: 'توی تلگرام بگو چی می‌خوای ساخته بشه: @KhodeArat — یا ایمیل aratzarei@gmail.com. یه گفتگوی صاف دربارهٔ محدوده، قیمت و زمان‌بندی، بعد کار شروع می‌شه.',
+        en: 'Message on Telegram: @KhodeArat — or email aratzarei@gmail.com. A straight talk about scope, price and timing, then work starts.' },
+      { k: ['نمونه کار','نمونه‌کار','کارها','پروژه','پرتفولیو','دیاز','گوریل','portfolio','previous work','projects','sample','case'],
+        fa: 'دیاز شاپ (فروشگاه تلگرامی، رباتش @Diazpshopbot)، پروژهٔ گوریل، و همین سایتی که توش هستی — طراحی، کد، دامنه و سئو، همه‌ش کار خودمه.',
+        en: 'Diaz Shop (a Telegram store — its bot is @Diazpshopbot), the Gorilla project, and this very site: design, code, domain and SEO are all his own work.' },
+      { k: ['ربات','بات','تلگرام','bot','telegram'],
+        fa: 'بله — ربات تلگرام با منوی کامل، پرداخت، پنل ادمین و مینی‌اپ. ربات فروشگاه دیاز نمونهٔ زنده‌شه: @Diazpshopbot',
+        en: 'Yes — Telegram bots with a full menu, payments, an admin panel and a mini app. The Diaz shop bot is a live example: @Diazpshopbot' },
+      { k: ['مینی اپ','مینی‌اپ','پنل مدیریت','پنل ادمین','داشبورد','dashboard','admin panel','mini app','miniapp'],
+        fa: 'بله، پنل مدیریت و مینی‌اپ تلگرام هم ساخته می‌شه — با گزارش‌گیری، مدیریت سفارش‌ها و دسترسی ادمین.',
+        en: 'Yes — admin panels and Telegram mini apps too, with reporting, order management and admin access.' },
+      { k: ['هوش مصنوعی','اتوماسیون','مدل','chatgpt','automation','llm','api'],
+        fa: 'اتوماسیون و اتصال به هوش مصنوعی هم انجام می‌شه — مثل همین دستیاری که داری باهاش حرف می‌زنی؛ الان بدون مدل کار می‌کنه و از اطلاعات خود سایت جواب می‌ده.',
+        en: "AI automation is part of the work — like this assistant: it answers from the site's own info with no model wired in." },
+      { k: ['کی هستی','آرات','کی هست','درباره','سابقه','خودت','about','who are you','who is','experience'],
+        fa: 'آرات زارعی‌ام؛ طراح و توسعه‌دهندهٔ وب و عضو تیم دیاز. چند سالی‌ست روی پروژه‌های واقعی کار می‌کنم — طراحی، اجرا و پشتیبانی از صفر تا صد.',
+        en: 'Arat Zarei — web designer and developer, part of the Diaz team. Years of real projects: design, build and support, end to end.' },
+      { k: ['سئو','گوگل','دیده شم','رتبه','seo','google','rank','found'],
+        fa: 'سایت با پایهٔ سئو تحویل داده می‌شه — متا، سرعت، ساختار و معرفی به گوگل؛ همین سایت خودش نمونه‌شه. کار حرفه‌ای‌تر سئو و محتوا هم پروژهٔ جداست.',
+        en: 'Sites ship with solid SEO foundations — meta, speed, structure and getting indexed; this site itself is the example. Deeper SEO/content work is a separate project.' },
+      { k: ['کجایی','آدرس','شماره','تلفن','حضوری','where are you','location','phone','address','remote'],
+        fa: 'همه‌چیز آنلاین و از راه دوره. ارتباط اصلی: تلگرام @KhodeArat (سریع‌ترین راه) و ایمیل aratzarei@gmail.com.',
+        en: 'Everything is done online and remotely. Main channels: Telegram @KhodeArat (fastest) and email aratzarei@gmail.com.' }
+    ];
+    function norm(s) {
+      return (s || '').toString().toLowerCase()
+        .replace(/[يى]/g, 'ی').replace(/ك/g, 'ک')
+        .replace(/[\u200c\u200e\u200f]/g, ' ')
+        .replace(/[؟?!.,،:;()"'«»\[\]\-_/\\+]/g, ' ')
+        .replace(/\s+/g, ' ').trim();
+    }
+    function aratFAQ(q) {
+      var t = norm(q), best = null, bestN = 0;
+      FAQ.forEach(function (f) {
+        var n = 0;
+        f.k.forEach(function (k) { var kk = norm(k); if (kk.length >= 3 && t.indexOf(kk) >= 0) n += 1; });
+        if (n > bestN) { bestN = n; best = f; }
+      });
+      if (!best || bestN < 1) return null;
+      return LANG === 'en' ? best.en : best.fa;
+    }
+    function localReply(text, dots, slow) {
+      var a = aratFAQ(text);
+      setTimeout(function () {
+        dots.remove();
+        var reply = a || T.none;
+        history.push({ role: 'assistant', content: reply }); save();
+        bubble('assistant', fmt(reply) + (a ? '' : '<br><br>' + fmt(T.contact)), a ? '' : 'chb--err');
+        clearTimeout(slow); sending = false; send.disabled = false;
+        try { input.focus(); } catch (e) {}
+      }, 300);
     }
 
     var KEY = 'arat_chat_' + LANG;
@@ -1167,7 +1246,9 @@ body.light .czsw, body.light .cztrk{background:rgba(10,15,20,.03);border-color:r
           '<span style="opacity:.72">' + (LANG === 'fa' ? 'کمی طول می‌کشه، یه لحظه…' : 'taking a moment…') + '</span>';
       }, 9000);
 
-      fetch(window.ARAT_CHAT_API || '/api/chat', {
+      var _api = window.ARAT_CHAT_API;
+      if (!_api) { return localReply(text, dots, slow); }   /* no backend yet → answer from the site's own info */
+      fetch(_api, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ lang: LANG, messages: history.slice(-8) })
@@ -1181,8 +1262,12 @@ body.light .czsw, body.light .cztrk{background:rgba(10,15,20,.03);border-color:r
           bubble('assistant', fmt(reply) + (bad ? '<br><br>' + fmt(T.contact) : ''), bad ? 'chb--err' : '');
         })
         .catch(function () {
+          /* model unreachable (or none configured) → local answers from the site's own words */
+          var a = aratFAQ(text);
           dots.remove();
-          bubble('assistant', fmt(T.err) + '<br><br>' + fmt(T.contact), 'chb--err');
+          var reply = a || T.none;
+          history.push({ role: 'assistant', content: reply }); save();
+          bubble('assistant', fmt(reply) + (a ? '' : '<br><br>' + fmt(T.contact)), a ? '' : 'chb--err');
         })
         .then(function () {
           clearTimeout(slow);
