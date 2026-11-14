@@ -188,14 +188,12 @@ function setActive(i) {
   }
 }
 function fmtDay(p) {
-  const day = 1 + Math.round(p * 29 * (p < 1 ? p : 1)); // روز ۰۱ → ۳۰
-  const fa = '۰۱۲۳۴۵۶۷۸۹';
-  const n = String(Math.max(1, day)).padStart(2, '0').replace(/\d/g, d => fa[+d]);
-  return 'روز ' + n;
+  const day = 1 + Math.round(p * 29 * (p < 1 ? p : 1)); // DAY 01 → 30
+  return 'DAY ' + String(Math.max(1, day)).padStart(2, '0');
 }
 
 function timelineScroll() {
-  if (!pin || window.innerWidth <= 860) return; // story is content: reduced motion no longer freezes it
+  if (!pin || window.innerWidth <= 860) return; // the process story is content: reduced motion must not freeze it
   const rect = pin.getBoundingClientRect();
   const total = pinInner.offsetHeight + window.innerHeight; // approximate pin distance
   const start = rect.top + window.scrollY;
