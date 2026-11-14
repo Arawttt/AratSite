@@ -18,7 +18,7 @@
     <meta property="og:image" content="https://aratzareii.ir/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23050d0c'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%237cf5d4'/%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="./style.css?v=20261114h" />
+  <link rel="stylesheet" href="./style.css?v=20261114i" />
 <script>
 /* Arat.dev — customiser: apply the saved skin before first paint */
 (function () {
@@ -325,6 +325,8 @@ body.light .czsw, body.light .cztrk{background:rgba(10,15,20,.03);border-color:r
             <span data-en="Low-power mode (turn the 3D scene off)">حالت کم‌مصرف (خاموش کردن سه‌بعدی)</span>
             <input type="checkbox" id="czLow" aria-label="حالت کم‌مصرف" data-en-label="Low-power mode">
           </label>
+          <p class="czp__hint" id="czBgState" role="status"></p>
+          <button class="czp__reset" id="czBgFix" type="button" hidden></button>
         </div>
 
         <div class="czp__foot">
@@ -687,8 +689,8 @@ body.light .czsw, body.light .cztrk{background:rgba(10,15,20,.03);border-color:r
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script type="module" src="./scene.js?v=20261114h"></script>
-  <script src="./app.js?v=20261114h"></script>
+  <script type="module" src="./scene.js?v=20261114i"></script>
+  <script src="./app.js?v=20261114i"></script>
 <!-- ===== intro (concept 1) ===== -->
     <script>
     (function () {
@@ -1070,7 +1072,45 @@ body.light .czsw, body.light .cztrk{background:rgba(10,15,20,.03);border-color:r
         accent.value = '#7cf5d4'; vol.value = 55; bg.value = 100; low.checked = false;
         applyBg();
       });
-    })();
+    
+    /* ---- background status: tell the visitor (and support) why the 3D scene is or isn't showing ---- */
+    var _bgState = document.getElementById('czBgState'), _bgFix = document.getElementById('czBgFix');
+    function bgStatus() {
+      if (!_bgState) return;
+      var en = ((document.documentElement.lang || 'fa') + '').toLowerCase().indexOf('fa') !== 0;
+      var noGl = document.documentElement.classList.contains('no-webgl') ||
+                 (document.body && document.body.classList.contains('no-webgl'));
+      var api = window.AratScene;
+      var op = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--scene-op'));
+      if (isNaN(op)) op = 1;
+      var t, fix = false;
+      if (noGl || (api && api.fallback)) {
+        t = en ? '3D is off in this browser (WebGL disabled) — the soft gradient background is showing instead.'
+               : 'سه‌بعدی تو این مرورگر خاموشه (WebGL غیرفعاله) — پس‌زمینهٔ گرادیانت ملایم جاش نشون داده می‌شه.';
+      } else if (op <= 0.001) {
+        t = en ? 'Background is off by your own setting (intensity 0 or low-power).'
+               : 'پس‌زمینه با تنظیم خودت خاموشه (شدت صفر یا حالت کم‌مصرف).';
+        fix = true;
+      } else if (api && api.running && api.running()) {
+        t = en ? '3D background is running ✓' : 'پس‌زمینهٔ سه‌بعدی فعاله ✓';
+      } else {
+        t = en ? 'Loading the 3D background…' : 'پس‌زمینهٔ سه‌بعدی در حال بارگذاریه…';
+      }
+      _bgState.textContent = t;
+      if (_bgFix) { _bgFix.hidden = !fix; _bgFix.textContent = en ? 'Turn it back on' : 'روشنش کن'; }
+    }
+    if (_bgFix) _bgFix.addEventListener('click', function () {
+      state.lowPower = false; state.bgOpacity = 1;
+      var _b = document.getElementById('czBg'), _l = document.getElementById('czLow');
+      if (_b) _b.value = 100;
+      if (_l) _l.checked = false;
+      if (typeof applyBg === 'function') applyBg();
+      bgStatus();
+    });
+    bgStatus();
+    setTimeout(bgStatus, 1200); setTimeout(bgStatus, 3200); setTimeout(bgStatus, 6500);
+
+  })();
     </script>
 <!-- ===== chat behaviour ===== -->
   <script>

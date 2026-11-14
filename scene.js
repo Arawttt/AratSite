@@ -7,11 +7,27 @@ const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isSmall = matchMedia('(max-width: 860px)').matches || matchMedia('(pointer: coarse)').matches;
 
 let renderer;
+/* A machine without WebGL (Windows with hardware acceleration off, GPU-blocked browsers) must still get a
+   background. The old fallback put the class on <html> while style.css only styled body.no-webgl, so those
+   visitors saw an EMPTY page. Mark both, keep the outside informed, and never leave a black hole. */
+function fallback(reason) {
+  document.documentElement.classList.add('no-webgl');
+  var mark = function () { if (document.body) document.body.classList.add('no-webgl'); };
+  mark(); addEventListener('DOMContentLoaded', mark, { once: true });
+  window.AratScene = { fallback: true, reason: reason, reduced: reduced, running: () => false,
+    setState() {}, pulse() {},
+    diag: () => ({ webgl: false, reason: reason, reduced: reduced, isSmall: isSmall }) };
+  if (canvas) canvas.remove();
+  console.warn('[Arat] 3D background unavailable:', reason);
+}
+const webglOK = (() => {
+  try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); }
+  catch (e) { return false; }
+})();
+if (!webglOK) { fallback('no-webgl-context'); throw new Error('no webgl context'); }
 try {
   renderer = new THREE.WebGLRenderer({ canvas, antialias: !isSmall, powerPreference: 'high-performance' });
-} catch { fallback(); throw new Error('no webgl'); }
-
-function fallback() { document.documentElement.classList.add('no-webgl'); canvas.remove(); }
+} catch (e) { fallback('renderer-failed: ' + (e && e.message ? e.message : e)); throw e; }
 
 renderer.setPixelRatio(Math.min(devicePixelRatio, isSmall ? 1.5 : 1.75));
 renderer.setClearColor(0x050d0c, 1);
@@ -324,6 +340,10 @@ document.addEventListener('visibilitychange', () => {
 /* expose state setter for app.js */
 window.AratScene = {
   running: () => running, reduced: reduced,          // verifiable from the outside (tests, support)
+  diag: () => ({ webgl: true, running: running, reduced: reduced, isSmall: isSmall,
+    frames: renderer.info.render.frame,
+    sceneOp: (getComputedStyle(document.documentElement).getPropertyValue('--scene-op') || '1').trim(),
+    canvasOpacity: canvas && canvas.parentNode ? getComputedStyle(canvas).opacity : 'removed' }),
   setState(name) { const s = states[name]; if (!s) return; Object.assign(target, s); },
   pulse() { kick = 1.2; rigV.y += (Math.random() - .5) * .8; rigV.x += .4; },
 };
